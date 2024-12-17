@@ -1,0 +1,8 @@
+Construct Module("unconsciousTitmouse") {
+    Declare Class("cooingLevel") {
+        Stylesheet({
+            txtSize: "50px",
+            txtColor: "white",
+        })
+    }
+}

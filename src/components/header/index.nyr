@@ -1,0 +1,47 @@
+Construct Module("direfulProcess") {
+    Declare Class("joyousSkylark") {
+        Stylesheet({
+            boxSizing: "border-box",
+            display: "flex",
+            align: "center",
+            justify: "center",
+        })
+    },
+    Declare Class("obtainableSound") Deriving("joyousSkylark") {
+        Stylesheet({
+            gap: "40px",
+            flexDir: "column",
+            p: "30px",
+            hr: "auto",
+            wd: "100%",
+            overflow: "hidden",
+            userSelect: "none"
+        })
+    },
+    Declare Class("leftGrebe") Deriving("joyousSkylark") {
+        Stylesheet({
+            cursor: "pointer",
+            txtFamily: "'VeryPunk'",
+            txtSize: "70px",
+            txtColor: "white",
+        })
+    },
+    Declare Class("frayedUpper") {
+        Stylesheet({
+            filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))",
+            left: "30px",
+            pos: "relative"
+        })
+    },
+    Declare Class("abhorrentAdulation") {
+        Stylesheet({
+            txtFamily: "Arial, Helvetica, sans-serif",
+            txtBold: "500",
+            txtSize: "22px",
+            txtColor: "white",
+            txtAlign: "center",
+            wordWrap: "break-word",
+            wd: "70%"
+        })
+    }
+}

@@ -1,0 +1,88 @@
+Construct Central {
+    Declare Breakpoints({
+        MobileFirst({
+            SmallScreen: "640px",
+            MediumScreen: "768px",
+            LargeScreen: "1024px",
+            ExtraLargeScreen: "1280px",
+            UltraLargeScreen: "1536px"
+        })
+    }),
+    Declare Variables({
+        primaryColor: "hsl(178, 52%, 11%)"
+    }),
+    Declare Aliases({
+        p: padding,
+        br: border,
+        brRadius: borderRadius,
+        bgd: background,
+        bgdColor: backgroundColor,
+        mLeft: marginLeft,
+        mRight: marginRight,
+        mTop: marginTop,
+        mBottom: marginBottom,
+        hr: height,
+        wd: width,
+        flexDir: flexDirection,
+        justify: justifyContent,
+        align: alignItems,
+        txtBold: fontWeight,
+        txtAlign: textAlign,
+        txtSize: fontSize,
+        txtFamily: fontFamily,
+        txtColor: color,
+        shadow: boxShadow,
+        minHr: minHeight,
+        maxHr: maxHeight,
+        minWd: minWidth,
+        maxWd: maxWidth,
+        pos: position,
+        overY: overflowY,
+        overX: overflowX,
+        z: zIndex,
+    }),
+    Declare Class("unstyledLink") {
+        Stylesheet({
+            textDecoration: "none",
+            color: "inherit",
+            background: "none",
+            border: "none",
+            outline: "none",
+        }),
+        Hover({
+            textDecoration: "none",
+            color: "inherit",
+            outline: "none",
+        }),
+        Active({
+            textDecoration: "none",
+            color: "inherit",
+            outline: "none",
+        }),
+        Visited({
+            textDecoration: "none",
+            color: "inherit",
+            outline: "none",
+        }),
+        Focus({
+            textDecoration: "none",
+            color: "inherit",
+            outline: "none",
+        })
+    },
+    Declare Class("delectableAbyssinian") {
+        Stylesheet({
+            hr: "100%",
+            wd: "100%",
+        })
+    },
+    Declare Class("bogusIggypops") Deriving("delectableAbyssinian") {
+        Stylesheet({
+            pos: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+        })
+    },
+}

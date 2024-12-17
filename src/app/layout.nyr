@@ -1,0 +1,41 @@
+Construct Layout("squalidPick") {
+    Declare Class("nappyEarthworm") {
+        Stylesheet({
+            pos: "relative",
+            hr: "100vh",
+            wd: "100vw",
+            overY: "hidden",
+            overX: "hidden"
+        })
+    },
+    Declare Class("uprightHeat") Deriving("bogusIggypops") {
+        Stylesheet({
+            z: "10"
+        })
+    },
+    Declare Class("variousClothes") Deriving("bogusIggypops") {
+        Stylesheet({
+            bgd: "transparent",
+            z: "20"
+        })
+    },
+    Declare Class("harmlessTurtle") Deriving("delectableAbyssinian") {
+        Stylesheet({
+            display: "flex",
+            flexDir: "column",
+            align: "center",
+            overY: "auto",
+        })
+    },
+    Declare Class("toweringLowchen") {
+        Stylesheet({
+            shadow: "0 4px 6px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05)",
+            filter: "drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.4))",
+            bgd: "${primaryColor}",
+            pos: "relative",
+            hr: "auto",
+            minHr: "100%",
+            wd: "70%",
+        })
+    }
+}
