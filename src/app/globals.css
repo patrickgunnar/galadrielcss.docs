@@ -1,9 +1,5 @@
 @galadrielcss styles;
 
-.temp {
-    background-color: #0d2b2a;
-}
-
 @font-face {
     font-family: VeryPunk;
     src: url("/fonts/very punk/VeryPunk.otf") format("opentype");
