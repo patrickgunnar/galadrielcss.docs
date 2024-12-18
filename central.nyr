@@ -16,12 +16,16 @@ Construct Central {
         goldYellowColor: "hsl(44, 94%, 50%)",
         coralColor: "hsl(8, 87%, 63%)",
         lightGrayColor: "hsl(0, 0%, 80%)",
+        veryLightGrayColor: "hsl(0, 0%, 87%)",
         skyBlueColor: "hsl(200, 50%, 50%)",
         lavenderColor: "hsl(270, 50%, 60%)",
         lightPinkColor: "hsl(340, 80%, 60%)",
+        darkCyanColor: "hsl(184, 45%, 6%)",
+        darkTealColor: "hsl(188, 33%, 5%)",
     }),
     Declare Aliases({
         p: padding,
+        pBottom: paddingBottom,
         br: border,
         brLeft: borderLeft,
         brRight: borderRight,
@@ -95,7 +99,7 @@ Construct Central {
             justify: "center",
         })
     },
-    Declare Class("fullScreen") {
+    Declare Class("fullScreen") Deriving("borderBox") {
         Stylesheet({
             hr: "100%",
             wd: "100%",
@@ -110,4 +114,12 @@ Construct Central {
             bottom: "0",
         })
     },
+    Declare Class("stackFlex") {
+        Stylesheet({
+            display: "flex",
+            gap: "20px",
+            justify: "center",
+            flexWrap: "wrap",
+        })
+    }
 }

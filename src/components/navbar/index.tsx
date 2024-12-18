@@ -5,6 +5,8 @@ import { navbarOptions, NavbarOptionType } from "./data";
 import { IoHome } from "react-icons/io5";
 import { BiSearch } from "react-icons/bi";
 import { usePathname } from "next/navigation";
+import GaladrielLogo from "../logo";
+import { forwardRef, Ref } from "react";
 
 type NavbarItemType = {
     pathname: string;
@@ -38,14 +40,14 @@ function NavbarItem({
     );
 }
 
-export default function Navbar() {
+function DesktopNavbar(
+    { isSticked }: { isSticked: boolean },
+    ref: Ref<HTMLElement>
+) {
     const pathname = usePathname();
 
     return (
-        <nav className="@module:navbarComponent::navbarContainer">
-            <div className="@module:navbarComponent::navbarHeader">
-                Galadriel CSS Logo
-            </div>
+        <nav ref={ref} className="@module:navbarComponent::navbarContainer">
             <ul className="@module:navbarComponent::navbarOptions">
                 {navbarOptions.map((option) => {
                     return (
@@ -57,6 +59,9 @@ export default function Navbar() {
                     );
                 })}
             </ul>
+            {isSticked && <GaladrielLogo />}
         </nav>
     );
 }
+
+export const Navbar = forwardRef(DesktopNavbar);

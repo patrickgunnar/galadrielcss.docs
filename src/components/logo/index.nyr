@@ -1,0 +1,41 @@
+Construct Module("galadrielLogoComponent") {
+    Declare Animation("fadeIn") {
+        Progressive({
+            opacity: "0",
+            transform: "translateX(20px)"
+        }),
+        Progressive({
+            opacity: "1",
+            transform: "translateX(0)"
+        })
+    },
+    Declare Class("logoContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            display: "none",
+            cursor: "pointer",
+            txtFamily: "'DrunkenHour'",
+            txtSize: "25px",
+            txtColor: "white",
+            m: "auto 0px auto auto",
+            anime: "${fadeIn} 2s ease-out forwards",
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    display: "flex"
+                })
+            })
+        })
+    },
+    Declare Class("logoImage") {
+        Important(true),
+        Stylesheet({
+            filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))",
+            left: "10px",
+            mRight: "5px",
+            pos: "relative",
+            hr: "50px",
+            wd: "50px",
+        }),
+    }
+}

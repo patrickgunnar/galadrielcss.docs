@@ -1,0 +1,60 @@
+Construct Module("techStackComponent") {
+    Declare Class("techStackSection") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${darkTealColor}",
+            flexDir: "column",
+            gap: "80px",
+            p: "20px",
+            minHr: "300px",
+            wd: "100%"
+        })
+    },
+    Declare Class("techStackTitle") {
+        Stylesheet({
+            txtSize: "25px",
+            txtBold: "700",
+            txtAlign: "center",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "30px",
+                })
+            })
+        })
+    },
+    Declare Class("techStackContainer") Deriving("stackFlex") {
+        Stylesheet({
+            flexDir: "row",
+            align: "center",
+            txtSize: "16px",
+            txtBold: "500",
+            txtFamily: "Arial, Helvetica, sans-serif",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    gap: "40px",
+                    maxWd: "80%",
+                })
+            })
+        })
+    },
+    Declare Class("techItem") Deriving("flexCenterBox") {
+        Stylesheet({
+            flexDir: "column",
+            gap: "30px",
+            txtSize: "18px",
+            txtBold: "700",
+            mLeft: "auto",
+            mRight: "auto",
+        }),
+    },
+    Declare Class("techIcon") {
+        Stylesheet({
+            filter: "invert(1)"
+        })
+    }
+}

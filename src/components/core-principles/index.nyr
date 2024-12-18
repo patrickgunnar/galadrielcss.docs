@@ -1,0 +1,98 @@
+Construct Module("corePrinciplesComponent") {
+    Declare Class("sectionContainer") Deriving("borderBox") {
+        Stylesheet({
+            txtColor: "aliceblue",
+            hr: "600px",
+            wd: "100%",
+            p: "20px",
+            pos: "relative",
+            overflow: "hidden"
+        })
+    },
+    Declare Class("backgroundImage") Deriving("fullScreenAbsolute") {
+        Stylesheet({
+            objectFit: "cover",
+            filter: "blur(4px)"
+        })
+    },
+    Declare Class("backgroundBlackLayer") Deriving("fullScreenAbsolute") {
+        Stylesheet({
+            bgd: "rgba(0, 0, 0, 0.8)",
+            filter: "contrast(90%) brightness(70%)",
+        })
+    },
+    Declare Class("corePrinciplesContainer") Deriving("fullScreenAbsolute") {
+        Stylesheet({
+            display: "flex",
+            gap: "60px",
+            flexDir: "column",
+            align: "center",
+            justify: "center",
+            p: "10px",
+        })
+    },
+    Declare Class("corePrinciplesTile") {
+        Stylesheet({
+            txtSize: "25px",
+            txtBold: "700",
+            txtAlign: "center",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "40px",
+                })
+            })
+        })
+    },
+    Declare Class("principlesBox") Deriving("stackFlex") {
+        Stylesheet({
+            flexDir: "column",
+            align: "flex-start",
+            maxWd: "90%",
+        }),
+        PanoramicViewer({
+            SmallScreen({
+                Stylesheet({
+                    justify: "center",
+                    align: "center",
+                    flexDir: "row",
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    gap: "40px",
+                    maxWd: "80%",
+                })
+            })
+        })
+    },
+    Declare Class("principle") Deriving("flexCenterBox") {
+        Stylesheet({
+            gap: "15px",
+            txtSize: "18px",
+            txtBold: "500",
+            txtFamily: "Arial, Helvetica, sans-serif"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "23px",
+                })
+            })
+        })
+    },
+    Declare Class("principleIcon") {
+        Stylesheet({
+            txtSize: "28px"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "38px",
+                })
+            })
+        })
+    }
+}

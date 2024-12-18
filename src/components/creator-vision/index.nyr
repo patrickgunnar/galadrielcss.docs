@@ -1,0 +1,67 @@
+Construct Module("creatorVisionComponent") {
+    Declare Class("centerWithGap") Deriving("flexCenterBox") {
+        Stylesheet({
+            gap: "40px",
+            flexDir: "column",
+        })
+    },
+    Declare Class("sectionContainer") Deriving("centerWithGap") {
+        Stylesheet({
+            bgd: "${darkCyanColor}",
+            txtAlign: "justify",
+            txtBold: "normal",
+            txtColor: "${veryLightGrayColor}",
+            hyphens: "auto",
+            p: "20px",
+            pBottom: "100px",
+            hr: "auto",
+            wd: "100%",
+            txtFamily: "Arial, Helvetica, sans-serif"
+        })
+    },
+    Declare Class("title") {
+        Stylesheet({
+            txtSize: "25px",
+            txtBold: "700",
+        })
+    },
+    Declare Class("visionContainer") Deriving("centerWithGap") {
+        Stylesheet({
+            txtSize: "18px",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    wd: "80%"
+                })
+            })
+        })
+    },
+    Declare Class("visionListContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            gap: "20px",
+            flexDir: "column",
+            hr: "auto",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    wd: "90%"
+                })
+            })
+        })
+    },
+    Declare Class("span") {
+        Stylesheet({
+            txtBold: "700"
+        })
+    },
+    Declare Class("signature") {
+        Stylesheet({
+            mLeft: "0px",
+            mRight: "auto"
+        })
+    }
+}

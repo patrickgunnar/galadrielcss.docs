@@ -31,7 +31,7 @@ export default function SocialMedia() {
                 })}
             </div>
             <div className="@module:socialMediaComponent::galadrielVersionContainer">
-                Galadriel CSS 1.0.0.0-beta.0
+                1.0.0.0-beta.0
             </div>
         </section>
     );

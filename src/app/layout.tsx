@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
-import Header from "@/components/header";
-import SocialMedia from "@/components/social-media";
+import MainLayout from "@/components/main-layout";
 import "./globals.css";
-import Navbar from "@/components/navbar";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -45,16 +43,9 @@ export default function RootLayout({
                     className="@layout:globalAppLayoutContext::backgroundImage"
                     fill
                 />
-                <main className="@layout:globalAppLayoutContext::mainContainer">
-                    <div className="@layout:globalAppLayoutContext::childrenContainer">
-                        <div className="@layout:globalAppLayoutContext::innerChildrenContainer">
-                            <SocialMedia />
-                            <Header />
-                            <Navbar />
-                            {children}
-                        </div>
-                    </div>
-                </main>
+                <div className="@layout:globalAppLayoutContext::mainContainer">
+                    <MainLayout>{children}</MainLayout>
+                </div>
             </body>
         </html>
     );

@@ -1,7 +1,7 @@
-Construct Module("unconsciousTitmouse") {
-    Declare Class("cooingLevel") {
+Construct Module("homePageComponent") {
+    Declare Class("mainContainer") {
         Stylesheet({
-            txtSize: "50px",
+            txtSize: "20px",
             txtColor: "white",
         })
     }

@@ -2,13 +2,16 @@ Construct Module("navbarComponent") {
     Declare Class("navbarContainer") Deriving("borderBox") {
         Stylesheet({
             display: "none",
+            justify: "space-between",
+            align: "center",
             bgd: "${navbarColor}",
             p: "0px 20px",
             hr: "60px",
             wd: "100%",
             top: "0",
             pos: "sticky",
-            userSelect: "none"
+            userSelect: "none",
+            z: "10000"
         }),
         PanoramicViewer({
             MediumScreen({
@@ -16,11 +19,6 @@ Construct Module("navbarComponent") {
                     display: "flex"
                 })
             })
-        })
-    },
-    Declare Class("navbarHeader") {
-        Stylesheet({
-            display: "none"
         })
     },
     Declare Class("navbarOptions") {
