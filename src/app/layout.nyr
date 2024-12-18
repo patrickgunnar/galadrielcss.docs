@@ -1,5 +1,5 @@
-Construct Layout("squalidPick") {
-    Declare Class("nappyEarthworm") {
+Construct Layout("globalAppLayoutContext") {
+    Declare Class("bodyContainer") {
         Stylesheet({
             pos: "relative",
             hr: "100vh",
@@ -8,18 +8,18 @@ Construct Layout("squalidPick") {
             overX: "hidden"
         })
     },
-    Declare Class("uprightHeat") Deriving("bogusIggypops") {
+    Declare Class("backgroundImage") Deriving("fullScreenAbsolute") {
         Stylesheet({
             z: "10"
         })
     },
-    Declare Class("variousClothes") Deriving("bogusIggypops") {
+    Declare Class("mainContainer") Deriving("fullScreenAbsolute") {
         Stylesheet({
             bgd: "transparent",
             z: "20"
         })
     },
-    Declare Class("harmlessTurtle") Deriving("delectableAbyssinian") {
+    Declare Class("childrenContainer") Deriving("fullScreen") {
         Stylesheet({
             display: "flex",
             flexDir: "column",
@@ -27,15 +27,22 @@ Construct Layout("squalidPick") {
             overY: "auto",
         })
     },
-    Declare Class("toweringLowchen") {
+    Declare Class("innerChildrenContainer") {
         Stylesheet({
             shadow: "0 4px 6px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05)",
             filter: "drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.4))",
             bgd: "${primaryColor}",
             pos: "relative",
+            flexGrow: "1",
             hr: "auto",
-            minHr: "100%",
-            wd: "70%",
+            wd: "100%",
+        }),
+        PanoramicViewer({
+            ExtraLargeScreen({
+                Stylesheet({
+                    wd: "70%",
+                })
+            })
         })
     }
 }

@@ -17,21 +17,21 @@ export default function Header() {
     const subheading = getSubheadings();
 
     return (
-        <header className="@module:direfulProcess::obtainableSound">
+        <header className="@module:headerComponent::headerContainer">
             <Link href="/" className="@class:unstyledLink">
-                <div className="@module:direfulProcess::leftGrebe">
+                <div className="@module:headerComponent::logoContainer">
                     <h1>Galadriel</h1>
                     <Image
                         src="/img/Galadriel CSS Logo.png"
-                        alt="Galadriel CSS logo"
-                        className="@module:direfulProcess::frayedUpper"
+                        alt="Galadriel CSS Logo"
+                        className="@module:headerComponent::logoImage"
                         height={135}
                         width={135}
                     />
                     <h1>CSS</h1>
                 </div>
             </Link>
-            <div className="@module:direfulProcess::abhorrentAdulation">
+            <div className="@module:headerComponent::subheadingContainer">
                 <p>{subheading}</p>
             </div>
         </header>

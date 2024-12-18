@@ -1,13 +1,5 @@
-Construct Module("direfulProcess") {
-    Declare Class("joyousSkylark") {
-        Stylesheet({
-            boxSizing: "border-box",
-            display: "flex",
-            align: "center",
-            justify: "center",
-        })
-    },
-    Declare Class("obtainableSound") Deriving("joyousSkylark") {
+Construct Module("headerComponent") {
+    Declare Class("headerContainer") Deriving("flexCenterBox") {
         Stylesheet({
             gap: "40px",
             flexDir: "column",
@@ -18,30 +10,99 @@ Construct Module("direfulProcess") {
             userSelect: "none"
         })
     },
-    Declare Class("leftGrebe") Deriving("joyousSkylark") {
+    Declare Class("logoContainer") Deriving("flexCenterBox") {
         Stylesheet({
             cursor: "pointer",
-            txtFamily: "'VeryPunk'",
-            txtSize: "70px",
+            txtFamily: "'DrunkenHour'",
+            txtSize: "30px",
             txtColor: "white",
+            transition: "font-size 2s ease"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    txtSize: "43px",
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "50px",
+                })
+            }),
+            ExtraLargeScreen({
+                Stylesheet({
+                    txtSize: "70px",
+                })
+            })
         })
     },
-    Declare Class("frayedUpper") {
+    Declare Class("logoImage") {
+        Important(true),
         Stylesheet({
             filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))",
-            left: "30px",
-            pos: "relative"
+            left: "10px",
+            mRight: "5px",
+            pos: "relative",
+            hr: "70px",
+            wd: "70px",
+            transition: "width 2s ease, height 2s ease, left 2s ease"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    left: "20px",
+                    mRight: "5px",
+                    hr: "100px",
+                    wd: "100px"
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    left: "20px",
+                    mRight: "5px",
+                    hr: "115px",
+                    wd: "115px"
+                })
+            }),
+            ExtraLargeScreen({
+                Stylesheet({
+                    left: "20px",
+                    mRight: "5px",
+                    hr: "135px",
+                    wd: "135px"
+                })
+            })
         })
     },
-    Declare Class("abhorrentAdulation") {
+    Declare Class("subheadingContainer") {
         Stylesheet({
             txtFamily: "Arial, Helvetica, sans-serif",
             txtBold: "500",
-            txtSize: "22px",
+            txtSize: "16px",
             txtColor: "white",
             txtAlign: "center",
             wordWrap: "break-word",
-            wd: "70%"
+            wd: "100%",
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    txtSize: "18px",
+                    wd: "90%"
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "20px",
+                    wd: "80%"
+                })
+            }),
+            ExtraLargeScreen({
+                Stylesheet({
+                    txtSize: "22px",
+                    wd: "70%"
+                })
+            })
         })
     }
 }

@@ -9,14 +9,27 @@ Construct Central {
         })
     }),
     Declare Variables({
-        primaryColor: "hsl(178, 52%, 11%)"
+        primaryColor: "hsl(178, 52%, 11%)",
+        navbarColor: "hsl(179, 48%, 21%)",
+        navbarHoverColor: "hsl(177, 56%, 14%)",
+        navbarBrColor: "hsl(179, 51%, 17%)",
+        goldYellowColor: "hsl(44, 94%, 50%)",
+        coralColor: "hsl(8, 87%, 63%)",
+        lightGrayColor: "hsl(0, 0%, 80%)",
+        skyBlueColor: "hsl(200, 50%, 50%)",
+        lavenderColor: "hsl(270, 50%, 60%)",
+        lightPinkColor: "hsl(340, 80%, 60%)",
     }),
     Declare Aliases({
         p: padding,
         br: border,
+        brLeft: borderLeft,
+        brRight: borderRight,
+        anime: animation,
         brRadius: borderRadius,
         bgd: background,
         bgdColor: backgroundColor,
+        m: margin,
         mLeft: marginLeft,
         mRight: marginRight,
         mTop: marginTop,
@@ -70,13 +83,25 @@ Construct Central {
             outline: "none",
         })
     },
-    Declare Class("delectableAbyssinian") {
+    Declare Class("borderBox") {
+        Stylesheet({
+            boxSizing: "border-box",
+        })
+    },
+    Declare Class("flexCenterBox") Deriving("borderBox") {
+        Stylesheet({
+            display: "flex",
+            align: "center",
+            justify: "center",
+        })
+    },
+    Declare Class("fullScreen") {
         Stylesheet({
             hr: "100%",
             wd: "100%",
         })
     },
-    Declare Class("bogusIggypops") Deriving("delectableAbyssinian") {
+    Declare Class("fullScreenAbsolute") Deriving("fullScreen") {
         Stylesheet({
             pos: "absolute",
             top: "0",

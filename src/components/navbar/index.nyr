@@ -1,0 +1,107 @@
+Construct Module("navbarComponent") {
+    Declare Class("navbarContainer") Deriving("borderBox") {
+        Stylesheet({
+            display: "none",
+            bgd: "${navbarColor}",
+            p: "0px 20px",
+            hr: "60px",
+            wd: "100%",
+            top: "0",
+            pos: "sticky",
+            userSelect: "none"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    display: "flex"
+                })
+            })
+        })
+    },
+    Declare Class("navbarHeader") {
+        Stylesheet({
+            display: "none"
+        })
+    },
+    Declare Class("navbarOptions") {
+        Stylesheet({
+            display: "flex",
+            align: "center",
+            txtSize: "18px",
+            txtBold: "700",
+            txtColor: "aliceblue",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            hr: "100%"
+        })
+    },
+    Declare Class("navbarOption") {
+        Stylesheet({
+            hr: "100%",
+            wd: "auto"
+        })
+    },
+    Declare Class("navbarOptionLink") {
+        Stylesheet({
+            display: "flex",
+            justify: "center",
+            align: "center",
+            p: "0px 20px",
+            hr: "calc(100% - 4px)",
+            wd: "auto"
+        }),
+        Hover({
+            bgd: "${navbarHoverColor}"
+        }),
+    },
+    Declare Class("navbarSelected") {
+        Stylesheet({
+            bgd: "${navbarHoverColor}",
+            cursor: "default",
+            pointerEvents: "none"
+        })
+    },
+    Declare Class("navbarOptionBoxColor") {
+        Stylesheet({
+            brLeft: "1px solid ${navbarBrColor}",
+            brRight: "1px solid ${navbarBrColor}",
+            hr: "4px",
+            wd: "100%"
+        })
+    },
+    Declare Class("optionIcon") {
+        Important(true),
+        Stylesheet({
+            txtSize: "25px"
+        })
+    },
+    Declare Class("goldYellow") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${goldYellowColor}"
+        })
+    },
+    Declare Class("coral") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${coralColor}"
+        })
+    },
+    Declare Class("lightGray") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lightGrayColor}"
+        })
+    },
+    Declare Class("skyBlue") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${skyBlueColor}"
+        })
+    },
+    Declare Class("lavender") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lavenderColor}"
+        })
+    },
+    Declare Class("lightPink") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lightPinkColor}"
+        })
+    }
+}
