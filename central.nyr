@@ -29,6 +29,8 @@ Construct Central {
         br: border,
         brLeft: borderLeft,
         brRight: borderRight,
+        brTop: borderTop,
+        brBottom: borderBottom,
         anime: animation,
         brRadius: borderRadius,
         bgd: background,

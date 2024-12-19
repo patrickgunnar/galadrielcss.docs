@@ -35,7 +35,7 @@ function NavbarItem({
                     label
                 )}
             </Link>
-            <div className={className}></div>
+            <div className={className[0]}></div>
         </li>
     );
 }

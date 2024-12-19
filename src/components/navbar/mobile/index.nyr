@@ -1,0 +1,136 @@
+Construct Module("mobileNavbarComponent") {
+    Declare Class("navbarContainer") Deriving("borderBox") {
+        Stylesheet({
+            display: "flex",
+            justify: "space-between",
+            align: "center",
+            bgd: "${navbarColor}",
+            p: "0px 20px",
+            hr: "60px",
+            wd: "100%",
+            top: "0",
+            pos: "sticky",
+            userSelect: "none",
+            z: "10000",
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    display: "none"
+                })
+            })
+        })
+    },
+    Declare Class("menuBtn") {
+        Stylesheet({
+            txtColor: "aliceblue",
+            txtSize: "22px",
+        })
+    },
+    Declare Class("logoImage") {
+        Important(true),
+        Stylesheet({
+            filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))",
+            left: "10px",
+            pos: "relative",
+        }),
+    },
+    Declare Class("optionsContainer") {
+        Stylesheet({
+            bgd: "${navbarColor}",
+            display: "flex",
+            flexDir: "column",
+            justify: "center",
+            align: "center",
+            txtSize: "18px",
+            txtBold: "700",
+            txtColor: "aliceblue",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            top: "60px",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            hr: "calc(100%-60px)",
+            wd: "100%",
+            pos: "absolute",
+            z: "10000"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    display: "none"
+                })
+            })
+        })
+    },
+    Declare Class("navbarOption") {
+        Stylesheet({
+            display: "flex",
+            hr: "70px",
+            wd: "100%"
+        })
+    },
+    Declare Class("navbarOptionLink") {
+        Stylesheet({
+            display: "flex",
+            justify: "center",
+            align: "center",
+            hr: "100%",
+            wd: "calc(100% - 4px)"
+        }),
+        Active({
+            bgd: "${navbarHoverColor}"
+        })
+    },
+    Declare Class("navbarSelected") {
+        Stylesheet({
+            bgd: "${navbarHoverColor}",
+            cursor: "default",
+            pointerEvents: "none"
+        })
+    },
+    Declare Class("optionIcon") {
+        Important(true),
+        Stylesheet({
+            txtSize: "25px"
+        })
+    },
+    Declare Class("navbarOptionBoxColor") {
+        Stylesheet({
+            brTop: "1px solid ${navbarBrColor}",
+            brBottom: "1px solid ${navbarBrColor}",
+            hr: "100%",
+            wd: "4px"
+        })
+    },
+    Declare Class("goldYellow") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${goldYellowColor}"
+        })
+    },
+    Declare Class("coral") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${coralColor}"
+        })
+    },
+    Declare Class("lightGray") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lightGrayColor}"
+        })
+    },
+    Declare Class("skyBlue") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${skyBlueColor}"
+        })
+    },
+    Declare Class("lavender") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lavenderColor}"
+        })
+    },
+    Declare Class("lightPink") Deriving("navbarOptionBoxColor") {
+        Stylesheet({
+            bgd: "${lightPinkColor}"
+        })
+    }
+}

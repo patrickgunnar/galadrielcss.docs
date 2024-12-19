@@ -11,7 +11,7 @@ Construct Module("socialMediaComponent") {
             userSelect: "none"
         }),
         PanoramicViewer({
-            SmallScreen({
+            MediumScreen({
                 Stylesheet({
                     display: "flex",
                 })

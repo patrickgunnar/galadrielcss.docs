@@ -5,6 +5,7 @@ import SocialMedia from "../social-media";
 import Header from "../header";
 import { Navbar } from "../navbar";
 import Loading from "@/app/loading";
+import MobileNavbar from "../navbar/mobile";
 
 export default function MainLayout({ children }: PropsWithChildren) {
     const desktopNavbarRef = useRef<HTMLElement | null>(null);
@@ -33,6 +34,7 @@ export default function MainLayout({ children }: PropsWithChildren) {
             onScroll={handleScrollEvent}
         >
             <div className="@module:mainLayoutComponent::innerChildrenContainer">
+                <MobileNavbar />
                 <SocialMedia />
                 <Header />
                 <Navbar ref={desktopNavbarRef} isSticked={isSticked} />
