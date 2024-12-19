@@ -1,0 +1,19 @@
+Construct Module("footerComponent") {
+    Declare Class("footerContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${darkCyanColor}",
+            flexDir: "column",
+            gap: "40px",
+            txtSize: "16px",
+            txtColor: "aliceblue",
+            txtAlign: "center",
+            p: "40px 20px",
+            minHr: "250px",
+            mTop: "auto",
+            mBottom: "0px",
+            alignSelf: "baseline",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            wd: "100%"
+        })
+    }
+}

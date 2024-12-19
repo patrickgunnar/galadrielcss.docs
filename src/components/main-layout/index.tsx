@@ -6,6 +6,7 @@ import Header from "../header";
 import { Navbar } from "../navbar";
 import Loading from "@/app/loading";
 import MobileNavbar from "../navbar/mobile";
+import Footer from "../footer";
 
 export default function MainLayout({ children }: PropsWithChildren) {
     const desktopNavbarRef = useRef<HTMLElement | null>(null);
@@ -35,10 +36,13 @@ export default function MainLayout({ children }: PropsWithChildren) {
         >
             <div className="@module:mainLayoutComponent::innerChildrenContainer">
                 <MobileNavbar />
-                <SocialMedia />
+                <div className="@module:mainLayoutComponent::socialMediaContainer">
+                    <SocialMedia />
+                </div>
                 <Header />
                 <Navbar ref={desktopNavbarRef} isSticked={isSticked} />
                 {children}
+                <Footer />
             </div>
         </div>
     );

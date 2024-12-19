@@ -1,19 +1,23 @@
 Construct Module("socialMediaComponent") {
     Declare Class("sectionContainer") Deriving("borderBox") {
         Stylesheet({
-            display: "none",
-            justify: "space-between",
-            align: "end",
+            display: "flex",
+            gap: "20px",
+            flexDir: "column",
+            justify: "center",
+            align: "center",
             txtColor: "white",
             p: "20px 20px 0px 20px",
-            hr: "42px",
+            minHr: "42px",
             wd: "100%",
             userSelect: "none"
         }),
         PanoramicViewer({
             MediumScreen({
                 Stylesheet({
-                    display: "flex",
+                    flexDir: "row",
+                    justify: "space-between",
+                    align: "end",
                 })
             })
         })

@@ -21,6 +21,7 @@ Construct Module("creatorVisionComponent") {
     },
     Declare Class("title") {
         Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
             txtSize: "25px",
             txtBold: "700",
         })

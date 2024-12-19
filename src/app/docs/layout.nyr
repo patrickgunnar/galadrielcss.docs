@@ -1,0 +1,22 @@
+Construct Layout("docsLayout") {
+    Declare Class("docsLayoutContainer") Deriving("borderBox") {
+        Stylesheet({
+            display: "flex",
+            flexDir: "row",
+            justify: "space-between",
+            p: "40px 20px",
+            txtColor: "aliceblue",
+            wd: "100%"
+        })
+    },
+    Declare Class("sidebarContainer") {
+        Stylesheet({
+            wd: "20%"
+        })
+    },
+    Declare Class("contentContainer") {
+        Stylesheet({
+            wd: "calc(80% - 40px)"
+        })
+    }
+}

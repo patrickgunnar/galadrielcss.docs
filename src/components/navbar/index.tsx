@@ -59,7 +59,11 @@ function DesktopNavbar(
                     );
                 })}
             </ul>
-            {isSticked && <GaladrielLogo />}
+            {isSticked && (
+                <div className="@module:navbarComponent::galadrielLogo">
+                    <GaladrielLogo />
+                </div>
+            )}
         </nav>
     );
 }

@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "url": "",
+        "title": "Galadriel CSS Documentation",
+        "description": "Official documentation for Galadriel CSS, a modular and contextual CSS framework using the Nenyr DSL.",
+        "creation_timestamp": "2024-12-19T15:45:00Z",
+        "order": 0,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "modular",
+            "contextual"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "documentation",
+            "CSS framework",
+            "Nenyr",
+            "modular CSS",
+            "contextual CSS"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/assets/images/galadriel-css-og.jpg"
+    }
+}

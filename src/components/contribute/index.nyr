@@ -1,0 +1,62 @@
+Construct Module("contributeComponent") {
+    Declare Class("sectionContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            flexDir: "column",
+            gap: "40px",
+            txtAlign: "justify",
+            p: "40px 20px",
+            wd: "100%"
+        }),
+    },
+    Declare Class("contentContainer") {
+        Stylesheet({
+            display: "flex",
+            gap: "20px",
+            flexDir: "column",
+            txtColor: "aliceblue",
+            txtSize: "18px",
+            txtFamily: "Arial, Helvetica, sans-serif",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    wd: "80%"
+                })
+            })
+        })
+    },
+    Declare Class("textFormatting") {
+        Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtBold: "700",
+        })
+    },
+    Declare Class("title") Deriving("textFormatting") {
+        Stylesheet({
+            txtSize: "22px",
+            textAlign: "center",
+        })
+    },
+    Declare Class("subheading") Deriving("textFormatting") {
+        Stylesheet({
+            txtSize: "18px",
+            textAlign: "start",
+        })
+    },
+    Declare Class("areasContainer") {
+        Stylesheet({
+            mLeft: "auto",
+            mRight: "auto",
+            wd: "90%"
+        })
+    },
+    Declare Class("ulContainer") {
+        Stylesheet({
+            display: "flex",
+            gap: "20px",
+            flexDir: "column",
+            mTop: "10px"
+        })
+    },
+}
