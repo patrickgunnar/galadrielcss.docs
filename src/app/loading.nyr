@@ -1,0 +1,120 @@
+Construct Module("loadingComponent") {
+    Declare Animation("flip") {
+        Fraction([0, 10], {
+            transform: "rotateX(0deg)"
+        }),
+        Fraction(50, {
+            transform: "rotateX(180deg)"
+        })
+    },
+    Declare Class("loadingContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${tealGreenWithTransparency}",
+            flexDir: "row",
+            txtSize: "22px",
+            txtAlign: "center",
+            txtFamily: "DrunkenHour",
+            perspective: "500px",
+            minHr: "100%",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    txtSize: "40px",
+                })
+            })
+        })
+    },
+    Declare Class("span") {
+        Stylesheet({
+            transformOrigin: "center bottom",
+            transformStyle: "preserve-3d",
+            anime: "${flip} 1.5s ease-in-out infinite alternate"
+        })
+    },
+    Declare Class("logoImage") {
+        Important(true),
+        Stylesheet({
+            filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))",
+            left: "10px",
+            mRight: "5px",
+            pos: "relative",
+            hr: "50px",
+            wd: "50px",
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    hr: "90px",
+                    wd: "90px",
+                })
+            })
+        })
+    },
+    Declare Class("a1") {
+        Stylesheet({
+            animationDelay: "0s"
+        })
+    },
+    Declare Class("a2") {
+        Stylesheet({
+            animationDelay: "0.2s"
+        })
+    },
+    Declare Class("a3") {
+        Stylesheet({
+            animationDelay: "0.4s"
+        })
+    },
+    Declare Class("a4") {
+        Stylesheet({
+            animationDelay: "0.6s"
+        })
+    },
+    Declare Class("a5") {
+        Stylesheet({
+            animationDelay: "0.8s"
+        })
+    },
+    Declare Class("a6") {
+        Stylesheet({
+            animationDelay: "1s"
+        })
+    },
+    Declare Class("a7") {
+        Stylesheet({
+            animationDelay: "1.2s"
+        })
+    },
+    Declare Class("a8") {
+        Stylesheet({
+            animationDelay: "1s"
+        })
+    },
+    Declare Class("a9") {
+        Stylesheet({
+            animationDelay: "0.8s"
+        })
+    },
+    Declare Class("a10") {
+        Stylesheet({
+            animationDelay: "0.6s"
+        })
+    },
+    Declare Class("a11") {
+        Stylesheet({
+            animationDelay: "0.4s"
+        })
+    },
+    Declare Class("a12") {
+        Stylesheet({
+            animationDelay: "0.2s"
+        })
+    },
+    Declare Class("a13") {
+        Stylesheet({
+            animationDelay: "0s"
+        })
+    },
+}

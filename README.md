@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Galadriel CSS
 
-## Getting Started
+**Please note that Galadriel CSS and Nenyr are currently under active development.**
 
-First, run the development server:
+Galadriel CSS is a cutting-edge framework developed by Patrick Gunnar for efficient CSS generation and management in web development environments. It offers powerful features tailored for creating scalable, performant stylesheets using the Nenyr Language.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **Static and Utility-first CSS**: Generates CSS files for static classes and utility-first CSS classes.
+-   **Nenyr Language**: Utilizes the Nenyr Language for defining styles, providing flexibility and clarity in style management.
+-   **Global and Modular Styles**: Supports both global and modular styles generation to suit different project needs.
+-   **Media Queries and Pseudoelements**: Easily integrates media queries and pseudoelement styling into applications.
+-   **Animations**: Create fluid animations with built-in support for keyframes and transitions.
+-   **Secure Styling**: Implements security measures and digital signature support to safeguard against style injection.
+-   **Performance Optimization**: Optimizes render times and page loading through efficient style handling.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Nenyr
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Nenyr, the language at the core of Galadriel CSS, empowers developers to create styles efficiently within the framework. Galadriel CSS seamlessly integrates Nenyr to generate intelligent styles, optimizing performance and enhancing developer productivity. Galadriel CSS is designed to complement major web development frameworks like React, Next.js, Vue.js, Angular, as well as vanilla JavaScript, it ensures robust compatibility and scalability for complex web projects.
 
-## Learn More
+### Planned Enhancements
 
-To learn more about Next.js, take a look at the following resources:
+-   **Improved Parser Functionality**: Enhance parsing capabilities to support more complex style definitions.
+-   **Observer**: Implement observer functionality for real-time style updates.
+-   **Language Server Protocol (LSP)**: Integrate LSP for enhanced IDE support and developer tooling.
+-   **Transformer**: Develop a transformer module for optimizing style generation and performance.
+-   **Comprehensive Documentation**: Provide detailed documentation and tutorials to facilitate adoption and usage.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Galadriel CSS and Nenyr are licensed under the terms of the [Galadriel CSS License Agreement](LICENSE.md).

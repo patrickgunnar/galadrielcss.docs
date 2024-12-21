@@ -1,4 +1,7 @@
 Construct Central {
+    Declare Typefaces({
+        DrunkenHour: "/fonts/drunken hour/DrunkenHour.otf"
+    }),
     Declare Breakpoints({
         MobileFirst({
             SmallScreen: "640px",

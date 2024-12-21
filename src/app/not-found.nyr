@@ -1,0 +1,19 @@
+Construct Module("notFoundComponent") {
+    Declare Class("notFoundContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${tealGreenWithTransparency}",
+            flexDir: "column",
+            gap: "20px",
+            txtSize: "20px",
+            txtAlign: "center",
+            minHr: "700px",
+            wd: "100%"
+        })
+    },
+    Declare Class("h1") {
+        Stylesheet({
+            txtFamily: "DrunkenHour",
+            txtSize: "80px",
+        })
+    }
+}

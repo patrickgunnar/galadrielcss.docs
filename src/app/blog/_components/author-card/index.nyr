@@ -1,0 +1,31 @@
+Construct Module("authorCardComponent") {
+    Declare Class("cardContainer") Deriving("borderBox") {
+        Stylesheet({
+            bgd: "${navbarHoverColor}",
+            display: "flex",
+            gap: "5px",
+            flexDir: "column",
+            txtSize: "16px",
+            p: "20px",
+            wd: "100%"
+        })
+    },
+    Declare Class("authorName") {
+        Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtBold: "700",
+            txtSize: "21px",
+            txtColor: "aliceblue"
+        })
+    },
+    Declare Class("authorAbout") {
+        Stylesheet({
+            txtColor: "${lightGrayColor}"
+        })
+    },
+    Declare Class("creationTime") {
+        Stylesheet({
+            txtColor: "gray"
+        })
+    }
+}

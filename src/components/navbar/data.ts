@@ -15,7 +15,7 @@ export const navbarOptions: NavbarOptionType[] = [
         ],
         id: "navbar-home-option",
     },
-    {
+    /*{
         label: "SHOWCASE",
         link: "/showcase",
         className: [
@@ -32,7 +32,7 @@ export const navbarOptions: NavbarOptionType[] = [
             "@module:mobileNavbarComponent::skyBlue",
         ],
         id: "navbar-donation-option",
-    },
+    },*/
     {
         label: "DOCS",
         link: "/docs",

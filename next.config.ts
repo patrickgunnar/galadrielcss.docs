@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     /* config options here */
     pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
     webpack(config) {
-        config.plugins.unshift(new GaladrielWebpackClient());
+        config.plugins.push(new GaladrielWebpackClient());
 
         return config;
     },

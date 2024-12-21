@@ -26,11 +26,6 @@ Construct Module("blogGridComponent") {
                     gridTemplateColumns: "repeat(3, 1fr)",
                 })
             }),
-            ExtraLargeScreen({
-                Stylesheet({
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                })
-            })
         })
     },
     Declare Class("blogCard") Deriving("flexCenterBox") {
