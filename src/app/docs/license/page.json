@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "url": "/license",
+        "title": "Galadriel CSS and Nenyr License Agreement",
+        "description": "Official license agreement for Galadriel CSS and Nenyr, detailing ownership, usage rights, and restrictions.",
+        "creation_timestamp": "2024-06-28T00:00:00Z",
+        "order": 2,
+        "tags": [
+            "license",
+            "agreement",
+            "Galadriel CSS",
+            "Nenyr",
+            "framework",
+            "documentation"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS license",
+            "Nenyr license agreement",
+            "CSS framework legal",
+            "modular CSS",
+            "contextual CSS",
+            "Patrick Gunnar",
+            "intellectual property"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/assets/images/galadriel-css-license-og.jpg"
+    }
+}

@@ -1,3 +1,65 @@
-# Galadriel CSS Documentation
+# Galadriel CSS
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+`Galadriel CSS` is a comprehensive and efficient framework for managing CSS styles in complex, scalable applications. It employs a modular, hierarchical design that allows for precise control over how styles are applied and inherited across various components and modules within a project. The framework’s key strengths lie in its extensibility, performance, and ease of maintenance, making it well-suited for both simple and large-scale applications.
+
+## Overview
+
+The `Galadriel CSS` framework is built with scalability and modularity in mind. It organizes styles into a hierarchical context system that makes it easy to manage global, layout-specific, and module-specific styles in a highly structured manner. This context-driven approach ensures that styles can be inherited, overridden, or extended without unnecessary duplication or conflicts.
+
+At the heart of `Galadriel CSS` is **Nenyr**, a domain-specific language (DSL) designed to declare styles, variables, animations, and more. These Nenyr definitions are then processed into efficient, utility-first CSS during the build process. The framework is optimized for performance and clean code organization, reducing the potential for redundant CSS rules and improving load times.
+
+Core concepts of `Galadriel CSS` include:
+
+-   **Context Hierarchy**: Organizes styles into multiple layers (Central, Layout, and Module contexts) to handle different scopes of styling.
+-   **Class Inheritance**: Supports inheritance of styles across contexts, enabling modular and reusable style definitions.
+-   **Context Extension**: Enables contexts to extend other contexts, ensuring consistency and extensibility across styles.
+-   **Variable and Animation Uniqueness**: Guarantees that variables and animations are scoped and resolved per context, preventing unintended conflicts.
+
+## Context Hierarchy
+
+`Galadriel CSS` organizes its styles into a flexible, hierarchical context system, where each context defines a set of styles that apply to different parts of the application. The primary contexts in this system are:
+
+-   **Central Context**: The foundation of all styles in the application. This context defines global styles, themes, and settings that apply across the entire project. Common settings like typography, color schemes, and general style rules are defined here.
+-   **Layout Context**: Handles the application of predefined styles to Module Contexts or groups of component sections that make up the overall application layout. By default, Layout Contexts inherit styles from the Central Context, while also allowing for the definition of additional rules specific to the grouping of Module Contexts or individual components, ensuring a consistent and flexible layout structure.
+-   **Module Context**: Each module or component in the application can have its own set of styles encapsulated within a Module Context. These styles are scoped and only apply to the specific module or component, ensuring that modular components do not inadvertently influence the rest of the layout. Module contexts can extend a Layout Context and the Central Context by default, inheriting styles while adding or overriding properties as needed.
+
+The context hierarchy allows for highly specific and reusable style definitions, ensuring that each level of the application can have its own isolated set of styles while still maintaining a connection to the broader application-wide settings.
+
+## Class Inheritance and Context Extension
+
+`Galadriel CSS` supports powerful mechanisms for inheritance and extension to ensure that styles are applied consistently and efficiently across the entire project:
+
+-   **Class Inheritance**: When defining a style in a parent context (e.g., Central or Layout Context), the child contexts (e.g., Module Contexts) can inherit those styles. This inheritance allows for streamlined and consistent styling across multiple layers without redundant CSS definitions. A style defined in a higher context will automatically cascade down to child contexts unless specifically overridden.
+-   **Context Extension**: `Galadriel CSS` allows for the extension of contexts to enable the reuse of styles and maintain consistency. For example, a Module Context (extends the Central Context by default) can extend a Layout Context, which in turn extends the Central Context. This hierarchy of context extension ensures that modules inherit the layout and global styles while being able to define their own additional or overriding rules. The ability to extend contexts prevents the need to redefine common styles at each level of the application, promoting DRY (Don't Repeat Yourself) principles and reducing the overall CSS footprint.
+
+These inheritance and extension mechanisms ensure that styles are always applied in a predictable and controlled manner, resulting in an efficient and maintainable CSS output.
+
+## Variable and Animation Uniqueness
+
+One of the key features of `Galadriel CSS` is its approach to variables and animations, which are scoped and unique to their respective contexts. This ensures that even if different contexts use the same variable or animation name, they are treated as independent entities, thus preventing potential conflicts and ensuring that styles are applied consistently.
+
+-   **Variables**: Variables in `Galadriel CSS` are context-specific, meaning that the same variable name in different contexts will reference different values. This ensures that changes in one context will not inadvertently affect other contexts. For example, a color variable defined in the Central Context will be distinct from a color variable defined in a Module Context, even if both use the same identifier. The framework always resolves to the closest variable value in the context hierarchy, ensuring that each context's specific needs are met.
+-   **Animations**: Like variables, animations are scoped to the context in which they are defined. This means that different contexts can define their own set of animations without fear of conflicts. Animations will always be resolved to the closest context, ensuring that the correct animation is applied based on the current context. This scoping approach allows for the modular use of animations while maintaining consistency across the application.
+
+## Implementation Details
+
+The core components of `Galadriel CSS` are designed to manage context-specific styles, handle inheritance and extension, and process variables and animations with unique scoping:
+
+-   **Context Management**: This component is responsible for defining, extending, and managing contexts. It ensures that contexts are properly nested and that inheritance and extension rules are applied correctly. It also resolves the scope of variables and animations according to the context hierarchy.
+-   **Style Application**: The style application system processes the defined Nenyr styles and generates efficient, utility-first CSS. It applies the appropriate styles based on the context hierarchy and ensures that no redundant CSS rules are created. The result is a minimal, optimized CSS output that reflects the exact styles required for each context.
+-   **Variable and Animation Handling**: This system manages the resolution of variables and animations within their respective contexts. It ensures that each context has access to its own variables and animations while maintaining isolation from other contexts. This handling ensures that the application of these values is consistent and correct throughout the entire hierarchy.
+
+## Usage
+
+To use `Galadriel CSS` in your application, you must define your styles using the **Nenyr** DSL. This involves specifying the contexts and their relationships to one another. The Nenyr definitions will be processed during the build stage, generating optimized CSS that respects the context hierarchy and inheritance rules.
+
+### Example Workflow:
+
+1. **Define Contexts**: Create your Central, Layout, and Module contexts using Nenyr syntax. You can define global styles in the Central Context, layout styles in the Layout Context, and module-specific styles in the Module Context.
+2. **Extend Contexts**: If needed, extend contexts to inherit styles from parent contexts. For example, a Module Context (extends the Central Context by default) can extend a Layout Context to inherit layout-related styles, and the Layout Context extend the Central Context by default for global styles.
+3. **Build Process**: During the build process, Nenyr definitions are compiled into efficient utility-first CSS.
+4. **Apply Styles**: The generated CSS will be applied to your application and the utility class names related to a Nenyr class will be applied to the components where they were specified, with styles dynamically determined based on the context hierarchy. Styles will be applied according to the closest context, with inherited and extended styles resolved automatically.
+
+By using Galadriel CSS in this manner, you can easily manage complex styles in a modular and scalable way, ensuring your application remains clean, maintainable, and performant.
+
+For further integration details, refer to the specific methods and functions documented in the module, which provide advanced features for managing contexts, variables, animations, and other styling elements within Galadriel CSS.

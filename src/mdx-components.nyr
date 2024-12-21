@@ -1,0 +1,132 @@
+Construct Module("mdxComponents") {
+    Declare Class("textColor") {
+        Stylesheet({
+            txtColor: "aliceblue",
+        })
+    },
+    Declare Class("arialBold") Deriving("textColor") {
+        Stylesheet({
+            txtBold: "700",
+            txtFamily: "Arial, Helvetica, sans-serif",
+        })
+    },
+    Declare Class("arialNormal") Deriving("textColor") {
+        Stylesheet({
+            txtFamily: "Arial, Helvetica, sans-serif",
+            txtSize: "1.1rem",
+            txtBold: "normal",
+        })
+    },
+    Declare Class("h1") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "2.5rem",
+        })
+    },
+    Declare Class("h2") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "2rem",
+        })
+    },
+    Declare Class("h3") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "1.75rem",
+        })
+    },
+    Declare Class("h4") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "1.5rem",
+        })
+    },
+    Declare Class("h5") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "1.25rem",
+        })
+    },
+    Declare Class("h6") Deriving("arialBold") {
+        Stylesheet({
+            txtSize: "1rem",
+        })
+    },
+    Declare Class("p") Deriving("arialNormal") {
+        Stylesheet({
+            lineHeight: "1.2rem"
+        })
+    },
+    Declare Class("ol") Deriving("arialNormal") {
+        Stylesheet({
+            listStyleType: "decimal",
+            pLeft: "2rem",
+        })
+    },
+    Declare Class("ul") Deriving("arialNormal") {
+        Stylesheet({
+            listStyleType: "disc",
+            pLeft: "2rem",
+        })
+    },
+    Declare Class("li") {
+        Stylesheet({
+            p: "5px 0px",
+            lineHeight: "1.2rem"
+        })
+    },
+    Declare Class("em") Deriving("textColor") {
+        Stylesheet({
+            fontStyle: "italic",
+            txtSize: "600",
+            txtFamily: "Arial, Helvetica, sans-serif",
+        })
+    },
+    Declare Class("strong") Deriving("arialBold") {
+        Stylesheet({})
+    },
+    Declare Class("a") Deriving("unstyledLink") {
+        Important(true),
+        Stylesheet({
+            txtColor: "#3182ce",
+            txtBold: "700",
+            txtFamily: "Arial, Helvetica, sans-serif",
+            txtSize: "1rem",
+        }),
+        Hover({
+            txtColor: "#2b6cb0",
+        }),
+        Visited({
+            txtColor: "#6b46c1"
+        }),
+        Active({
+            txtColor: "#e53e3e"
+        })
+    },
+    Declare Class("code") {
+        Stylesheet({})
+    },
+    Declare Class("table") Deriving("textColor") {
+        Stylesheet({
+            borderCollapse: "collapse",
+            m: "1rem 0",
+            wd: "100%"
+        })
+    },
+    Declare Class("th") Deriving("arialBold") {
+        Stylesheet({
+            br: "1px solid #cbd5e0",
+            p: "0.75rem",
+            txtAlign: "left"
+        })
+    },
+    Declare Class("td") {
+        Stylesheet({
+            br: "1px solid #cbd5e0",
+            p: "0.75rem",
+            txtAlign: "left"
+        })
+    },
+    Declare Class("blockquote") Deriving("textColor") {
+        Stylesheet({
+            display: "block",
+            m: "1rem 40px",
+            fontStyle: "italic",
+        })
+    },
+}

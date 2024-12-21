@@ -13,29 +13,53 @@ type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 export function useMDXComponents(components: MDXComponents): MDXComponents {
     return {
         h1: ({ children }) => {
-            return <h1>{children}</h1>;
+            return <h1 className="@module:mdxComponents::h1">{children}</h1>;
         },
-        h2: (props: HeadingProps) => <h2 {...props} />,
-        h3: (props: HeadingProps) => <h3 {...props} />,
-        h4: (props: HeadingProps) => <h4 {...props} />,
-        p: (props: ParagraphProps) => <p {...props} />,
-        ol: (props: ListProps) => <ol {...props} />,
-        ul: (props: ListProps) => <ul {...props} />,
-        li: (props: ListItemProps) => <li {...props} />,
-        em: (props: ComponentPropsWithoutRef<"em">) => <em {...props} />,
+        h2: (props: HeadingProps) => (
+            <h2 className="@module:mdxComponents::h2" {...props} />
+        ),
+        h3: (props: HeadingProps) => (
+            <h3 className="@module:mdxComponents::h3" {...props} />
+        ),
+        h4: (props: HeadingProps) => (
+            <h4 className="@module:mdxComponents::h4" {...props} />
+        ),
+        h5: (props: HeadingProps) => (
+            <h5 className="@module:mdxComponents::h5" {...props} />
+        ),
+        h6: (props: HeadingProps) => (
+            <h6 className="@module:mdxComponents::h6" {...props} />
+        ),
+        p: (props: ParagraphProps) => (
+            <p className="@module:mdxComponents::p" {...props} />
+        ),
+        ol: (props: ListProps) => (
+            <ol className="@module:mdxComponents::ol" {...props} />
+        ),
+        ul: (props: ListProps) => (
+            <ul className="@module:mdxComponents::ul" {...props} />
+        ),
+        li: (props: ListItemProps) => (
+            <li className="@module:mdxComponents::li" {...props} />
+        ),
+        em: (props: ComponentPropsWithoutRef<"em">) => (
+            <em className="@module:mdxComponents::em" {...props} />
+        ),
         strong: (props: ComponentPropsWithoutRef<"strong">) => (
-            <strong {...props} />
+            <strong className="@module:mdxComponents::strong" {...props} />
         ),
         a: ({ href, children, ...props }: AnchorProps) => {
+            const clsName = "@module:mdxComponents::a";
+
             if (href?.startsWith("/")) {
                 return (
-                    <Link href={href} {...props}>
+                    <Link className={clsName} href={href} {...props}>
                         {children}
                     </Link>
                 );
             } else if (href?.startsWith("#")) {
                 return (
-                    <a href={href} {...props}>
+                    <a className={clsName} href={href} {...props}>
                         {children}
                     </a>
                 );
@@ -46,6 +70,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className={clsName}
                     {...props}
                 >
                     {children}
@@ -57,6 +82,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
             return (
                 <code
+                    className="@module:mdxComponents::code"
                     dangerouslySetInnerHTML={{ __html: codeHTML }}
                     {...props}
                 />
@@ -67,11 +93,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         }: {
             data: { headers: string[]; rows: string[][] };
         }) => (
-            <table>
+            <table className="@module:mdxComponents::table">
                 <thead>
                     <tr>
                         {data.headers.map((header, index) => (
-                            <th key={index}>{header}</th>
+                            <th
+                                className="@module:mdxComponents::th"
+                                key={index}
+                            >
+                                {header}
+                            </th>
                         ))}
                     </tr>
                 </thead>
@@ -79,14 +110,24 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
                     {data.rows.map((row, index) => (
                         <tr key={index}>
                             {row.map((cell, cellIndex) => (
-                                <td key={cellIndex}>{cell}</td>
+                                <td
+                                    className="@module:mdxComponents::td"
+                                    key={cellIndex}
+                                >
+                                    {cell}
+                                </td>
                             ))}
                         </tr>
                     ))}
                 </tbody>
             </table>
         ),
-        blockquote: (props: BlockquoteProps) => <blockquote {...props} />,
+        blockquote: (props: BlockquoteProps) => (
+            <blockquote
+                className="@module:mdxComponents::blockquote"
+                {...props}
+            />
+        ),
         ...components,
     };
 }

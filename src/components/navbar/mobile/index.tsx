@@ -29,7 +29,8 @@ export function NavbarItem({
                 href={link}
                 onClick={handleSelection}
                 className={`@class:unstyledLink @module:mobileNavbarComponent::navbarOptionLink ${
-                    pathname == link
+                    pathname == link ||
+                    (pathname.startsWith(link) && link !== "/")
                         ? "@module:mobileNavbarComponent::navbarSelected"
                         : ""
                 }`}

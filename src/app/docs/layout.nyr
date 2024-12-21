@@ -1,22 +1,41 @@
 Construct Layout("docsLayout") {
     Declare Class("docsLayoutContainer") Deriving("borderBox") {
         Stylesheet({
+            bgd: "${tealGreenWithTransparency}",
             display: "flex",
-            flexDir: "row",
+            flexDir: "column",
             justify: "space-between",
-            p: "40px 20px",
+            p: "40px 0px",
             txtColor: "aliceblue",
-            wd: "100%"
+            wd: "100%",
+            overX: "hidden"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    flexDir: "row",
+                })
+            })
         })
     },
-    Declare Class("sidebarContainer") {
+    Declare Class("contentContainer") Deriving("borderBox") {
         Stylesheet({
-            wd: "20%"
-        })
-    },
-    Declare Class("contentContainer") {
-        Stylesheet({
-            wd: "calc(80% - 40px)"
+            display: "flex",
+            gap: "30px",
+            flexDir: "column",
+            txtAlign: "justify",
+            hyphens: "auto",
+            pLeft: "20px",
+            pRight: "20px",
+            wd: "100%",
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    pRight: "80px",
+                    wd: "75%"
+                })
+            })
         })
     }
 }

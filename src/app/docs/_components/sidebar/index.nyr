@@ -1,0 +1,62 @@
+Construct Module("docsSidebarComponent") {
+    Declare Class("sidebarContainer") {
+        Stylesheet({
+            display: "none",
+            wd: "0%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    display: "block",
+                    wd: "25%"
+                })
+            })
+        })
+    },
+    Declare Class("ulContainer") Deriving("borderBox") {
+        Stylesheet({
+            display: "flex",
+            flexDir: "column",
+            gap: "6px"
+        })
+    },
+    Declare Class("asideItem") {
+        Stylesheet({
+            display: "flex",
+            justify: "flex-start",
+            align: "center",
+            bgd: "${tealGreenColor}",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtBold: "700",
+            txtSize: "16px",
+            txtAlign: "left",
+            minHr: "50px",
+            wd: "100%",
+            userSelect: "none",
+            brLeft: "none",
+            br: "1px solid ${myAccentColor}",
+        }),
+        Hover({
+            bgd: "${navbarHoverColor}",
+            br: "1px solid ${navbarColor}",
+            brLeft: "none",
+        })
+    },
+    Declare Class("selectedItem") {
+        Important(true),
+        Stylesheet({
+            bgd: "${navbarHoverColor}",
+            br: "1px solid ${navbarColor}",
+            brLeft: "none",
+            pointerEvents: "none",
+            cursor: "default"
+        })
+    },
+    Declare Class("asideLink") {
+        Stylesheet({
+            p: "20px",
+            hr: "100%",
+            wd: "100%",
+        })
+    }
+}

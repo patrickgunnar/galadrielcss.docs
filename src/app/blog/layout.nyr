@@ -1,0 +1,18 @@
+Construct Layout("blogLayout") {
+    Declare Class("mainContainer") Deriving("borderBox") {
+        Stylesheet({
+            bgd: "${tealGreenWithTransparency}",
+            display: "flex",
+            gap: "30px",
+            flexDir: "column",
+            p: "40px 20px"
+        }),
+        PanoramicViewer({
+            SmallScreen({
+                Stylesheet({
+                    p: "40px 80px"
+                })
+            })
+        })
+    },
+}

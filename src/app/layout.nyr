@@ -5,7 +5,9 @@ Construct Layout("globalAppLayoutContext") {
             hr: "100vh",
             wd: "100vw",
             overY: "hidden",
-            overX: "hidden"
+            overX: "hidden",
+            txtFamily: "Arial, Helvetica, sans-serif",
+            txtColor: "aliceblue",
         })
     },
     Declare Class("backgroundImage") Deriving("fullScreenAbsolute") {

@@ -1,34 +1,19 @@
-import Link from "next/link";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { routeMap } from "../../../route-map";
 import { join } from "node:path";
+import DocsSidebar from "./_components/sidebar";
+import MobileDocsSidebar from "./_components/mobile-sidebar";
 
-function AsideItem({ title, url }: { url: string; title: string }) {
-    return (
-        <li>
-            <Link href={url}>{title}</Link>
-        </li>
-    );
-}
-
-export default function Layout({ children }: { children: ReactNode }) {
-    const routes = routeMap(join(process.cwd(), "src", "app", "docs"), "docs");
+export default function Layout({ children }: PropsWithChildren) {
+    const routes = routeMap(
+        join(process.cwd(), "src", "app", "docs"),
+        "docs"
+    ).sort((a, b) => a.metadata.order - b.metadata.order);
 
     return (
         <div className="@layout:docsLayout::docsLayoutContainer">
-            <aside className="@layout:docsLayout::sidebarContainer">
-                <ul>
-                    {routes.map(({ metadata }) => {
-                        return (
-                            <AsideItem
-                                key={metadata.url}
-                                url={metadata.url}
-                                title={metadata.title}
-                            />
-                        );
-                    })}
-                </ul>
-            </aside>
+            <MobileDocsSidebar routes={routes} />
+            <DocsSidebar routes={routes} />
             <main className="@layout:docsLayout::contentContainer">
                 {children}
             </main>

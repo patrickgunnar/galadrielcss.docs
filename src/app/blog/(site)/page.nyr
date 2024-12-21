@@ -1,22 +1,17 @@
-Construct Module("homePageComponent") {
-    Declare Class("mainContainer") {
-        Stylesheet({
-            txtSize: "20px",
-            txtColor: "white",
-        })
-    },
-    Declare Class("blogContentContainer") {
+Construct Module("blogPageComponent") {
+    Declare Class("sectionContainer") {
         Stylesheet({
             display: "flex",
-            gap: "50px",
+            gap: "80px",
             flexDir: "column",
-            bgd: "${tealGreenWithTransparency}",
-            p: "40px 20px"
+            pTop: "40px",
+            pBottom: "40px",
+            wd: "100%"
         })
     },
     Declare Class("h1") {
         Stylesheet({
-            txtSize: "22px",
+            txtSize: "25px",
             txtBold: "700",
             txtAlign: "center",
             txtFamily: "Courier New, Lucida Console, Monaco",
@@ -24,7 +19,7 @@ Construct Module("homePageComponent") {
         PanoramicViewer({
             LargeScreen({
                 Stylesheet({
-                    txtSize: "30px",
+                    txtSize: "32px",
                 })
             })
         })

@@ -1,0 +1,70 @@
+Construct Module("mobileDocsSidebarComponent") {
+    Declare Class("sidebarContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${darkCyanColor}",
+            flexDir: "column",
+            gap: "40px",
+            wd: "100%",
+            p: "20px",
+            m: "40px auto"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    display: "none",
+                })
+            })
+        })
+    },
+    Declare Class("menuBtn") {
+        Stylesheet({
+            txtColor: "aliceblue",
+            txtSize: "22px",
+        })
+    },
+    Declare Class("ulContainer") {
+        Stylesheet({
+            display: "block",
+            bgd: "${darkCyanColor}",
+        })
+    },
+    Declare Class("asideItem") {
+        Stylesheet({
+            display: "flex",
+            justify: "flex-start",
+            align: "center",
+            bgd: "${tealGreenColor}",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtBold: "700",
+            txtSize: "16px",
+            txtAlign: "left",
+            minHr: "50px",
+            wd: "100%",
+            mTop: "5px",
+            mBottom: "5px",
+            userSelect: "none",
+            br: "1px solid ${myAccentColor}"
+        }),
+        Hover({
+            bgd: "${navbarHoverColor}",
+            br: "1px solid ${navbarColor}"
+        })
+    },
+    Declare Class("selectedItem") {
+        Important(true),
+        Stylesheet({
+            br: "1px solid ${navbarColor}",
+            bgd: "${navbarHoverColor}",
+            pointerEvents: "none",
+            cursor: "default"
+        })
+    },
+    Declare Class("asideLink") {
+        Stylesheet({
+            p: "20px",
+            hr: "100%",
+            wd: "260px",
+            maxWd: "260px"
+        })
+    }
+}

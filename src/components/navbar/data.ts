@@ -51,7 +51,7 @@ export const navbarOptions: NavbarOptionType[] = [
         ],
         id: "navbar-blog-option",
     },
-    {
+    /*{
         label: "SEARCH",
         link: "/search",
         className: [
@@ -59,5 +59,5 @@ export const navbarOptions: NavbarOptionType[] = [
             "@module:mobileNavbarComponent::lightGray",
         ],
         id: "navbar-search-option",
-    },
+    },*/
 ];

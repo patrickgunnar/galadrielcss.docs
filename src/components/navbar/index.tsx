@@ -22,7 +22,8 @@ function NavbarItem({
             <Link
                 href={link}
                 className={`@class:unstyledLink @module:navbarComponent::navbarOptionLink ${
-                    pathname == link
+                    pathname == link ||
+                    (pathname.startsWith(link) && link !== "/")
                         ? "@module:navbarComponent::navbarSelected"
                         : ""
                 }`}

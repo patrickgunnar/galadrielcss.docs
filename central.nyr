@@ -10,6 +10,7 @@ Construct Central {
     }),
     Declare Variables({
         primaryColor: "hsl(178, 52%, 11%)",
+        myAccentColor: "hsl(178, 52%, 35%)",
         navbarColor: "hsl(179, 48%, 21%)",
         navbarHoverColor: "hsl(177, 56%, 14%)",
         navbarBrColor: "hsl(179, 51%, 17%)",
@@ -22,10 +23,15 @@ Construct Central {
         lightPinkColor: "hsl(340, 80%, 60%)",
         darkCyanColor: "hsl(184, 45%, 6%)",
         darkTealColor: "hsl(188, 33%, 5%)",
+        tealGreenColor: "hsl(178, 52%, 25%)",
+        tealGreenWithTransparency: "rgba(8, 21, 22, 0.8)",
     }),
     Declare Aliases({
         p: padding,
+        pTop: paddingTop,
         pBottom: paddingBottom,
+        pLeft: paddingLeft,
+        pRight: paddingRight,
         br: border,
         brLeft: borderLeft,
         brRight: borderRight,
@@ -127,6 +133,24 @@ Construct Central {
     Declare Class("temp") {
         Stylesheet({
             color: "blue"
+        })
+    },
+    Declare Class("btn") {
+        Stylesheet({
+            txtAlign: "center",
+            txtSize: "18px",
+            txtBold: "700",
+            txtColor: "aliceblue",
+            bgd: "${tealGreenColor}",
+            br: "1px solid ${myAccentColor}",
+            pTop: "20px",
+            pBottom: "20px",
+            cursor: "pointer",
+            wd: "140px"
+        }),
+        Hover({
+            bgd: "${navbarHoverColor}",
+            br: "1px solid ${navbarColor}",
         })
     }
 }

@@ -35,11 +35,17 @@ export function routeMap(dir: string, routeName: string): MetadataMDX[] {
 
             const { seo, metadata } = JSON.parse(data);
 
+            const url = `/${routeName}${metadata.url}`;
+            const og_image = `/${routeName}/(posts)${metadata.url}/${seo.og_image}`;
+
             return {
-                seo,
+                seo: {
+                    ...seo,
+                    og_image,
+                },
                 metadata: {
                     ...metadata,
-                    url: `/${routeName}${metadata.url}`,
+                    url,
                 },
             };
         });

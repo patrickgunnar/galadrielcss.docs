@@ -1,0 +1,100 @@
+Construct Module("blogGridComponent") {
+    Declare Class("sectionContainer") {
+        Stylesheet({
+            display: "flex",
+            gap: "40px",
+            flexDir: "column",
+            align: "center",
+            wd: "100%"
+        })
+    },
+    Declare Class("blogGrid") {
+        Stylesheet({
+            display: "grid",
+            gap: "10px",
+            gridTemplateColumns: "repeat(1, 1fr)",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                })
+            }),
+            ExtraLargeScreen({
+                Stylesheet({
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                })
+            })
+        })
+    },
+    Declare Class("blogCard") Deriving("flexCenterBox") {
+        Stylesheet({
+            bgd: "${tealGreenColor}",
+            br: "1px solid ${myAccentColor}",
+            p: "10px",
+            hr: "350px",
+            wd: "100%",
+        }),
+        Hover({
+            bgd: "${navbarHoverColor}",
+            br: "1px solid ${navbarColor}",
+        })
+    },
+    Declare Class("blogCardLink") Deriving("unstyledLink") {
+        Stylesheet({
+            pos: "relative",
+            hr: "100%",
+            wd: "100%"
+        })
+    },
+    Declare Class("blogCardImage") Deriving("fullScreenAbsolute") {
+        Stylesheet({
+            objectFit: "cover",
+            hr: "100%",
+            wd: "100%",
+            overflow: "hidden"
+        })
+    },
+    Declare Class("blogCardDescContainer") Deriving("fullScreenAbsolute") {
+        Stylesheet({
+            display: "flex",
+            flexDir: "column",
+            justify: "space-between",
+            bgd: "${tealGreenWithTransparency}",
+            mTop: "auto",
+            mBottom: "0px",
+            p: "10px",
+            hr: "40%",
+            wd: "100%"
+        })
+    },
+    Declare Class("blogCardTitle") {
+        Stylesheet({
+            txtSize: "1.3rem",
+            txtBold: "700",
+            txtAlign: "center",
+            txtFamily: "Courier New, Lucida Console, Monaco",
+        })
+    },
+    Declare Class("blogCardDescription") {
+        Stylesheet({
+            display: "block",
+            txtAlign: "justify",
+            txtSize: "16px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+        })
+    },
+    Declare Class("btnContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            flexDir: "row",
+            gap: "30px"
+        })
+    },
+}
