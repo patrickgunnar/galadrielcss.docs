@@ -1,0 +1,70 @@
+# Context Hierarchy in Galadriel CSS
+
+In **Galadriel CSS**, the **Context Hierarchy** is a crucial system that defines how styles are applied, extended, and inherited throughout your application. The hierarchy consists of three primary levels: the **Central Context**, the **Layout Context**, and the **Module Context**. This structure ensures that styles are organized, efficient, and extensible, providing a clear flow for extensions and avoiding unnecessary repetition.
+
+### Understanding the Role of Contexts in the Hierarchy
+
+Contexts in Galadriel CSS are built to extend one another, where each context can "borrow" values such as variables, animations, and aliases from the context above it. This mechanism, called **extension**, is different from traditional inheritance. Styles do not automatically inherit; they are applied only if required. This system ensures that only the necessary styles are applied, improving efficiency and reducing redundant declarations.
+
+#### **Central Context: The Foundation of All Extensions**
+
+The **Central Context** forms the foundation of the entire styling hierarchy. It is the root context in Galadriel CSS and must be located at the root of your application. Every project must have a single **Central Context**, stored in a file named **`central.nyr`**. This naming convention is essential for Galadriel CSS to function properly. If misnamed or incorrectly placed, the framework will face issues during the style processing phase, potentially leading to broken or missing styles.
+
+The **Central Context** defines the core set of styles, variables, and settings for the entire application. It is the first context processed, and other contexts can extend it, inheriting its values and methods. However, the **Central Context** cannot be extended by any other context; it stands alone as the foundational layer.
+
+#### **Layout Context: Extending the Central Context**
+
+The **Layout Context** inherits from the **Central Context** by default, allowing it to access the global styles, variables, and methods defined there. Layout Contexts are used to define styles related to the layout and structure of the application. These contexts do not extend any other context; they can only borrow values from the **Central Context**.
+
+Each **Layout Context** must be stored in a file named **`layout.nyr`**. While you can define as many Layout Contexts as necessary, they each need a unique name to distinguish them from one another. After the **Central Context** is processed, the **Layout Context** is processed to inherit any required values from it.
+
+#### **Module Context: The Final Layer of the Hierarchy**
+
+The **Module Context** is the last layer in the context hierarchy. It can be defined in any file with the **.nyr** extension. Each **Module Context** must have a unique name and follows the same naming conventions as the Layout Context.
+
+Module Contexts are processed after both the **Central Context** and the **Layout Context**. By default, **Module Contexts** inherit values from the **Central Context**. Additionally, they can extend a **Layout Context** if specified. This relationship is defined using the **Extending("layoutName")** method. This mechanism ensures that the Module Context can access variables, aliases, or animations from the Layout Context, while still falling back to the **Central Context** if needed.
+
+#### **How the Extension Process Works**
+
+Galadriel CSS processes contexts in a specific order to ensure that extensions and inheritance are applied correctly:
+
+1. **Central Context**: First, the **Central Context** is processed. It defines global styles, variables, and settings that will be inherited by all other contexts.
+2. **Layout Contexts**: Next, **Layout Contexts** are processed. These contexts inherit from the **Central Context** and can add layout-specific styles and settings.
+3. **Module Contexts**: Finally, **Module Contexts** are processed. These can extend both the **Central Context** and specific **Layout Contexts**.
+
+This order ensures that extensions and style inheritance occur in the right sequence. If a value is missing in a context, Galadriel CSS will check the context it extends from, and then check upwards in the hierarchy until the value is found. And if a change occurs in any of the contexts, Galadriel CSS will reprocess all the relevant contexts. For example:
+
+-   If the **Central Context** changes, all **Layout Contexts** will be reprocessed, followed by all **Module Contexts**.
+-   If a **Layout Context** changes, only the **Module Contexts** extending it will be reprocessed.
+-   If a **Module Context** changes, only that specific module will be reprocessed.
+
+In the case of a **Module Context** change, only the affected **Module Context** is reprocessed, ensuring that unnecessary recalculations are avoided.
+
+This entire process ensures that all styles remain up-to-date by dynamically reprocessing the relevant contexts whenever changes occur. By leveraging this cascading hierarchy, Galadriel CSS maintains consistency across the application while minimizing redundant computations. For instance, when a context is updated, its dependencies and extensions are recalculated to reflect the modifications, ensuring the styles are always synchronized. This not only supports accurate inheritance but also provides a streamlined, efficient mechanism for applying updates, enabling real-time adaptability without compromising performance.
+
+#### **Extension vs. Inheritance: What's the Difference?**
+
+It is important to distinguish between **extension** and **inheritance**. **Extension** in Galadriel CSS allows a context to borrow values from the context above it (such as variables, animations, and aliases), but it does not automatically apply the styles from the extended context. The extended context only contributes values when they are explicitly requested by the current context. For instance:
+
+-   If a **Module Context** extends a **Layout Context** but is missing a required variable, it will look for that variable in the **Layout Context**.
+-   If the variable is still not found, it will continue its search in the **Central Context**.
+
+This flexible approach allows you to manage styles efficiently while ensuring that each context only applies the styles that are necessary for that particular context.
+
+#### **Handling Missing Values**
+
+When a context cannot find a value (like a variable, alias, or animation) within itself, Galadriel CSS will check the contexts it extends from, moving up the hierarchy. If the value is still missing, Galadriel CSS will issue a warning and continue processing. This ensures that other styles can still be created, preventing unnecessary interruption of the style generation process.
+
+#### **Resolving Values Based on the Closest Context**
+
+In **Galadriel CSS**, values for variables, animations, and other settings are always resolved based on the closest context. This means that a context will first check its own definitions. If the required value is not found, it will extend upwards to the next closest context in the hierarchy. For example:
+
+-   If a value is defined in a **Module Context**, that value will be used.
+-   If the value is not found, it will check the **Layout Context** if the module has extended one.
+-   If still unresolved, it will look to the **Central Context**.
+
+This method ensures that each context has the flexibility to define its own values while allowing for efficient fallbacks when values are not explicitly defined within it.
+
+### **Conclusion**
+
+The **Context Hierarchy** in **Galadriel CSS** is an essential part of how styles are applied, extended, and inherited throughout an application. By structuring styles into **Central**, **Layout**, and **Module** contexts, Galadriel CSS provides a highly efficient, extensible system for managing and organizing your styles. Understanding this hierarchy ensures that your styles are applied correctly and efficiently, reducing redundancy and making the codebase cleaner and more maintainable.

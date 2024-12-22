@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "url": "",
-        "title": "Introduction to Galadriel CSS",
-        "description": "An overview of Galadriel CSS, a modular and contextual CSS framework using the Nenyr DSL, designed for scalable and maintainable applications.",
+        "url": "/module-context",
+        "title": "Module Context",
+        "description": "An in-depth look at the **Module Context** in Galadriel CSS, focusing on its role in modular and scalable style management for applications.",
         "creation_timestamp": "2024-12-22T13:22:00Z",
-        "order": 0,
+        "order": 4,
         "tags": [
             "documentation",
             "framework",
@@ -13,7 +13,9 @@
             "modular",
             "contextual",
             "scalability",
-            "performance"
+            "performance",
+            "Module Context",
+            "layout management"
         ],
         "author": "Patrick Gunnar",
         "is_published": true
@@ -21,13 +23,15 @@
     "seo": {
         "keywords": [
             "Galadriel CSS",
+            "Module Context",
             "CSS framework",
             "Nenyr DSL",
             "modular design",
             "contextual styles",
             "scalable CSS",
             "maintainable codebase",
-            "optimized performance"
+            "layout management",
+            "Extending method"
         ],
         "robots": ["index", "follow"],
         "og_image": ""

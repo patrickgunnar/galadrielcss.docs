@@ -1,0 +1,62 @@
+# Module Context in Galadriel CSS
+
+The **Module Context** is a crucial component of the Galadriel CSS framework. It allows you to efficiently manage and apply styles to specific modules within your application, making your styling system modular and scalable. As a key part of Galadriel's design, the **Module Context** ensures that styles for individual components can be tailored while preserving overall application consistency.
+
+## Understanding the Module Context
+
+In Galadriel CSS, contexts provide a hierarchical structure for organizing and applying styles. The **Module Context** is positioned towards the end of this hierarchy, processing styles after the **Central Context** and **Layout Contexts**. This ensures that module-specific styles are layered on top of the foundational styles of the **Central Context** and the layout-specific styles from **Layout Contexts**.
+
+By default, the **Module Context** receives **extension** from the **Central Context**, inheriting global styles defined at the central level. It may also optionally extend a **Layout Context**, which offers more granular control over module-level styles based on the layout it is part of.
+
+It is important to understand that **extension** in Galadriel CSS is different from inheritance. When a context extends another, it does not automatically inherit all styles from the extended context. Instead, it only uses specific values (such as variables, aliases, or animations) when required. If a value is not found in the current context, Galadriel CSS will look for it in the **Central Context**.
+
+## Defining the Module Context
+
+To define a **Module Context**, use the following syntax:
+
+Construct Module("uniqueName") \{\}
+
+Here, the **uniqueName** is a string identifier for the module and should follow these rules:
+
+-   It must consist of letters and numbers.
+-   It must start with a letter.
+-   It must be globally unique.
+
+Within the curly brackets, you can declare the specific methods and rules for the module, such as aliases, variables, animations, and class methods.
+
+### Key Points:
+
+-   Each **Module Context** must have a unique name.
+-   You can define multiple **Module Contexts** within the application.
+-   **Module Context** files can have any name, as long as they have the **.nyr** extension.
+-   A **Module Context** can extend one **Layout Context** using the **Extending("layoutName")** method. This allows the module to inherit layout-specific styles when necessary.
+-   A **Module Context** can only extend one **Layout Context**. Attempting to extend multiple Layout Contexts will result in an error.
+-   The processing order is important: the **Central Context** is processed first, followed by **Layout Contexts**, and finally **Module Contexts**.
+
+## The Role of the "Extending" Method
+
+The **Extending("layoutName")** method allows a **Module Context** to declare the specific **Layout Context** it should extend. This directs Galadriel CSS to look for styles from the specified layout context when they are required within the module context. This ensures that unnecessary styles are not applied, improving performance and maintaining a clean structure.
+
+### Defining the Module Context With the Extending Method
+
+Construct Module("uniqueName") Extending("layoutName") \{\}
+
+If the **Module Context** does not find a required value in its own block, it will look for that value in the **Layout Context** it extends. If the value is still not found, it will fall back to the **Central Context**.
+
+### Important Note:
+
+Galadriel CSS does not automatically apply styles from an extended context. Instead, styles from an extended context are only used when necessary, preventing redundant application of styles and maintaining system efficiency.
+
+## Conclusion
+
+The **Module Context** in Galadriel CSS offers a flexible and powerful way to manage styles at the module level. By understanding how it extends from the **Central Context** and optionally from a **Layout Context**, you can ensure that styles are applied efficiently and consistently across your application.
+
+In summary, the **Module Context**:
+
+-   Receives extension from the **Central Context** by default.
+-   Can optionally extend a **Layout Context** for more specific control.
+-   Can define aliases, variables, animations, and class methods.
+-   Is processed after the **Central Context** and **Layout Contexts**.
+-   Ensures the correct order of style application, allowing for granular control over module-level styling.
+
+By following the Galadriel CSS processing model, you can create modular, maintainable, and scalable styles for your application.

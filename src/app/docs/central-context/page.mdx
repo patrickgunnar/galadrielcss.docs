@@ -1,0 +1,55 @@
+# Central Context in Galadriel CSS
+
+In **Galadriel CSS**, the **Central Context** serves as the foundation of the entire styling structure. It is designed to be the first point of style definition, and it must exist at the root of your application. The **Central Context** provides essential extension capabilities for all other contexts, making it the cornerstone of the system.
+
+## Key Principles of the Central Context
+
+-   **Single Instance Requirement**: Every application must have only one **Central Context**, which should be located at the root of the application or in the folder containing the entire codebase. This ensures that styles are applied consistently throughout the system.
+-   **File Naming Convention**: The file containing the **Central Context** must be named **`central.nyr`**. This naming convention is crucial for Galadriel CSS to function properly. If this naming convention is not followed, Galadriel CSS may encounter issues when updating or inheriting styles, as the **Central Context**'s styles must always be processed first.
+
+-   **Role of the Central Context**: The **Central Context** defines the base styles and methods that are inherited by other contexts, such as **Layout** and **Module** contexts. It is critical that **Central Context** styles are processed first, as other contexts may rely on these foundational styles.
+
+## Defining the Central Context
+
+To define a **Central Context**, use the following structure:
+
+Construct Central \{\}
+
+Within the curly brackets, you will define all the styles and methods available to the **Central Context**. These can include:
+
+-   **Imports**: Import external style resources or libraries.
+-   **Typefaces**: Define global font settings for the application.
+-   **Breakpoints**: Set responsive breakpoints for your layout.
+-   **Aliases**: Create shorthand references for **Nenyr** properties.
+-   **Themes**: Define color schemes and other visual styles.
+-   **Variables**: Declare global variables for reuse throughout the application.
+-   **Animation Methods**: Define reusable **Nenyr** animation sets.
+-   **Class Methods**: Specify **Nenyr** class definitions.
+
+## Relationship with Other Contexts
+
+The **Central Context** is the core of the **Galadriel CSS** framework and automatically extends to other contexts. Here's how it interacts with other contexts:
+
+-   **Layout Contexts**: A **Layout Context** automatically receives extensions from the **Central Context**, meaning it inherits the variables, aliases, and styles defined in the **Central Context**. However, **Layout Contexts** cannot extend other contexts.
+
+-   **Module Contexts**: **Module Contexts** also inherit extensions from the **Central Context** by default. Additionally, they can extend from a specific **Layout Context** if specified. If a **Module Context** is extended by a **Layout Context**, it will first look for styles, variables, and methods within itself. If not found, it will search in the **Layout Context**, and if still not found, it will fall back to the **Central Context**.
+
+## Extension vs. Inheritance
+
+It is important to understand that **extension** is different from **inheritance**. The term **extension** refers to the ability of a context to borrow definitions (such as variables, aliases, and animations) from another context. However, styles are not automatically inherited; they are only applied when necessary.
+
+For example:
+
+-   If a **Module Context** needs a variable but doesn't have it defined, it will search for the variable in its **Layout Context** (if one is extended). If it doesn't find it there, it will search the **Central Context**.
+-   If the **Layout Context** cannot find a required value within itself, it will search the **Central Context**.
+
+## Key Points to Remember
+
+-   There should only be one **Central Context** in your application.
+-   The file containing the **Central Context** must be named **`central.nyr`**.
+-   The **Central Context** can extend to all other contexts, providing foundational styles, variables, and methods.
+-   **Layout Contexts** inherit from the **Central Context** but cannot extend other contexts.
+-   **Module Contexts** inherit from the **Central Context** by default and can also extend specific **Layout Contexts**.
+-   **Extension** is different from inheritance and ensures that styles are only applied when necessary.
+
+By understanding the structure and role of the **Central Context**, you can ensure that your application's styles are efficiently organized and applied in a logical sequence.

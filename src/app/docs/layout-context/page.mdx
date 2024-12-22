@@ -1,0 +1,65 @@
+# Layout Context in Galadriel CSS
+
+The **Layout Context** is a core feature of the **Galadriel CSS** framework. It plays a crucial role in the framework's modular styling system by extending the **Central Context**, enabling efficient, hierarchical styling. While it inherits the potential for using declarations from the Central Context, it does not automatically apply them. Instead, it only accesses them when needed, ensuring a lean and effective style management process.
+
+This behavior allows the **Layout Context** to build on the foundational styles provided by the **Central Context**, while keeping the system efficient and preventing unnecessary style duplication.
+
+## Key Characteristics of the Layout Context
+
+-   **Extension from Central Context**  
+    The **Layout Context** automatically extends from the **Central Context**. This means that any styles, variables, aliases, themes, or other declarations defined in the **Central Context** are available within the **Layout Context** for use, unless they are specifically overridden within the Layout Context. However, it's important to note that **styles are not automatically applied**—they are only used when needed.
+
+-   **Unique Name Requirement**  
+    Each **Layout Context** must have a unique name. This naming convention helps differentiate it from other contexts within the application, ensuring clarity when working with multiple contexts. It also provides an identifier for referencing and managing layout-specific styles.
+
+-   **File Naming Convention**  
+    The file containing a **Layout Context** must be named **layout.nyr**. This naming convention is crucial because **Galadriel CSS** processes **Layout Contexts** in a specific order. If the file does not follow this naming rule, the system may fail to update or apply styles correctly, causing potential issues.
+
+-   **No Extension from Other Contexts**  
+    The **Layout Context** can only extend from the **Central Context**. It cannot extend from other **Layout Contexts** or **Module Contexts**. This restriction maintains a focused and clear role for the **Layout Context** within the framework, ensuring it serves its purpose in the system without introducing unnecessary complexity.
+
+-   **Multiple Layout Contexts**
+
+    You can define as many **Layout Contexts** as necessary to manage different layout structures in your application.
+
+-   **Method Declarations**  
+    The **Layout Context** allows the declaration of the following methods:
+    -   **Aliases**: Create shorthand names for **Nenyr** properties, making the code more readable and maintainable.
+    -   **Themes**: Define color schemes or other design-related variables, ensuring consistency in the layout's visual elements.
+    -   **Variables**: Declare reusable custom values like colors, spacing, and sizes, providing flexibility in the layout design.
+    -   **Animation Methods**: Create **Nenyr** animations that can be applied to elements within the layout, either within the **Layout Context** itself or inherited from extended contexts. These methods help maintain a dynamic and visually engaging user experience.
+    -   **Class Methods**: Define **Nenyr** classes and their associated rules. This allows for class inheritance within the **Layout Context** or from the extended contexts, enabling structured and consistent styling across different elements.
+
+## Defining a Layout Context
+
+To define a **Layout Context**, use the **Construct** keyword followed by the **Layout("uniqueName")** method, where the unique name is enclosed in a string and placed inside parentheses, like this:
+
+Construct Layout("uniqueName") \{\}
+
+The **unique name** serves as an identifier for the **Layout Context** and must follow these rules:
+
+-   It can only contain letters and numbers.
+-   It must begin with a letter.
+-   It must be globally unique.
+
+Once defined, you can declare all available methods—such as aliases, themes, and variables—within the curly braces of the **Layout Context** block.
+
+## Extension and Style Application
+
+The **Layout Context** receives its extension from the **Central Context** by default. This means it can use the values defined in the **Central Context** (such as variables, aliases, and animations). When a **Layout Context** doesn't define a specific value, it will check the **Central Context** for the necessary data.
+
+A similar principle applies when a **Module Context** extends a **Layout Context**. If a **Module Context** requires a value (e.g., variable, alias, or animation) that it does not define, it will first search the **Layout Context** it extends. If the value isn't found there, the system will continue the search up the hierarchy, eventually checking the **Central Context**.
+
+It is important to note that styles from extended contexts are not automatically applied. They are only used if a required value is missing from the current context. This mechanism allows for flexible style inheritance without redundant or unnecessary style application.
+
+## Summary
+
+The **Layout Context** is an integral part of **Galadriel CSS**, extending the **Central Context** and serving as the foundation for layout-specific styles. By organizing styles this way, **Galadriel CSS** maintains an efficient, scalable, and modular styling system. This ensures that your application's styles are applied intelligently, without unnecessary duplication, and that all components inherit styles in a logical and predictable manner.
+
+Key points to remember:
+
+-   The **Layout Context** must have a unique name and be placed in a file named **layout.nyr**.
+-   It can only extend from the **Central Context** and cannot extend other contexts.
+-   Styles from extended contexts are only used when needed, ensuring a clean and efficient style application.
+
+With these principles, **Galadriel CSS** offers a powerful and scalable solution for managing your application's styles in a modular, maintainable way.
