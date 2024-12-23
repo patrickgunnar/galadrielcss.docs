@@ -4,7 +4,7 @@
         "title": "Layout Context",
         "description": "An in-depth look at the Layout Context in Galadriel CSS, explaining its role, characteristics, and how it extends from the Central Context to enable efficient, hierarchical styling.",
         "creation_timestamp": "2024-12-22T13:22:00Z",
-        "order": 3,
+        "order": 5,
         "tags": [
             "documentation",
             "framework",

@@ -4,7 +4,7 @@
         "title": "Context Hierarchy",
         "description": "An overview of the context hierarchy in Galadriel CSS, which defines how styles are applied, extended, and inherited throughout an application using the Central, Layout, and Module contexts.",
         "creation_timestamp": "2024-12-22T13:22:00Z",
-        "order": 1,
+        "order": 3,
         "tags": [
             "documentation",
             "framework",

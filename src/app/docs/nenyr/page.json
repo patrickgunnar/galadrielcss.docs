@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "url": "/nenyr",
+        "title": "Introduction to Nenyr",
+        "description": "Nenyr is the declarative domain-specific language (DSL) powering the Galadriel CSS framework, enabling developers to create modular, context-aware, and scalable styles for web applications.",
+        "creation_timestamp": "2024-12-23T13:22:00Z",
+        "order": 1,
+        "tags": [
+            "documentation",
+            "Nenyr",
+            "Galadriel CSS",
+            "CSS framework",
+            "modular design",
+            "scalable CSS",
+            "contextual styling",
+            "maintainable codebase",
+            "utility-first design"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr",
+            "Galadriel CSS",
+            "CSS framework",
+            "modular design",
+            "contextual styles",
+            "scalable CSS",
+            "declarative syntax",
+            "optimized performance",
+            "responsive design",
+            "themes",
+            "animations"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

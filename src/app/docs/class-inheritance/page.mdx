@@ -1,0 +1,61 @@
+# Class Inheritance in Galadriel CSS
+
+In **Nenyr**, the foundational idea is that each class represents a collection of **CSS utility classes**, and each property within a Nenyr class corresponds to a unique utility class. For instance, when you define a property like `backgroundColor: blue` in a Nenyr class, the system generates a specific utility class, such as `background-blue`. These utility classes are modular, context-aware, and reusable, forming the backbone of **Galadriel CSS's** efficient styling mechanism.
+
+The real power of Nenyr classes lies in their ability to transmit and inherit styles seamlessly. When a class inherits from another, it doesn't simply copy styles; it becomes a conduit for transmitting all the CSS utility classes it represents. This transmission isn't limited to direct parent-child relationships; it extends to all inherited styles, forming a cascading hierarchy. In simpler terms, a child class not only inherits styles from its immediate parent but also from its parent’s ancestors, much like genetic inheritance in family trees.
+
+### The Family Tree Analogy
+
+Inheritance in Nenyr mirrors how genetic traits are passed down in real-world families. Imagine a family tree:
+
+-   The grandparent possesses a set of traits (styles).
+-   The parent inherits these traits and adds its own unique characteristics.
+-   The child, in turn, inherits both the grandparent's and parent's traits, forming a cumulative collection.
+
+In Nenyr, this hierarchy of inheritance is structured similarly. At the root of the tree lies the base class (or **base node**), which defines foundational styles. These styles propagate to the next level of classes (the **nested nodes**) through inheritance. This process continues down the tree, ensuring that every level has access to the styles defined at higher levels.
+
+However, this transmission of styles is not indiscriminate—it follows a logical context-aware system. A Nenyr class can only inherit from another class within the same **context** or from contexts that its own context extends. This ensures that inheritance remains organized and meaningful, preventing unrelated styles from being applied unintentionally.
+
+### How Inheritance Works in Practice
+
+To understand this better, let’s break it down step by step with an example:
+
+1. **Defining the Base Class**:  
+   Imagine a base class (`class1`) that defines foundational styles like `display: block` and `color: black`. These generate utility classes such as `display-block` and `color-black`.
+
+2. **Adding a Parent Class**:  
+   Now, another class (`class2`) inherits from `class1`. Along with the inherited utility classes (`display-block` and `color-black`), it adds new properties like `backgroundColor: blue`, generating the utility class `background-blue`.
+
+3. **Creating a Child Class**:  
+   A third class (`class3`) inherits from `class2`. This class receives all utility classes defined by `class1` and `class2`, while also adding its own properties, such as `margin: 16px`, resulting in the utility class `margin-16`.
+
+By the end of this chain, `class3` represents a cumulative collection of utility classes: `display-block`, `color-black`, `background-blue`, and `margin-16`. These are applied in a specific order, ensuring that styles cascade predictably.
+
+### Context-Aware Inheritance
+
+In **Galadriel CSS**, the concept of **context** introduces an additional layer of sophistication to inheritance, ensuring a controlled and modular approach to style propagation. Classes within the same context do not share styles directly; for a class to inherit styles, whether within the same context or across different contexts, it must explicitly include the `Deriving("parentClassName")` method declaration after defining the class with `Class("currentClassName")` method. Without this explicit declaration, no inheritance occurs, preserving the independence of each class unless specified otherwise.
+
+Furthermore, a class in one context can inherit styles from a class in a different context—provided the contexts are explicitly linked through extensions. This linking establishes a relationship between the contexts, making the styles of the parent context available for extension. By requiring explicit context extensions and inheritance declarations, Galadriel CSS ensures that style propagation is deliberate and modular, allowing developers to maintain precise control over the styling hierarchy.
+
+For example:
+
+-   If `gridContext` layout context defines a base class for grid layouts, and `tableModuleContext` module context extends `gridContext`, then classes in `tableModuleContext` can inherit grid styles from `gridContext`.
+-   This prevents unrelated contexts, like `headerContext` layout context or `footerContext` layout context, from inadvertently sharing styles with `tableModuleContext`.
+
+_In Galadriel CSS, when a class inside the same context shares the same name as a class that provides inheritance from a different context, the class inside the same context will take precedence in giving inheritance. This occurs because Galadriel CSS always resolves inheritance based on the closest context. The system is designed to prioritize the nearest context, ensuring that the most specific and relevant styles are applied first. For instance, if a class inside a specific context shares its name with a class from an extended context, the class within the same context will be the one to propagate its styles._
+
+_This behavior is consistent across other styling aspects, such as variables, animations, and various settings. Galadriel CSS resolves all values starting from the closest context. The system first checks within the current context for any defined values. If no value is found, it will extend upwards to the next closest context in the hierarchy. This approach allows for a logical flow in style inheritance, but developers should always be mindful of this resolution order when designing their style hierarchy. Understanding that the closest context takes priority will help in managing and preventing unintentional overrides, ensuring that the style propagation remains efficient and predictable._
+
+### Cascading Styles in a Logical Flow
+
+The cascading nature of inheritance makes Nenyr not only powerful but also intuitive. Just as genes in a family tree flow naturally from one generation to the next, styles in Nenyr propagate seamlessly along a chain of inheritance. This propagation ensures that:
+
+-   Base styles defined at higher levels are always available.
+-   Overriding styles at lower levels are applied predictably, allowing developers to customize designs without losing inherited functionality.
+-   Pay attention, if the parent class has the Important(true) method set to **true**, the inheriting class may not overrides the parent style definitions unless it also has the Important(true) method set to **true**.
+-   The system remains organized, with a clear lineage of styles that can be traced back to their origin.
+-   Ensure that parent classes are declared before any child classes to avoid missing styles during processing.
+
+### Conclusion
+
+Inheritance in Nenyr is not just a feature; it is a design philosophy inspired by the logical flow of traits in a family tree. By representing classes as groups of utility classes and enabling the transmission of styles through contexts, Galadriel CSS achieves a harmonious balance between reusability, scalability, and precision. This approach ensures that styles are consistently propagated, overrides are intentional, and every node in the hierarchy benefits from the cumulative wisdom of its ancestors.

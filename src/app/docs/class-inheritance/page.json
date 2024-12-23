@@ -1,21 +1,20 @@
 {
     "metadata": {
-        "url": "/module-context",
-        "title": "Module Context",
-        "description": "An in-depth look at the **Module Context** in Galadriel CSS, focusing on its role in modular and scalable style management for applications.",
-        "creation_timestamp": "2024-12-22T13:22:00Z",
-        "order": 6,
+        "url": "/class-inheritance",
+        "title": "Class Inheritance",
+        "description": "An in-depth exploration of the inheritance model in Galadriel CSS, explaining the cascading hierarchy and context-aware style propagation through Nenyr classes.",
+        "creation_timestamp": "2024-12-23T00:00:00Z",
+        "order": 7,
         "tags": [
             "documentation",
             "framework",
             "CSS",
             "Nenyr",
+            "inheritance",
             "modular",
             "contextual",
             "scalability",
-            "performance",
-            "Module Context",
-            "layout management"
+            "performance"
         ],
         "author": "Patrick Gunnar",
         "is_published": true
@@ -23,15 +22,14 @@
     "seo": {
         "keywords": [
             "Galadriel CSS",
-            "Module Context",
-            "CSS framework",
+            "CSS inheritance",
             "Nenyr DSL",
             "modular design",
             "contextual styles",
+            "inheritance model",
             "scalable CSS",
             "maintainable codebase",
-            "layout management",
-            "Extending method"
+            "optimized performance"
         ],
         "robots": ["index", "follow"],
         "og_image": ""

@@ -1,0 +1,38 @@
+{
+    "metadata": {
+        "url": "/nenyr-markups",
+        "title": "Understanding Nenyr Markups",
+        "description": "Learn how Nenyr markups and the integration client work in Galadriel CSS to enable modular, contextual, and efficient styling for scalable applications.",
+        "creation_timestamp": "2024-12-23T13:22:00Z",
+        "order": 2,
+        "tags": [
+            "documentation",
+            "Galadriel CSS",
+            "Nenyr",
+            "contextual styling",
+            "modular framework",
+            "Axum server",
+            "CSS utilities",
+            "development mode",
+            "build mode"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "Nenyr markups",
+            "CSS framework",
+            "modular design",
+            "contextual styles",
+            "Axum server",
+            "scalable CSS",
+            "efficient styling",
+            "integration client",
+            "build mode"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/assets/images/galadriel-css-nenyr.png"
+    }
+}
