@@ -18,37 +18,37 @@ export type CorePrincipleType = {
 export const corePrinciples: CorePrincipleType[] = [
     {
         id: "complex-styles-principle",
-        principle: "Advanced Styling Capabilities",
+        principle: "Unlock Complex and Advanced Styling",
         icon: FcCloseUpMode,
     },
     {
         id: "dynamic-intelligent-principle",
-        principle: "Dynamic and Intelligent",
+        principle: "Dynamic, Intelligent CSS Generation",
         icon: FcFlashOn,
     },
     {
         id: "modular-structure-principle",
-        principle: "Modular Structure",
+        principle: "Modular and Context-Based Structure",
         icon: FcPuzzle,
     },
     {
         id: "clean-organized-code-principle",
-        principle: "Clean and Organized Code",
+        principle: "Ensure Clean, Organized Codebases",
         icon: FcList,
     },
     {
-        id: "utility-focused-ouput-principle",
-        principle: "Utility-Focused Output",
+        id: "utility-focused-output-principle",
+        principle: "Utility-Driven CSS Output",
         icon: FcSettings,
     },
     {
         id: "long-term-maintainability",
-        principle: "Long-Term Maintainability",
+        principle: "Focus on Long-Term Maintainability",
         icon: FcDonate,
     },
     {
         id: "intelligent-styles-principle",
-        principle: "Context-Aware Styles",
+        principle: "Context-Aware, Adaptive Styling",
         icon: FcIdea,
     },
 ];

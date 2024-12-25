@@ -24,7 +24,7 @@ export default function CorePrinciples() {
             </div>
             <div className="@module:corePrinciplesComponent::corePrinciplesContainer">
                 <h1 className="@module:corePrinciplesComponent::corePrinciplesTile">
-                    CORE PRINCIPLES OF GALADRIEL CSS
+                    CORE CONCEPTS OF GALADRIEL CSS
                 </h1>
                 <ul className="@module:corePrinciplesComponent::principlesBox">
                     {corePrinciples.map(({ id, principle, icon }) => {
