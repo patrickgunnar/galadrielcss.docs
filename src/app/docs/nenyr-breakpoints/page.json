@@ -1,0 +1,36 @@
+{
+    "metadata": {
+        "url": "/nenyr-breakpoints",
+        "title": "Creating Nenyr Breakpoints",
+        "description": "Comprehensive guide on defining, configuring, and using Nenyr breakpoints within the Galadriel CSS framework to create responsive designs.",
+        "creation_timestamp": "2024-12-25T12:00:00Z",
+        "order": 16,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "responsive design",
+            "breakpoints",
+            "mobile-first",
+            "desktop-first",
+            "scalability"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr breakpoints",
+            "responsive CSS",
+            "mobile-first breakpoints",
+            "desktop-first breakpoints",
+            "Galadriel CSS",
+            "scalable CSS framework",
+            "breakpoint implementation",
+            "modular responsive design"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

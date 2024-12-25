@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/nenyr-typefaces",
+        "title": "Defining Nenyr Typefaces",
+        "description": "A comprehensive guide to defining and managing custom typefaces in Galadriel CSS using the Nenyr DSL for scalable and maintainable typography.",
+        "creation_timestamp": "2024-12-25T15:30:00Z",
+        "order": 17,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "typefaces",
+            "typography",
+            "scalability",
+            "performance"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "Nenyr DSL",
+            "typefaces",
+            "CSS framework",
+            "font management",
+            "typography best practices",
+            "modular CSS",
+            "scalable typography"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

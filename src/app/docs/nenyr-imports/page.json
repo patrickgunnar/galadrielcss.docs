@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/nenyr-imports",
+        "title": "Nenyr Imports Method",
+        "description": "A detailed guide on the Nenyr Imports method in the Galadriel CSS framework, outlining its functionality, usage, and benefits for managing external CSS resources.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 18,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "imports",
+            "external-resources",
+            "scalability",
+            "typefaces"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr Imports method",
+            "Galadriel CSS",
+            "external CSS resources",
+            "CSS @import",
+            "modular design",
+            "typeface management",
+            "scalable CSS",
+            "contextual styles"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/assets/images/docs/nenyr-imports-method.png"
+    }
+}

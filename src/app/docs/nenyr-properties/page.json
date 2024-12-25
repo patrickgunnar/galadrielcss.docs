@@ -1,0 +1,33 @@
+{
+    "metadata": {
+        "url": "/nenyr-properties",
+        "title": "Nenyr Properties",
+        "description": "An introduction to Nenyr properties, the core building blocks of the Galadriel CSS framework. These properties enable precise and flexible style management for scalable and maintainable applications.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 19,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "properties",
+            "scalability",
+            "performance"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr properties",
+            "Galadriel CSS",
+            "CSS properties",
+            "scalable CSS",
+            "maintainable codebase",
+            "style management",
+            "flexible styles"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

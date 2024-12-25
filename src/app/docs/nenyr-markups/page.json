@@ -33,6 +33,6 @@
             "build mode"
         ],
         "robots": ["index", "follow"],
-        "og_image": "/assets/images/galadriel-css-nenyr.png"
+        "og_image": ""
     }
 }

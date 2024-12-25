@@ -1,0 +1,90 @@
+# **Defining Nenyr Typefaces in Galadriel CSS**
+
+## **Introduction to Nenyr Typefaces**
+
+Nenyr’s `Typefaces` method serves as a powerful mechanism to define and manage custom font faces across an application. This feature enables developers to standardize font usage and ensure consistency, while offering flexibility for customization in specific contexts. By centralizing the declaration of typefaces, Galadriel CSS provides an elegant and scalable way to handle typography in modern web development.
+
+To make the most of Nenyr’s typeface capabilities, it is essential to understand how to properly declare, manage, and consume typefaces. This guide provides detailed instructions and insights into the process.
+
+---
+
+## **Declaration of Typefaces in the Central Context**
+
+The declaration of typefaces in Nenyr begins in the **Central Context**, as this is the only location where `Typefaces` declarations are allowed. The `Typefaces` method must be defined using the `Declare` keyword, followed by the method itself, which accepts an object as its argument. This object maps font identifiers to their respective file paths.
+
+The identifiers used in the `Typefaces` object must adhere to specific rules: they must consist of alphanumeric characters and start with a letter. These identifiers act as unique keys that will be referenced whenever the font is applied in the application. Each key in the `Typefaces` object corresponds to the path of a font file, which must exist and be accessible during the build process. Supported file extensions include `.woff`, `.woff2`, `.ttf`, `.otf`, `.eot`, and `.svg`.
+
+It is important to note that if multiple `Typefaces` methods are defined within the same **Central Context**, the later declaration will overwrite the previous one. Therefore, developers should ensure that all required typefaces are included in a single declaration to avoid unintended behavior.
+
+Below is an example of how to define typefaces in the Central Context:
+
+```nenyr
+Construct Central {
+    Declare Typefaces({
+        regularOtf: "/typefaces/rosemartin.regular.otf",
+        regularEot: "/typefaces/showa-source-curry.regular-webfont.eot",
+        regularSvg: "/typefaces/showa-source-curry.regular-webfont.svg",
+        regularTtf: "/typefaces/showa-source-curry.regular-webfont.ttf",
+        regularWoff: "/typefaces/showa-source-curry.regular-webfont.woff",
+        regularWoff2: "/typefaces/showa-source-curry.regular-webfont.woff2"
+    })
+}
+```
+
+In this example, six different font files are mapped to unique identifiers, such as `regularOtf` and `regularWoff`. These identifiers serve as references for the fonts throughout the application.
+
+---
+
+## **Consuming Declared Typefaces in Any Context**
+
+Once typefaces are declared in the **Central Context**, they can be consumed in any context, including **Module Contexts**, **Layout Contexts**, and even the **Central Context** itself. To apply a declared font, the developer must reference its identifier in the `fontFamily` property within a Nenyr `Class` block. This allows the typeface to be seamlessly integrated into the styles of any element.
+
+Here is an example of how to consume a declared typeface within a module context:
+
+```nenyr
+Construct Module("moduleContextName") {
+    Declare Class("className") {
+        Stylesheet({
+            display: "flex",
+            fontFamily: "'regularOtf'",
+        }),
+    }
+}
+```
+
+In this example, the `fontFamily` property is set to `'regularOtf'`, which references the `regularOtf` typeface declared in the Central Context. Additional styling properties such as `display` are applied alongside the typeface, creating a cohesive design.
+
+---
+
+## **Ensuring Proper Typeface Management**
+
+Proper management of typefaces is crucial to avoid errors and ensure consistent behavior. Developers should verify that all font file paths are correct and that the files are accessible. Missing or invalid paths can result in errors during the build process or unexpected behavior in the application.
+
+Since the `Typefaces` method allows for multiple font declarations, developers should consider organizing their font files and identifiers in a way that reflects their usage within the application. For example, identifiers can include both the font name and variant (e.g., `RobotoRegular`, `RobotoBold`, etc.) to make them more descriptive.
+
+---
+
+## **Flexibility and Scalability**
+
+Nenyr’s approach to typefaces is both flexible and scalable. Developers can declare as many typefaces as necessary, supporting applications with diverse typographic requirements. The centralized declaration in the Central Context ensures that all fonts are managed in a single location, reducing redundancy and simplifying maintenance.
+
+Furthermore, the ability to consume declared typefaces in any context enables developers to create highly customized designs without duplicating font definitions. This flexibility is particularly useful in large applications where different modules or layouts may require distinct typography.
+
+---
+
+## **Best Practices for Using Nenyr Typefaces**
+
+To make the most of Nenyr’s typeface capabilities, developers should adhere to the following best practices:
+
+-   Always declare typefaces in the **Central Context** to maintain a centralized and consistent source of truth.
+-   Use descriptive and unique identifiers for each font to avoid conflicts and improve readability.
+-   Double-check file paths to ensure that all font files are accessible and correctly referenced.
+-   Organize font files in a logical directory structure that reflects their usage within the application.
+-   Standardize naming conventions for identifiers to improve maintainability and collaboration.
+-   Test typefaces across different contexts to ensure that they render correctly and meet design expectations.
+
+---
+
+## **Conclusion**
+
+Nenyr’s `Typefaces` method offers a robust and elegant solution for managing fonts in Galadriel CSS. By centralizing declarations and enabling flexible consumption, it empowers developers to create visually consistent and scalable applications. With a clear understanding of the syntax, rules, and best practices, developers can fully leverage this feature to enhance their typography and streamline their development workflow.
