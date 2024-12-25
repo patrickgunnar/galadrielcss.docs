@@ -1,0 +1,226 @@
+# Nenyr Animations: A Detailed Guide
+
+In **Galadriel CSS**, animations are powerful tools that enhance the design and interaction experience of a website or application. These animations are built using the Nenyr language, a custom DSL designed to streamline the process of creating complex, context-aware styles and animations. This guide will walk you through the different methods for defining Nenyr animations, explaining each concept in detail to give you a deep understanding of how to use them effectively in your projects.
+
+## Overview of Nenyr Animations
+
+A **Nenyr animation** is a set of style transitions defined over a period of time, and it is composed of a series of keyframes or stops. These stops can either be defined explicitly by the user or automatically by Galadriel CSS using specific methods. There are three primary types of animations you can create in Nenyr:
+
+1. **Fraction**: Define specific stops of an animation at given percentages.
+2. **Progressive**: Let Galadriel CSS determine the animation stops in a progressive timing sequence.
+3. **Transitive (From, Halfway, To)**: Define a sequence where the animation starts at a certain state, progresses to a midway point, and finally reaches its end.
+
+Each type of animation has its own method for defining keyframes, and the order in which these methods are declared matters for the animation's behavior. In this guide, we'll break down each method and explain how to use them.
+
+---
+
+## Defining Animations in Nenyr
+
+### The `Declare` Keyword
+
+Every animation in Nenyr begins with the `Declare` keyword. This keyword marks the beginning of an animation definition within a specific context. After the `Declare` keyword, the `Animation("animationName")` method is used to give the animation its name, followed by a block of curly braces `{}` that will contain the animation's keyframes and properties.
+
+Example:
+
+```nenyr
+Declare Animation("fadeIn") {
+  // Animation methods go here
+}
+```
+
+---
+
+## Animation Methods in Nenyr
+
+There are three primary methods for defining animations in Nenyr, each suited for different use cases. Let’s explore each method in detail.
+
+### 1. The `Fraction` Method
+
+The **Fraction** method defines animations of type "Fraction," where the user specifies keyframe stops at specific percentages of the animation’s timeline. You can define multiple stops within a single animation using this method, and the stops will be executed in the order they are declared.
+
+#### Syntax:
+
+```nenyr
+Fraction(stopPercentage, { properties })
+```
+
+-   **stopPercentage**: A number or array of numbers that specify the point(s) in the animation where a change in styles occurs.
+-   **properties**: The object containing Nenyr properties (similar to CSS properties in JavaScript), where each property defines the style at that specific stop.
+
+#### Example:
+
+```nenyr
+Declare Animation("floatBorderFlash") {
+  Fraction(12.5, {
+    borderColor: "${accentColorVar}",
+    borderWidth: "1px"
+  }),
+  Fraction([35.75, 58.5, 78.25], {
+    borderColor: "orange",
+    borderWidth: "3px"
+  }),
+  Fraction(90.5, {
+    borderColor: "teal",
+    borderWidth: "2px"
+  }),
+  Fraction(100.0, {
+    borderColor: "${accentColorVar}",
+    borderWidth: "1px"
+  })
+}
+```
+
+In the example above:
+
+-   The animation "floatBorderFlash" defines four keyframes using the **Fraction** method.
+-   The `stopPercentage` values indicate where each stop will occur in the timeline of the animation.
+-   The `properties` object defines the style at each stop, such as `borderColor` and `borderWidth`.
+-   The stops will occur at: 12.5%, 35.75%, 58.5%, 78.25%, 90.5%, and 100%.
+
+### 2. The `Progressive` Method
+
+The **Progressive** method creates animations where Galadriel CSS automatically defines the keyframe stops, spaced progressively along the animation's timeline. This method is useful when you want the animation to evolve smoothly over time with evenly distributed stops.
+
+#### Syntax:
+
+```nenyr
+Progressive({ properties })
+```
+
+-   **properties**: The object that defines the Nenyr properties for the animation's state at a specific point in time.
+
+#### Example:
+
+```nenyr
+Declare Animation("horizontalMove") {
+  Progressive({
+    transform: "translateX(0)",
+    backgroundColor: "lightgray"
+  }),
+  Progressive({
+    transform: "translateX(50px)",
+    backgroundColor: "lightblue"
+  }),
+  Progressive({
+    transform: "translateX(100px)",
+    backgroundColor: "lightgreen"
+  }),
+  Progressive({
+    transform: "translateX(150px)",
+    backgroundColor: "lightcoral"
+  }),
+  Progressive({
+    transform: "translateX(200px)",
+    backgroundColor: "lightgoldenrodyellow"
+  })
+}
+```
+
+In the example above:
+
+-   The **Progressive** method is used to define five progressive stops for the "horizontalMove" animation.
+-   The `properties` for each stop change the `transform` (moving an element horizontally) and the `backgroundColor`.
+-   The stops will occur at: 0%, 25%, 50%, 75%, and 100%.
+
+### 3. The `From`, `Halfway`, and `To` Methods
+
+The **From**, **Halfway**, and **To** methods are used together to define animations of type "Transitive." These animations have three key states: the starting point, the halfway point, and the end point. This type of animation is typically used when you want to specify the exact start and end of an animation, along with an intermediate state.
+
+#### Syntax:
+
+```nenyr
+From({ properties }),
+Halfway({ properties }),
+To({ properties })
+```
+
+-   **From**: The starting state of the animation.
+-   **Halfway**: The intermediate state of the animation (50% through the animation's timeline).
+-   **To**: The final state of the animation.
+
+#### Example:
+
+```nenyr
+Declare Animation("fadeAndScale") {
+  From({
+    opacity: "0",
+    transform: "scale(0.5)"
+  }),
+  Halfway({
+    opacity: "0.5",
+    transform: "scale(1)"
+  }),
+  To({
+    opacity: "1",
+    transform: "scale(1.2)"
+  })
+}
+```
+
+In the example above:
+
+-   The "fadeAndScale" animation begins with an opacity of `0` and a `scale` of `0.5`.
+-   At the halfway point, the opacity increases to `0.5` and the scale becomes `1`.
+-   At the final point, the opacity reaches `1`, and the scale expands to `1.2`.
+-   The stops will occur at: 0%, 50%, and 100%.
+
+---
+
+## Rules and Constraints in Nenyr Animations
+
+### 1. Animation Type Consistency
+
+One important rule in Nenyr is that an animation can only contain methods of the same type. This means:
+
+-   **Fraction** animations can only use the **Fraction** method.
+-   **Progressive** animations can only use the **Progressive** method.
+-   **Transitive** animations can only use the **From**, **Halfway**, and **To** methods together.
+
+If you attempt to mix methods from different types within a single animation (for example, using both **Fraction** and **Progressive** methods in the same animation), Galadriel CSS will raise an error.
+
+#### Example of Invalid Animation:
+
+```nenyr
+Declare Animation("invalidAnimation") {
+  Fraction(50, { transform: "scale(1)" }),
+  Progressive({ transform: "scale(2)" })  // Error: Mixed method types.
+}
+```
+
+In this case, since the **Fraction** and **Progressive** methods belong to different animation types, this animation would not be valid.
+
+### 2. Internal Animation Naming and Context
+
+Galadriel CSS resolves animation names based on their context, which is a powerful feature that prevents name collisions and ensures that animations are unique across different parts of your application.
+
+-   **Unique Animation Names**: Each animation receives an internal unique name generated by Galadriel CSS. This name is based on the context in which the animation is defined.
+-   **Contextual Resolution**: Galadriel CSS first looks for the animation name in the current context. If it doesn’t find it, it will search through any contexts that extend the current context, allowing for context-based overrides.
+
+This approach allows you to define animations with the same name in different contexts without fear of conflict. If two animations have the same name but belong to different, unrelated contexts, Galadriel CSS will treat them as distinct animations.
+
+However, if two animations with the same name exist in related contexts, Galadriel CSS will resolve the closest definition and use the appropriate unique name for the animation.
+
+#### Example:
+
+```nenyr
+// In context A
+Declare Animation("bounce") {
+  Fraction(50, { transform: "translateY(50px)" })
+}
+
+// In context B, extending A
+Declare Animation("bounce") {
+  Fraction(50, { transform: "translateY(100px)" })
+}
+```
+
+In this scenario:
+
+-   Galadriel CSS generates unique internal names for each animation.
+-   Even though the same name "bounce" is used in both contexts, the animations are treated as separate entities based on their context.
+
+---
+
+## Conclusion
+
+Creating animations in Nenyr provides a robust and flexible way to define dynamic interactions in your application. By understanding the three primary methods (**Fraction**, **Progressive**, and **Transitive**), the rules governing method consistency, and the powerful context-based animation naming system in Galadriel CSS, you can create complex animations that are easy to manage and highly performant. Keep these principles in mind, and you’ll be able to harness the full power of Nenyr and Galadriel CSS to bring your designs to life.

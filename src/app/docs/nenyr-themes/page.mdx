@@ -1,0 +1,98 @@
+# Comprehensive Guide Nenyr Themes
+
+Themes in Nenyr are a fundamental part of Galadriel CSS, enabling developers to define light and dark modes with precision and scalability. The `Themes` method offers a powerful way to establish these styles within the framework's context hierarchy. This guide dives deep into the intricacies of creating and managing themes, explaining every detail of the process.
+
+---
+
+## Declaring Themes in Nenyr
+
+To declare themes in Nenyr, you must use the `Declare` keyword followed by the `Themes({})` method. The `Themes` method is designed to receive an object containing the definitions of light and dark themes. These themes are specified using the `Light({})` and `Dark({})` methods, each of which accepts an object as its argument. Within these objects, you define variables that correspond to the specific design elements of your themes, such as colors, shadows, and borders.
+
+The structure of the `Themes` method ensures that the light and dark modes are cleanly encapsulated, making it easy to manage their variables. For example, the light theme might include brighter colors and softer shadows, while the dark theme uses darker hues and more pronounced shadows. By defining these variables in one place, you maintain consistency and reduce redundancy in your CSS.
+
+---
+
+## Using the `Light` and `Dark` Methods
+
+Inside the `Themes({})` object, the `Light({})` and `Dark({})` methods serve as containers for theme-specific variables. These methods allow you to tailor styles for light and dark modes independently. Both methods are designed to receive an object where you instantiate the `Variables({})` method to define the desired properties.
+
+The `Variables({})` method within themes does not require the `Declare` keyword, aligning with the rules applied to standalone variable declarations. Variables defined in this context follow the same resolution hierarchy as other variables in Nenyr, meaning they will be resolved to the nearest applicable context. This ensures that theme-specific variables are prioritized and applied appropriately.
+
+---
+
+## Contextual Restrictions and Overwriting
+
+Themes in Nenyr are context-sensitive, and their placement is critical to their functionality. The `Themes` method can only be defined within the Central Context or Layout Contexts. These contexts represent higher levels of the hierarchy, ensuring that the themes they define have a broad scope. For instance, a theme declared in the Central Context will affect the entire application, while a theme in a Layout Context will apply to a specific layout or section.
+
+If multiple `Themes` methods are defined in the same context, the later definition will overwrite the earlier one. This rule simplifies the management of themes by ensuring that only one active definition exists per context. However, developers should be mindful of this behavior to avoid unintended overwriting.
+
+---
+
+## Generating CSS Rules from Themes
+
+When the `Themes` method is processed, Galadriel CSS generates the corresponding CSS rules for both light and dark themes. These rules include all variables defined within the `Light({})` and `Dark({})` methods, creating distinct styles for each mode. For instance, the variables for the light theme might include a white background and dark text, while the dark theme variables specify a black background and light text.
+
+This process ensures that the generated CSS is clean and optimized, containing only the necessary rules for each theme. The separation of light and dark modes also facilitates dynamic theme switching, allowing developers to toggle between themes seamlessly at runtime.
+
+---
+
+## Example: Defining Themes in a Central Context
+
+Here’s a detailed example of how to define themes in a Central Context:
+
+```nenyr
+Construct Central {
+  Declare Themes({
+    Light({
+      Variables({
+        primaryColor: "#FFFFFF",
+        secondaryColor: "#F0F0F0",
+        accentColorVar: "#3498DB",
+        bgColor: "#FAFAFA",
+        bdrColor: "#DDDDDD",
+        textColor: "#333333",
+        textSecondaryColor: "#666666",
+        highlightColor: "#FFDD57",
+        shadowColor: "rgba(0, 0, 0, 0.1)"
+      })
+    }),
+    Dark({
+      Variables({
+        primaryColor: "#1E1E1E",
+        secondaryColor: "#333333",
+        accentColorVar: "#FF4500",
+        bgColor: "#121212",
+        bdrColor: "#444444",
+        textColor: "#F0F0F0",
+        textSecondaryColor: "#AAAAAA",
+        highlightColor: "#FF8C00",
+        shadowColor: "rgba(0, 0, 0, 0.4)"
+      })
+    })
+  })
+}
+```
+
+This example illustrates a practical implementation of themes. In the Central Context, the `Themes` method defines both light and dark themes. Each theme contains a set of variables tailored to its visual style, ensuring that the application adheres to the desired aesthetic in both modes.
+
+---
+
+## Advanced Insights and Best Practices
+
+### Placement of Themes
+
+Themes should only be declared in contexts where they are necessary. For global themes, the Central Context is ideal. For sectional themes, use Layout Contexts to ensure the themes apply only to specific parts of your application.
+
+### Resolution Hierarchy
+
+In the Light or Dark theme methods, the Variables method is instantiated directly, without the Declare keyword. The same rules to define standalone variables applies to theme's variables. For more details on how the Variables method works, refer to the dedicated Variables section.
+
+### Scalability
+
+The structured approach to themes in Nenyr ensures scalability. As your application grows, you can easily add or modify themes without disrupting the existing styles.
+
+---
+
+## Conclusion
+
+The `Themes` method in Nenyr provides a robust and efficient way to manage light and dark themes in your application. By adhering to the principles and guidelines outlined in this guide, you can create scalable, maintainable, and visually appealing themes that elevate your application's design. Whether you're defining themes for a global application or specific layouts, Nenyr ensures consistency and flexibility, making it a powerful tool for developers.

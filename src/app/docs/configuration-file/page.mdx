@@ -1,0 +1,126 @@
+# Customizing Galadriel CSS Configurations
+
+Galadriel CSS is designed to work out of the box, requiring no additional configurations to run its development server or build process. However, developers can define custom configurations to better tailor the framework to their specific needs. These configurations are set through a JSON file named `galadriel.config.json`, placed in the root directory of the application. Once present, the Galadriel CSS development server automatically detects and applies the specified settings.
+
+This guide provides a detailed overview of the available configuration options, how to define them, and their impact on the behavior of Galadriel CSS.
+
+---
+
+## Creating the Configuration File
+
+To begin, create a file named `galadriel.config.json` in the root directory of your project. This file will house all custom configuration settings for Galadriel CSS. Below are the keys you can specify and detailed instructions for each:
+
+---
+
+### **1. `exclude`: Specifying Excluded Files or Directories**
+
+The `exclude` key accepts an array of glob patterns that instruct Galadriel CSS to skip observing specific files or directories. By default, Galadriel CSS observes all Nenyr documents across your application, including within the `node_modules` directory. Excluding unnecessary directories or files can significantly improve efficiency by reducing the observation workload.
+
+#### **Examples of Usage:**
+
+-   Exclude the entire `node_modules` folder:
+    ```json
+    "exclude": ["node_modules/**"]
+    ```
+-   Exclude the `logs` folder:
+    ```json
+    "exclude": ["logs/**"]
+    ```
+-   Exclude a specific file in the root directory:
+    ```json
+    "exclude": ["/layout.nyr"]
+    ```
+-   Exclude all files named `layout.nyr`, regardless of their location:
+    ```json
+    "exclude": ["layout.nyr"]
+    ```
+
+Glob patterns are flexible, allowing precise control over the exclusion of directories or files. Use this configuration to streamline the observation process and enhance performance.
+
+---
+
+### **2. `autoNaming`: Automatic Naming for Contexts, Classes, and Animations**
+
+The `autoNaming` key accepts a boolean value (`true` or `false`) and is set to `false` by default. When enabled, Galadriel CSS automatically generates random names for contexts, classes, and animations in Nenyr documents. These names are constructed from a predefined word bank, combining adjectives and nouns.
+
+#### **Considerations:**
+
+-   **Advantages:** Automates the naming process for quick prototyping.
+-   **Drawbacks:** Generated names are random and lack descriptive value, potentially reducing clarity and maintainability.
+
+For production environments or collaborative projects, it is highly recommended to manually define descriptive names for contexts, classes, and animations. Descriptive names improve readability and make maintaining Nenyr documents significantly easier.
+
+---
+
+### **3. `resetStyles`: Resetting Browser Default Styles**
+
+The `resetStyles` key accepts a boolean value and is enabled (`true`) by default. When active, Galadriel CSS includes CSS rules to reset browser default styles for HTML elements. This ensures that the generated styles are not influenced by varying browser defaults.
+
+#### **Usage:**
+
+-   **Enabled (`true`):** Reset styles are applied to neutralize browser-specific default styles.
+-   **Disabled (`false`):** Browser default styles remain intact.
+
+Enable this setting if you want consistent styling across all browsers. Disable it if you wish to work with or override the browser’s default styles manually.
+
+---
+
+### **4. `minifiedStyles`: Minify Styles in Development**
+
+The `minifiedStyles` key accepts a boolean value and is enabled (`true`) by default. This configuration determines whether the CSS rules generated during development are minified.
+
+#### **Key Notes:**
+
+-   This setting only affects the **development server**.
+-   During the build process, styles are minified by default, and this cannot be changed.
+
+Disabling minification during development provides a more human-readable output, allowing developers to better understand the generated CSS.
+
+---
+
+### **5. `port`: Specifying the Development Server Port**
+
+The `port` key accepts a string that specifies the port Galadriel CSS should use for its development server. By default, Galadriel CSS selects a random available port.
+
+#### **Usage:**
+
+-   **Random Port:** Specify an asterisk (`"*"`):
+    ```json
+    "port": "*"
+    ```
+-   **Specific Port:** Define a port number as a string:
+    ```json
+    "port": "3000"
+    ```
+
+Ensure that the specified port is available and not in use by other processes.
+
+---
+
+## Example Configuration File
+
+Below is an example of a fully customized `galadriel.config.json` file:
+
+```json
+{
+    "exclude": ["node_modules/**", "logs/**", "/layout.nyr"],
+    "autoNaming": false,
+    "resetStyles": true,
+    "minifiedStyles": false,
+    "port": "3000"
+}
+```
+
+---
+
+## Best Practices
+
+-   **Keep Configurations Minimal:** Galadriel CSS works seamlessly with default settings. Customize only when necessary to optimize specific aspects of your workflow.
+-   **Use Descriptive Names:** Avoid relying on `autoNaming` for production. Manually naming contexts, classes, and animations enhances clarity and maintainability.
+-   **Optimize Observations:** Use the `exclude` option strategically to avoid unnecessary processing of files or directories.
+
+---
+
+## Final Notes
+
+Galadriel CSS is designed to be highly flexible and efficient, accommodating both zero-configuration setups and custom configurations with ease. The `galadriel.config.json` file allows you to fine-tune its behavior to suit your development needs. Whether you’re working on a small project or a large-scale application, these settings provide the control needed to maximize productivity and efficiency.

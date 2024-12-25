@@ -1,0 +1,36 @@
+{
+    "metadata": {
+        "url": "/configuration-file",
+        "title": "Customizing Configurations",
+        "description": "A detailed guide on defining custom configurations for Galadriel CSS through the `galadriel.config.json` file to optimize development workflows and enhance productivity.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 10,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Galadriel CSS",
+            "configuration",
+            "Nenyr",
+            "customization",
+            "performance",
+            "development"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS configuration",
+            "customizing CSS frameworks",
+            "Nenyr DSL",
+            "CSS optimization",
+            "development workflows",
+            "modular frameworks",
+            "Galadriel.config.json guide",
+            "performance enhancement"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

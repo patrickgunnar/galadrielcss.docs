@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/nenyr-aliases",
+        "title": "Understanding Nenyr Aliases",
+        "description": "A guide to understanding and using Nenyr aliases within Galadriel CSS, a modular and contextual CSS framework designed to simplify and optimize your styling workflow.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 15,
+        "tags": [
+            "documentation",
+            "Galadriel CSS",
+            "Nenyr",
+            "aliases",
+            "modular design",
+            "contextual styles",
+            "code readability",
+            "performance"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr aliases",
+            "Galadriel CSS",
+            "modular CSS",
+            "contextual styling",
+            "shorthand properties",
+            "CSS optimization",
+            "style simplification",
+            "scalable CSS"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

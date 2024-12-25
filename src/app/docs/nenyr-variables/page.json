@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/nenyr-variables",
+        "title": "Defining Nenyr Variables",
+        "description": "A detailed guide on Nenyr variables in Galadriel CSS, explaining how to declare, use, and manage them effectively within a context-aware styling framework.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 13,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "variables",
+            "contextual",
+            "hierarchical",
+            "efficiency"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "Nenyr variables",
+            "CSS framework",
+            "context-aware styles",
+            "hierarchical variables",
+            "scalable design",
+            "maintainable styling",
+            "CSS efficiency"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

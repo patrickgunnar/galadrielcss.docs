@@ -1,0 +1,34 @@
+{
+    "metadata": {
+        "url": "/nenyr-class",
+        "title": "Nenyr Classes Definitions",
+        "description": "A detailed guide to understanding and utilizing Nenyr classes for declarative styling with the Nenyr DSL, including methods, best practices, and examples.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 11,
+        "tags": [
+            "documentation",
+            "Nenyr",
+            "CSS framework",
+            "Galadriel CSS",
+            "declarative styling",
+            "modular design",
+            "contextual styles"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr classes",
+            "Galadriel CSS",
+            "CSS framework",
+            "declarative styling",
+            "modular design",
+            "contextual CSS",
+            "Nenyr DSL",
+            "CSS methods and pseudo-selectors"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/images/docs/nenyr-classes-guide.png"
+    }
+}

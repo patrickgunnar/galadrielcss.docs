@@ -1,0 +1,37 @@
+{
+    "metadata": {
+        "url": "/nenyr-animation",
+        "title": "Nenyr Animations Guide",
+        "description": "A comprehensive guide on creating and managing animations in Galadriel CSS using the Nenyr DSL. Learn about Fraction, Progressive, and Transitive animation methods, and how to define keyframes for efficient, context-aware animations.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 12,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "animations",
+            "Galadriel CSS",
+            "keyframes",
+            "Fraction",
+            "Progressive",
+            "Transitive"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr animations",
+            "Galadriel CSS animations",
+            "Fraction animations",
+            "Progressive animations",
+            "Transitive animations",
+            "CSS keyframes",
+            "animation guide",
+            "modular CSS"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

@@ -1,0 +1,220 @@
+# Defining Nenyr Variables in Galadriel CSS: A Comprehensive Guide
+
+Nenyr variables are an essential feature of Galadriel CSS, allowing developers to define reusable values and enhance their styling efficiency. Variables are context-aware, ensuring that their usage remains scoped and avoids conflicts. This guide provides a detailed, step-by-step explanation of how Nenyr variables work, how to declare them, and how to use them effectively in your projects.
+
+---
+
+## Declaring Nenyr Variables
+
+To declare variables in Nenyr, the `Declare` keyword is used in combination with the `Variables({})` method. This method is designed to receive an object where each key-value pair represents a variable. The keys act as variable identifiers, while the values are the actual content assigned to those variables.
+
+Each key in the object is treated as a unique variable name, and its associated value must always be a string. This string contains the value you wish to assign to the variable, such as a color code, font size, or any other value suitable for CSS.
+
+### Key Considerations for Declaring Variables
+
+When defining variables:
+
+1. **The Variable Identifier**:
+    - The identifier must be alphanumeric.
+    - It must begin with a letter. For example, `primaryColor` is valid, whereas `1stColor` or `@primary` is not.
+2. **The Variable Value**:
+    - The value must always be enclosed in quotes as a string.
+    - It should represent the desired style value, such as `"blue"`, `"#FFFFFF"`, or `"16px"`.
+
+Variables declared within the same context must be included within a single `Variables({})` method. If multiple `Variables({})` declarations are made in the same context, the latter will overwrite the earlier declarations entirely, replacing all previously defined variables.
+
+---
+
+## Context and Scope of Variables
+
+### Context-Based Unique Names
+
+Galadriel CSS assigns each variable a unique name by combining its identifier with the name of the context in which it is defined. This system ensures that variable names remain unique, even if they share the same identifier across different contexts. For example, a variable named `primaryColor` defined in the `Central` context will have a distinct internal name from `primaryColor` defined in the `Layout` context.
+
+This approach eliminates the possibility of naming collisions between variables in unrelated contexts, giving developers the flexibility to reuse variable identifiers without concern for conflicts. It is particularly beneficial in large-scale projects where multiple contexts might use similar naming conventions.
+
+### Hierarchical Resolution of Variables
+
+Variables in Galadriel CSS are resolved based on the context hierarchy. When a variable is referenced, the system first checks the current context for its definition. If the variable is not found in the current context, the system searches the parent context, continuing upwards through the hierarchy until it locates the variable. The closest matching definition in the hierarchy is used.
+
+This behavior allows for a powerful variable overriding mechanism. Developers can define variables at higher levels in the hierarchy for general use and override them in lower-level contexts when more specific values are needed.
+
+---
+
+## Using Variables in Nenyr
+
+Once variables are declared, they can be referenced in styles using the syntax `${variableIdentifier}`. This syntax allows for dynamic resolution of the variable's value based on the context in which it is used. The resolved value is automatically injected into the generated CSS, ensuring efficiency and clarity in the styling process.
+
+### Example of Variable Usage
+
+In this example, variables are defined in a central context and then used in styles:
+
+```nenyr
+Construct Central {
+    Declare Variables({
+        primaryColor: "#FF6677",
+        secondaryColor: "white",
+        accentColor: "#FF5733"
+    }),
+    Declare Class("className") {
+        Stylesheet({
+            backgroundColor: "${primaryColor}",
+            borderColor: "${accentColor}",
+            color: "${secondaryColor}"
+        })
+    }
+}
+```
+
+Here:
+
+-   The `primaryColor` variable is used as the `backgroundColor`.
+-   The `accentColor` is applied to the `borderColor`.
+-   The `secondaryColor` defines the `color`.
+
+---
+
+## Avoiding Common Mistakes
+
+### Multiple Variables Method Declarations in a Single Context
+
+Defining more than one `Variables({})` method within the same context leads to the latest declaration replacing the previous ones. To avoid unintended overwrites, consolidate all variables for a single context into one `Variables({})` method.
+
+```nenyr
+Construct Central {
+    Declare Variables({
+        primaryColor: "yellow"
+    }),
+    // This will overwrite the earlier declaration entirely
+    Declare Variables({
+        secondaryColor: "blue"
+    })
+}
+```
+
+In the example above, only `secondaryColor` will remain after the second declaration. To avoid this, combine them into one declaration.
+
+### Invalid Variable Identifiers
+
+Variable identifiers must follow specific rules to ensure compatibility:
+
+-   Avoid using special characters like `@`, `#`, or spaces.
+-   Ensure identifiers start with a letter and use only alphanumeric characters.
+
+Correct usage:
+
+```nenyr
+Declare Variables({
+    myColor: "#FF6677",
+    secondaryColor: "blue"
+})
+```
+
+Incorrect usage:
+
+```nenyr
+Declare Variables({
+    1stColor: "red",   // Starts with a number
+    @color: "blue"     // Contains special character
+})
+```
+
+---
+
+## Advanced Features: Hierarchical Overrides
+
+The hierarchical resolution system is particularly useful for creating default values that can be overridden in specific contexts. For example:
+
+```nenyr
+// Central context
+Construct Central {
+    Declare Variables({
+        primaryColor: "#000000",
+        textColor: "#333333"
+    })
+}
+
+// Module context
+Construct Module("moduleContextName") {
+    Declare Variables({
+        primaryColor: "#FFFFFF" // Overrides primaryColor from the Central context
+    }),
+
+    Declare Class("className") {
+        Stylesheet({
+            color: "${textColor}",  // Uses value from the Central context
+            backgroundColor: "${primaryColor}" // Uses overridden value
+        })
+    }
+}
+```
+
+In this scenario:
+
+-   The `primaryColor` variable in the `Page` context overrides the `primaryColor` defined in the `Global` context.
+-   The `textColor` variable from the `Global` context is used as-is since it is not redefined in `Page`.
+
+This system enables precise control over styles, reducing redundancy and enhancing maintainability.
+
+---
+
+## Comprehensive Example
+
+To illustrate the full power of Nenyr variables, here is a larger example incorporating variable declarations, context hierarchy, and variable usage:
+
+```nenyr
+// Central context
+Construct Central {
+    Declare Variables({
+        primaryColor: "#282C34",
+        secondaryColor: "#61DAFB",
+        textColor: "#FFFFFF",
+        linkColor: "#61DAFB",
+        borderColor: "#E5E5E5",
+        shadowColor: "rgba(0, 0, 0, 0.1)"
+    }),
+    Declare Class("className") {
+        Stylesheet({
+            bodyBackground: "${primaryColor}",
+            defaultText: "${textColor}",
+            borderStyle: "1px solid ${borderColor}"
+        })
+    }
+}
+
+// Layout context
+Construct Layout("layoutContextName") {
+    Declare Variables({
+        primaryColor: "#20232A", // Overrides Central's primaryColor
+        linkColor: "#FFFFFF" // Overrides Central's linkColor
+    }),
+    Declare Class ("className") {
+        Stylesheet({
+            backgroundColor: "${primaryColor}",
+            color: "${linkColor}"
+        })
+    }
+}
+
+// Module context
+Construct Module("moduleContextName") {
+    Declare Class("className") {
+        Stylesheet({
+            color: "${textColor}", // Uses the Central's textColor
+            boxShadow: "0px 4px 8px ${shadowColor}" // Uses the Central's shadowColor
+        })
+    }
+}
+```
+
+In this example:
+
+-   The `Global` context defines variables and general styles used across the application.
+-   The `Header` and `Footer` contexts extend `Global` and override specific variables where needed.
+-   The hierarchical resolution system ensures the correct variables are applied in each context.
+
+---
+
+## Conclusion
+
+Nenyr variables provide a robust mechanism for managing reusable values within Galadriel CSS. By leveraging context-aware unique naming, hierarchical resolution, and dynamic referencing, developers can create efficient and maintainable styles. This guide has provided an in-depth exploration of how to declare, use, and manage Nenyr variables effectively, ensuring you can take full advantage of this feature in your projects.

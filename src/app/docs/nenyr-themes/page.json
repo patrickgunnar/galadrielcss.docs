@@ -1,0 +1,36 @@
+{
+    "metadata": {
+        "url": "/nenyr-themes",
+        "title": "Guide to Nenyr Themes",
+        "description": "An in-depth guide on creating and managing light and dark themes in Galadriel CSS using the Nenyr DSL. Learn the intricacies of defining scalable and maintainable themes with examples and best practices.",
+        "creation_timestamp": "2024-12-25T13:22:00Z",
+        "order": 14,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "themes",
+            "light mode",
+            "dark mode",
+            "scalability",
+            "contextual styles"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS themes",
+            "light and dark mode",
+            "Nenyr DSL",
+            "CSS framework",
+            "theme management",
+            "scalable design",
+            "contextual themes",
+            "best practices for themes"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

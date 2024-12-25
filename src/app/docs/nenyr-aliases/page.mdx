@@ -1,0 +1,173 @@
+# Nenyr Aliases in Galadriel CSS
+
+Nenyr aliases are an essential feature within **Galadriel CSS**, allowing you to define shorthand names for properties. This method enables you to create more compact and readable code while maintaining the full functionality of the original property names. Using aliases can help improve code clarity, reduce redundancy, and make it easier to work with large Nenyr documents.
+
+In this guide, we will dive deep into how **Nenyr aliases** work, how to declare them, and how they interact within different contexts. This document aims to explain the full process, providing you with a solid understanding of how to utilize aliases effectively in your Nenyr-based styling system.
+
+## What Are Nenyr Aliases?
+
+Nenyr aliases act as **abbreviations** for properties defined within the Nenyr syntax. These aliases replace longer, more complex property names with shorter identifiers that still carry the full functionality of the original Nenyr property. Essentially, an alias is a shortcut that you can use to represent a property in your code, making it more concise without losing its meaning.
+
+For example, instead of using the full property name `backgroundColor`, you could create an alias `bgdColor`, which will have the same effect when applied within a Nenyr document. The alias will be resolved and treated just like the original property name during the build process.
+
+## Declaring Aliases in Nenyr
+
+In **Galadriel CSS**, aliases are declared using the `Declare` keyword followed by the `Aliases({})` method. This method expects an object in which each key represents the alias identifier, and its corresponding value is the actual Nenyr property that it will represent.
+
+The syntax looks like this:
+
+```nenyr
+Declare Aliases({
+    aliasName: originalProperty
+})
+```
+
+-   **`aliasName`**: This is the shorthand identifier for the Nenyr property.
+-   **`originalProperty`**: This is the full Nenyr property name that the alias will represent.
+
+Here is an example of how aliases are typically defined in a context:
+
+```nenyr
+Construct Layout("layoutContextName") {
+  Declare Aliases({
+        // Background and Borders
+        bgd: background,
+        bgdColor: backgroundColor,
+        bgdImg: backgroundImage,
+        bgdSize: backgroundSize,
+        bd: border,
+        bdT: borderTop,
+        bdB: borderBottom,
+        bdL: borderLeft,
+        bdR: borderRight,
+        bdColor: borderColor,
+        bdRadius: borderRadius,
+        boxShdw: boxShadow,
+
+        // Display and Layout
+        dp: display,
+        pos: position,
+        flt: float,
+        ovf: overflow,
+        ovfX: overflowX,
+        ovfY: overflowY,
+        zIdx: zIndex,
+        flexDir: flexDirection,
+        flexWrp: flexWrap,
+        algnItems: alignItems,
+        justifyCnt: justifyContent,
+        gridTpl: gridTemplate,
+
+        // Sizing
+        wd: width,
+        hgt: height,
+        maxWd: maxWidth,
+        minWd: minWidth,
+        maxHgt: maxHeight,
+        minHgt: minHeight,
+
+        // Spacing
+        mg: margin,
+        mgT: marginTop,
+        mgB: marginBottom,
+        mgL: marginLeft,
+        mgR: marginRight,
+        pdg: padding,
+        pdgT: paddingTop,
+        pdgB: paddingBottom,
+        pdgL: paddingLeft,
+        pdgR: paddingRight,
+        gp: gap,
+
+        // Typography
+        fntSize: fontSize,
+        fntWeight: fontWeight,
+        fntFam: fontFamily,
+        txtAlign: textAlign,
+        txtDec: textDecoration,
+        txtTrnsf: textTransform,
+        lineHgt: lineHeight,
+        letterSpc: letterSpacing,
+        wordSpc: wordSpacing,
+        clr: color,
+
+        // Other Adjustments
+        opcty: opacity,
+        trnsfrm: transform,
+        trnsfrmOrgn: transformOrigin,
+        trnstn: transition,
+        trnstnDur: transitionDuration,
+        crsr: cursor,
+        vis: visibility,
+        fltShdw: filter
+    })
+}
+```
+
+In this example, `bgd` becomes an alias for the `background` property, `bgdColor` for `backgroundColor`, `bd` for `border`, and so on. These aliases can now be used interchangeably with the original property names throughout the Nenyr document, making the code shorter and easier to work with.
+
+### Important Rules for Defining Aliases
+
+There are several important guidelines and rules to follow when defining **Nenyr aliases**. Let’s walk through each one in detail.
+
+### 1. **Context-Specific Aliases**
+
+Aliases are **context-based**, which means that they are specific to the context in which they are declared. This is a key aspect of the system, as it ensures that the alias does not conflict with other aliases in different contexts, even if they share the same name.
+
+This context-specific nature is beneficial because it allows you to reuse the same alias name in different contexts without the risk of collision. For example, you can have an alias `bgd` in the `layoutContext` a layout context and another `bgd` in the `moduleContext` a module context—each one will resolve independently within its respective context.
+
+This approach reduces confusion and ensures that aliases work correctly without stepping on each other’s toes, even across multiple contexts.
+
+### 2. **Aliasing Only Once per Context**
+
+You should define only **one `Aliases` method per context**. If you define multiple `Aliases` methods within the same context, each subsequent method will **override** the previous one. Therefore, only the last-defined alias in the context will be used, and all earlier definitions will be ignored.
+
+This rule ensures clarity and prevents accidental alias overwriting, which could introduce bugs or unexpected behavior in your code.
+
+### 3. **Naming Conventions for Aliases**
+
+The alias identifier names must adhere to a **specific naming convention** to ensure proper functionality. These identifiers must be **alphanumeric** and must **begin with a letter**. This rule helps maintain consistency and readability within your Nenyr documents.
+
+For example, valid alias names include `bgd`, `pdg`, `fntSize`, and `zIdx`. Invalid names would be those that start with a number or include special characters, such as `1bgd` or `@bgd`.
+
+### 4. **Alias Resolution in Context Hierarchies**
+
+The **context hierarchy** plays a significant role in how aliases are resolved. If an alias is defined in a parent context (e.g., a higher node in the context tree), it will be available to all child contexts. This makes it easy to share aliases across multiple related contexts, helping to maintain a consistent set of shorthand names throughout your Nenyr-based styles.
+
+If an alias is not found in a child context, **Galadriel CSS** will look up through the context hierarchy to resolve the alias. The **closest definition** in the hierarchy will be used. This allows for a flexible and efficient way of overriding aliases in specific contexts without disrupting the entire system.
+
+### 5. **Overriding Aliases**
+
+As discussed earlier, aliases can be **overridden** by defining the same alias in a child context. When an alias is resolved, **Galadriel CSS** will always prioritize the closest definition. This makes overriding values at lower levels of the hierarchy straightforward.
+
+To override an alias in a specific context, simply define it again within that context, and it will replace the previous value for that particular scope. This approach ensures that the alias system is both flexible and efficient.
+
+### 6. **Using Aliases in Nenyr Documents**
+
+Once you have defined your aliases, you can use them in your Nenyr documents just as you would use the original Nenyr properties. Aliases act as **direct replacements** for their corresponding properties.
+
+For instance, if you defined an alias `bgdColor` for `backgroundColor`, you can now use `bgdColor` in your Nenyr code:
+
+```nenyr
+Declare Class("className") {
+    Stylesheet({
+        bgdColor: "red",
+        dp: "block",
+        mgT: "10px",
+    })
+}
+```
+
+In this example, `bgdColor` will be treated as `backgroundColor`, `dp` as `display`, and `mgT` as `marginTop`. These aliases can be used to define classes or animations, and they will function exactly the same as their original counterparts, making the code shorter and more manageable.
+
+### 7. **Aliasing in Different Contexts**
+
+The `Aliases` method can be instantiated in **all types of contexts**—be it `Central`, `Layout`, or `Module` contexts—without issue. The context in which the alias is defined determines its scope and availability, but the method itself works consistently across all contexts.
+
+## Conclusion
+
+Nenyr aliases in **Galadriel CSS** offer a powerful way to simplify your styling code by allowing you to define shorthand versions of the properties you use frequently. The key benefits of using aliases include reducing redundancy, improving code readability, and maintaining consistency across different contexts in your application.
+
+By following the guidelines outlined in this document, you can take full advantage of aliases in your Nenyr documents, whether you're working in a single context or across multiple interconnected contexts. With context-based aliasing and the ability to override values in child contexts, the system provides the flexibility you need to write clean, efficient, and maintainable Nenyr code.
+
+Remember, aliases are not just for convenience—they also help keep your styling system efficient, flexible, and scalable as your project grows. With this understanding of Nenyr aliases, you’re now ready to incorporate them into your **Galadriel CSS** workflow, streamlining your development process and creating more manageable stylesheets.
