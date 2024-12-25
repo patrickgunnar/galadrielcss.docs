@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/integration-client",
+        "title": "Integration Client Overview",
+        "description": "A detailed explanation of the integration client in Galadriel CSS, its functionalities, and its role in automating build processes for both development and production environments.",
+        "creation_timestamp": "2024-12-24T13:22:00Z",
+        "order": 9,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "integration client",
+            "build automation",
+            "development",
+            "scalability"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "integration client",
+            "CSS framework",
+            "Nenyr DSL",
+            "build automation",
+            "development workflow",
+            "Webpack integration",
+            "scalable solutions"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

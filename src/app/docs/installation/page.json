@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/installation",
+        "title": "Installing Galadriel CSS",
+        "description": "Comprehensive guide on installing and configuring Galadriel CSS with the Webpack integration client, enabling scalable and efficient styling for applications.",
+        "creation_timestamp": "2024-12-22T13:22:00Z",
+        "order": 1,
+        "tags": [
+            "documentation",
+            "installation",
+            "Galadriel CSS",
+            "integration client",
+            "Webpack",
+            "Nenyr",
+            "CSS framework",
+            "development workflow"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Installing Galadriel CSS",
+            "Galadriel CSS integration",
+            "Webpack integration client",
+            "Nenyr framework",
+            "CSS development workflow",
+            "global installation CSS",
+            "real-time CSS updates",
+            "optimized CSS builds"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": "/assets/images/galadriel-css-installation-guide.png"
+    }
+}

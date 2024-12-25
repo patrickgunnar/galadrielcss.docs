@@ -14,7 +14,11 @@ It is important to understand that **extension** in Galadriel CSS is different f
 
 To define a **Module Context**, use the following syntax:
 
-Construct Module("uniqueName") \{\}
+```nenyr
+Construct Module("uniqueName") {
+    // Declare all your Nenyr methods in here
+}
+```
 
 Here, the **uniqueName** is a string identifier for the module and should follow these rules:
 
@@ -39,7 +43,11 @@ The **Extending("layoutName")** method allows a **Module Context** to declare th
 
 ### Defining the Module Context With the Extending Method
 
-Construct Module("uniqueName") Extending("layoutName") \{\}
+```nenyr
+Construct Module("uniqueName") Extending("layoutName") {
+    // Declare all your Nenyr methods in here
+}
+```
 
 If the **Module Context** does not find a required value in its own block, it will look for that value in the **Layout Context** it extends. If the value is still not found, it will fall back to the **Central Context**.
 

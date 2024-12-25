@@ -4,7 +4,7 @@
         "title": "Introduction to Nenyr",
         "description": "Nenyr is the declarative domain-specific language (DSL) powering the Galadriel CSS framework, enabling developers to create modular, context-aware, and scalable styles for web applications.",
         "creation_timestamp": "2024-12-23T13:22:00Z",
-        "order": 1,
+        "order": 2,
         "tags": [
             "documentation",
             "Nenyr",

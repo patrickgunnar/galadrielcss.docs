@@ -1,0 +1,105 @@
+### **Integration Client Overview in Galadriel CSS**
+
+The integration client in Galadriel CSS serves as the essential link between the framework and an application's runtime, streamlining how styles defined in Nenyr documents are processed and applied. Designed to enhance developer productivity, it operates effectively in both **Development Mode** and **Build Mode**, ensuring a seamless workflow for styling in dynamic and static environments. This document provides a detailed exploration of how the integration client works, its role in automating build processes, and its interaction with the Galadriel CSS development server.
+
+---
+
+### **Functionality of the Integration Client**
+
+The integration client is embedded within the build toolchain, primarily with Webpack, to process Nenyr markups dynamically and statically. In **Development Mode**, it connects to the Galadriel CSS development server to handle live style updates. Conversely, in **Build Mode**, it automates style processing without requiring server interaction, using precompiled style data.
+
+This dual operation guarantees both real-time styling for iterative coding and efficient, clean outputs for production builds.
+
+---
+
+### **Seamless Build Automation**
+
+One of the integration client's standout features is its ability to fully automate the execution of Galadriel CSS during the build phase. Once installed and configured, developers no longer need to manually invoke the framework during production builds. The integration client ensures that Galadriel CSS runs in **Build Mode**, processing all styles and injecting optimized utility classes directly into the application's final output.
+
+This automation removes any manual intervention for executing Galadriel CSS in the production pipeline, allowing developers to focus entirely on building features without worrying about style generation during the build.
+
+---
+
+### **Development Workflow Requirements**
+
+While the build process is automated, the development workflow requires manual intervention. Developers must start the Galadriel CSS development server before launching their application's development server. This ensures that real-time style updates are processed and injected properly during development.
+
+If a developer attempts to start the application's development server without first running the Galadriel CSS server, the integration client detects this issue and raises an error. This strict requirement ensures that the development environment is fully synchronized, minimizing unexpected styling discrepancies during active coding sessions.
+
+---
+
+### **Key Processes**
+
+#### **Development Mode**
+
+In development, the integration client facilitates real-time updates by interacting directly with the Galadriel CSS development server:
+
+1. **Extraction and Processing**: It scans application files for Nenyr markups and directives.
+2. **Dynamic Communication**: Markups are sent to the server, which processes them into utility class names and CSS rules.
+3. **Live Injection**: Processed styles are injected back into the application's output, ensuring real-time styling updates without requiring a manual page reload.
+
+#### **Build Mode**
+
+During production builds, the integration client bypasses the development server and uses a precompiled JSON file to inject styles:
+
+1. **JSON-Driven Processing**: The JSON file contains mappings of Nenyr classes to utility class names and all compiled CSS rules.
+2. **Optimized Output**: Nenyr markups in the application's source files are replaced with the appropriate utility classes or injected styles.
+3. **Clean Final Build**: The JSON file is removed after processing, leaving behind a lightweight and optimized production build.
+
+#### **Loader Integration**
+
+The integration client embeds a loader directly into the bundler's workflow, enabling seamless processing of Nenyr styles and directives. This ensures that:
+
+-   Nenyr style markups embedded in source files (.js, .jsx, .ts, .tsx, .css, .html, .md, .mdx) are detected and transformed.
+-   The loader operates harmoniously with additional loaders in the pipeline. For example, if a prefixing loader is applied later, the integration client ensures its transformations occur first, paving the way for subsequent optimizations.
+
+#### **The Importance of Loader Order**
+
+Loader execution order is pivotal in preserving the integrity of the build process. The integration client ensures:
+
+-   That all Nenyr markups are transformed into utility classes before any other loaders (e.g., auto-prefixing or post-processing tools) execute, enabling cohesive style management.
+-   Developers can integrate additional loaders into their workflows without encountering conflicts, ensuring flexibility and extensibility.
+
+> **Planned Feature Alert:** While Galadriel CSS does not yet generate prefixed CSS rules, this functionality is under development and slated for future releases, enhancing the framework's compatibility and optimization potential.
+
+---
+
+### **Developer Productivity and Compatibility**
+
+To maximize productivity, the integration client ensures that development files remain clean and untouched, with all transformations applied exclusively in the build output. This approach maintains the clarity and maintainability of the source code while delivering fully optimized styles for production.
+
+Currently, the integration client is optimized for Webpack. However, future plans include extending support to other bundlers such as Vite, Rollup, and ESBuild. This roadmap ensures that Galadriel CSS remains a scalable solution for diverse development ecosystems.
+
+---
+
+### **Practical Setup with Webpack**
+
+Setting up the integration client in Webpack involves minimal steps. Developers need only to import the client and add it to the plugins array in their Webpack configuration file:
+
+```javascript
+import GaladrielWebpackClient from "galadrielcss/webpack-client";
+// or, using CommonJS
+// const GaladrielWebpackClient = require("galadrielcss/webpack-client");
+
+export default {
+    entry: "./src/index.js",
+    output: {
+        path: __dirname + "/dist",
+        filename: "bundle.js",
+    },
+    plugins: [
+        new GaladrielWebpackClient(),
+        // Other plugins
+    ],
+};
+```
+
+This straightforward configuration unlocks the full potential of Galadriel CSS in both development and production environments.
+
+---
+
+### **Summary**
+
+The integration client simplifies the workflow of using Galadriel CSS by automating its execution during the build phase and streamlining its interaction during development. While it eliminates manual steps in the build process, developers must ensure the Galadriel CSS development server is running during active coding to avoid errors.
+
+With robust features like dynamic styling updates, clean build outputs, and scalability for future integrations, the integration client is an indispensable part of leveraging Galadriel CSS to its fullest.

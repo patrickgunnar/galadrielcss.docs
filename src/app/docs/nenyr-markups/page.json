@@ -4,7 +4,7 @@
         "title": "Understanding Nenyr Markups",
         "description": "Learn how Nenyr markups and the integration client work in Galadriel CSS to enable modular, contextual, and efficient styling for scalable applications.",
         "creation_timestamp": "2024-12-23T13:22:00Z",
-        "order": 2,
+        "order": 3,
         "tags": [
             "documentation",
             "Galadriel CSS",

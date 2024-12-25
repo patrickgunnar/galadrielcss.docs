@@ -34,7 +34,11 @@ This behavior allows the **Layout Context** to build on the foundational styles 
 
 To define a **Layout Context**, use the **Construct** keyword followed by the **Layout("uniqueName")** method, where the unique name is enclosed in a string and placed inside parentheses, like this:
 
-Construct Layout("uniqueName") \{\}
+```nenyr
+Construct Layout("uniqueName") {
+    // Declare all your Nenyr methods in here
+}
+```
 
 The **unique name** serves as an identifier for the **Layout Context** and must follow these rules:
 

@@ -1,0 +1,142 @@
+# Installing Galadriel CSS with the Integration Client
+
+Galadriel CSS is designed with simplicity and efficiency in mind, providing developers with a seamless experience for styling applications. Its unique approach, based on a global installation and lightweight integration clients, ensures that developers can focus on building rather than setting up configurations. Below, we will walk you through every detail of installing and using Galadriel CSS, from the initial setup to the development and build processes.
+
+---
+
+## Introduction to Galadriel CSS Installation
+
+The installation process of Galadriel CSS differs from traditional CSS frameworks. Galadriel CSS embraces a **global installation model**, where the framework is installed once on your system and is readily available for use across multiple projects. This global installation eliminates repetitive installations, reducing overhead and speeding up development cycles.
+
+To install Galadriel CSS globally, use the following command:
+
+```bash
+npm install -g galadrielcss
+```
+
+This command only needs to be executed once, as it makes Galadriel CSS accessible throughout your system. After this, starting a new project with Galadriel CSS requires minimal effort, focusing only on setting up the integration client.
+
+---
+
+## Setting Up the Integration Client
+
+The integration client acts as a bridge between your application and Galadriel CSS. For now, the integration client supports **Webpack**, with support for other bundlers such as **Vite**, **Rollup**, and **EsBuild** planned for future updates.
+
+To set up the integration client for Webpack, you need to:
+
+1. Install the Webpack integration client in your application:
+
+    ```bash
+    npm install galadriel-webpack-client --save-dev
+    ```
+
+    This command adds the client as a development dependency, ensuring it's only used during development and build processes.
+
+2. Configure the Webpack integration client. Begin by importing the client in your Webpack configuration file. Depending on your module system, the import can be either:
+
+    ```javascript
+    import GaladrielWebpackClient from "galadriel-webpack-client";
+    // or, using CommonJS
+    const GaladrielWebpackClient = require("galadriel-webpack-client");
+    ```
+
+3. Instantiate the integration client as a plugin in the Webpack configuration:
+    ```javascript
+    export default {
+        entry: "./src/index.js",
+        output: {
+            path: __dirname + "/dist",
+            filename: "bundle.js",
+        },
+        plugins: [
+            new GaladrielWebpackClient(),
+            // Other plugins
+        ],
+    };
+    ```
+
+Once these steps are complete, Galadriel CSS is fully integrated with your application.
+
+_Any application utilizing Webpack can seamlessly integrate with Galadriel CSS through a straightforward setup process. By following just a few simple steps—such as installing the Galadriel Webpack Client, adding it to the Webpack configuration, and running the Galadriel CSS development server—developers can unlock the full power of the framework. This flexibility ensures that Galadriel CSS fits effortlessly into existing Webpack-based workflows, making it an accessible and practical choice for enhancing styling efficiency in any project._
+
+---
+
+## Starting the Development Server
+
+With Galadriel CSS installed globally and the integration client configured, you are ready to begin styling your application. The development server for Galadriel CSS provides a streamlined process:
+
+1. Navigate to the root directory of your application.
+2. Open a new terminal window and run:
+    ```bash
+    galadrielcss start
+    ```
+
+This command launches the Galadriel CSS development server, which features a **dedicated terminal user interface (TUI)**. The TUI displays alerts, logs, and progress updates, enhancing the developer experience.
+
+The development server observes changes in `.nyr` files (Nenyr documents) and the `galadriel.config.json` configuration file, ensuring that styles are updated in real time. It is critical to start the server from the application’s root directory, as the observer runs recursively from this location.
+
+_The Galadriel CSS server requires its own dedicated terminal to operate, as it features a custom terminal user interface designed for efficient alert management and real-time feedback during development. It is crucial to start the Galadriel CSS development server before launching the application's development server. This sequence ensures that the integration client can establish a connection to the Galadriel CSS server via its designated port. Failing to do so will result in an error, as the integration client will attempt to connect to a non-existent server, disrupting the development workflow._
+
+---
+
+## Development Workflow with Galadriel CSS
+
+Once the development server is running, Galadriel CSS processes all `.nyr` files in your project. It generates a hierarchical structure of utility classes and CSS rules based on the contents of these files. Developers can then focus on writing styles in Nenyr syntax without worrying about configuration or optimization.
+
+Changes made to `.nyr` files are automatically detected, and the framework updates styles in real-time. This ensures a smooth and efficient development workflow.
+
+_Galadriel CSS is designed with performance in mind, observing only the Nenyr documents and the galadriel.config.json file for changes. This targeted approach ensures maximum efficiency by focusing solely on the files that define styles and configuration. By excluding other application files from its observation process, Galadriel CSS minimizes unnecessary overhead, allowing it to operate swiftly and precisely without monitoring unrelated changes._
+
+---
+
+## Building the Application
+
+When it comes to building the application for production, Galadriel CSS simplifies the process further. The integration client takes full control, automating every step:
+
+1. Start the build process using the integration client. In Webpack, this is triggered through your existing build scripts:
+
+    ```bash
+    npm run build
+    ```
+
+2. During the build, the integration client creates a dedicated folder, `.galadrielcss`, in the root directory of your application. This folder houses a locally installed version of Galadriel CSS and its dependencies. The integration client executes the following steps automatically:
+
+    - Installs Galadriel CSS locally in the `.galadrielcss` folder using the `npm install` command with specific flags to avoid polluting the global or project-level `node_modules`.
+    - Runs Galadriel CSS in build mode from the `.galadrielcss` folder.
+
+3. Galadriel CSS processes all `.nyr` files and generates a JSON file within the `.galadrielcss` folder. This file contains:
+
+    - Mappings of all Nenyr classes to their respective utility class names.
+    - All CSS utility rules generated by Galadriel CSS.
+
+4. The integration client reads the generated JSON file and injects the utility classes and CSS rules into the application’s output build. The output is fully optimized, containing only static assets (HTML, CSS, and JS) with no traces of Galadriel CSS’s runtime dependencies.
+
+5. After the build is complete, the integration client removes the `.galadrielcss` folder, leaving behind a clean and lightweight output.
+
+_For a comprehensive understanding of how the integration client operates, users are encouraged to review the dedicated Integration Client section within this documentation. This section provides detailed insights and step-by-step explanations that will help clarify its functionality and usage within the development environment._
+
+---
+
+## Key Advantages of Galadriel CSS’s Workflow
+
+-   **Global Installation**: Once installed, Galadriel CSS can be used across multiple projects without additional setup.
+-   **Minimal Configuration**: With only a few steps to configure the integration client, you can start styling your application quickly.
+-   **Automated Build Process**: The integration client handles everything from installing dependencies to injecting CSS rules into the final output.
+-   **Optimized Output**: The final build is free from unnecessary dependencies, containing only the essential assets for production.
+-   **Real-Time Updates**: During development, changes to `.nyr` files are instantly reflected, reducing the feedback loop.
+
+---
+
+## Future Enhancements
+
+While Galadriel CSS already provides a robust and developer-friendly workflow, several features are planned for future updates, including:
+
+-   Integration clients for popular bundlers like **Vite**, **Rollup**, and **EsBuild**.
+-   Additional options for running the development server without the TUI.
+-   Expanded configuration capabilities for advanced use cases.
+
+---
+
+## Conclusion
+
+Galadriel CSS is a powerful framework that redefines how developers approach styling applications. By leveraging a global installation model and streamlined integration clients, it minimizes setup time and maximizes efficiency. Whether you’re starting a new project or building for production, Galadriel CSS ensures a smooth, hassle-free experience.

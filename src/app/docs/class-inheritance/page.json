@@ -4,7 +4,7 @@
         "title": "Class Inheritance",
         "description": "An in-depth exploration of the inheritance model in Galadriel CSS, explaining the cascading hierarchy and context-aware style propagation through Nenyr classes.",
         "creation_timestamp": "2024-12-23T00:00:00Z",
-        "order": 7,
+        "order": 8,
         "tags": [
             "documentation",
             "framework",
