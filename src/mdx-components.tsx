@@ -1,7 +1,75 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import { ComponentPropsWithoutRef } from "react";
-import { highlight } from "sugar-high";
+import hljs from "highlight.js/lib/core";
+import js from "highlight.js/lib/languages/javascript";
+import json from "highlight.js/lib/languages/json";
+import bash from "highlight.js/lib/languages/bash";
+import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
+
+hljs.registerLanguage("javascript", js);
+hljs.registerLanguage("json", json);
+hljs.registerLanguage("bash", bash);
+hljs.registerLanguage("html", xml);
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("nenyr", function () {
+    return {
+        keywords: "context style animation variable theme",
+        contains: [
+            // Declare statements
+            {
+                className: "keyword",
+                begin: "\\b(Construct|Declare)\\b",
+            },
+            {
+                className: "section",
+                begin: "\\b(Central|Layout|Module|Extending)\\b",
+            },
+            // Handlers
+            {
+                className: "section",
+                begin: "\\b(Imports|Typefaces|Aliases|Variables|Breakpoints|Themes|Class|Deriving|Animation)\\b",
+            },
+            // Nested contexts
+            {
+                className: "built_in",
+                begin: "\\b(Fraction|Progressive|From|Halfway|To|Import|MobileFirst|DesktopFirst|Light|Dark|Important|PanoramicViewer|Stylesheet|Hover|Active|Focus|FirstChild|LastChild|FirstOfType|LastOfType|OnlyChild|OnlyOfType|TargetPseudoClass|Visited|Checked|Disabled|Enabled|ReadOnly|ReadWrite|PlaceholderShown|Valid|Invalid|Required|Optional|Fullscreen|FocusWithin|FirstLine|FirstLetter|Before|After|OutOfRange|Root|FirstPage|LeftPage|RightPage|Empty)\\b",
+            },
+            // Properties
+            {
+                className: "variable",
+                begin: "\\b(aspectRatio|accentColor|backdropFilter|content|gap|rowGap|scale|order|pointerEvents|margin|marginBottom|marginLeft|marginRight|marginTop|padding|paddingBottom|paddingLeft|paddingRight|paddingTop|height|width|filter|maxHeight|maxWidth|minHeight|minWidth|border|borderBottom|borderBottomColor|borderBottomStyle|borderBottomWidth|borderColor|borderLeft|borderLeftColor|borderLeftStyle|borderLeftWidth|borderRight|borderRightColor|borderRightStyles|borderRightWidth|borderStyle|borderTop|borderTopColor|borderTopStyle|borderTopWidth|borderWidth|outline|outlineColor|outlineStyle|outlineWidth|borderBottomLeftRadius|borderBottomRightRadius|borderImage|borderImageOutset|borderImageRepeat|borderImageSlice|borderImageSource|borderImageWidth|borderRadius|borderTopLeftRadius|borderTopRightRadius|boxDecorationBreak|boxShadow|background|backgroundAttachment|backgroundColor|backgroundImage|backgroundPosition|backgroundPositionX|backgroundPositionY|backgroundRepeat|backgroundClip|backgroundOrigin|backgroundSize|backgroundBlendMode|colorProfile|opacity|renderingIntent|font|fontFamily|fontSize|fontStyle|fontVariant|fontWeight|fontSizeAdjust|fontStretch|positioning|bottom|clear|clipPath|cursor|display|float|left|overflow|position|right|top|visibility|zIndex|color|direction|flexDirection|flexWrap|letterSpacing|lineHeight|lineBreak|textAlign|textDecoration|textIndent|textTransform|unicodeBidi|verticalAlign|whiteSpace|wordSpacing|textOutline|textOverflow|textShadow|textWrap|wordBreak|wordWrap|listStyle|listStyleImage|listStylePosition|listStyleType|borderCollapse|borderSpacing|captionSide|emptyCells|tableLayout|marqueeDirection|marqueePlayCount|marqueeSpeed|marqueeStyle|overflowX|overflowY|overflowStyle|rotation|boxAlign|boxDirection|boxFlex|boxFlexGroup|boxLines|boxOrdinalGroup|boxOrient|boxPack|alignmentAdjust|alignmentBaseline|baselineShift|dominantBaseline|dropInitialAfterAdjust|dropInitialAfterAlign|dropInitialBeforeAdjust|dropInitialBeforeAlign|dropInitialSize|dropInitialValue|inlineBoxAlign|lineStacking|lineStackingRuby|lineStackingShift|lineStackingStrategy|textHeight|columnCount|columnFill|columnGap|columnRule|columnRuleColor|columnRuleStyle|columnRuleWidth|columnSpan|columnWidth|columns|animation|animationName|animationDuration|animationTimingFunction|animationDelay|animationFillMode|animationIterationCount|animationDirection|animationPlayState|transform|transformOrigin|transformStyle|perspective|perspectiveOrigin|backfaceVisibility|transition|transitionProperty|transitionDuration|transitionTimingFunction|transitionDelay|orphans|pageBreakAfter|pageBreakBefore|pageBreakInside|widows|mark|markAfter|markBefore|phonemes|rest|restAfter|restBefore|voiceBalance|voiceDuration|voicePitch|voicePitchRange|voiceRate|voiceStress|voiceVolume|appearance|boxSizing|icon|navDown|navIndex|navLeft|navRight|navUp|outlineOffset|resize|quotes|rotate|translate|userSelect|writingMode|objectPosition|objectFit|justifySelf|justifyContent|justifyItems|alignSelf|alignContent|alignItems|grid|gridArea|gridAutoColumns|gridAutoFlow|gridAutoRows|gridColumn|gridColumnEnd|gridColumnStart|gridRow|gridRowEnd|gridRowStart|gridTemplate|gridTemplateAreas|gridTemplateColumns|gridTemplateRows|scrollbarColor|scrollbarWidth|scrollbarGutter)\\b",
+            },
+            // Numbers
+            {
+                className: "number",
+                begin: "\\b\\d+(\\.\\d+)?%?\\b",
+            },
+            // Double quotes
+            {
+                className: "string",
+                begin: '"',
+                end: '"',
+                contains: [
+                    {
+                        className: "constant",
+                        begin: "\\$\\{",
+                        end: "\\}",
+                    },
+                ],
+            },
+            // Single quotes
+            {
+                className: "string",
+                begin: "'",
+                end: "'",
+            },
+            // Comments
+            hljs.COMMENT("//", "$"),
+        ],
+    };
+});
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
@@ -78,14 +146,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             );
         },
         code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
-            const codeHTML = highlight(children as string);
+            if (props?.className?.startsWith("language")) {
+                const lang = props.className.split("-")[1];
+
+                const codeHTML = hljs.highlight(children as string, {
+                    language: lang,
+                }).value;
+
+                return (
+                    <div className="@module:mdxComponents::code">
+                        <code
+                            dangerouslySetInnerHTML={{ __html: codeHTML }}
+                            {...props}
+                        />
+                    </div>
+                );
+            }
 
             return (
-                <code
-                    className="@module:mdxComponents::code"
-                    dangerouslySetInnerHTML={{ __html: codeHTML }}
-                    {...props}
-                />
+                <span className="@module:mdxComponents::highlight">
+                    {children}
+                </span>
             );
         },
         Table: ({

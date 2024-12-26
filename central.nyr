@@ -1,4 +1,7 @@
 Construct Central {
+    Declare Imports([
+        Import("highlight.js/styles/felipec.css")
+    ]),
     Declare Typefaces({
         DrunkenHour: "/fonts/drunken hour/DrunkenHour.otf"
     }),

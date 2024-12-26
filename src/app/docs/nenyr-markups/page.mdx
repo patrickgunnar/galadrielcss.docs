@@ -33,7 +33,7 @@ Here are detailed examples of Nenyr markups for different contexts:
     ```html
     <div class="@-central:myCentralClassName"></div>
 
-    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS. -->
+    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS. -->
     ```
 
     - This markup refers to `myCentralClassName` in the **Central Context**. During the build process, this will be replaced with a utility class corresponding to the global style.
@@ -43,7 +43,7 @@ Here are detailed examples of Nenyr markups for different contexts:
     ```html
     <div class="@-layout:myLayoutContext::myLayoutClassName"></div>
 
-    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS. -->
+    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS. -->
     ```
 
     - This markup refers to `myLayoutClassName` in the `myLayoutContext`, which is a layout-specific context. The corresponding utility class will be injected during the build process.
@@ -53,7 +53,7 @@ Here are detailed examples of Nenyr markups for different contexts:
     ```html
     <div class="@-module:myModuleContext::myModuleClassName"></div>
 
-    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS. -->
+    <!-- The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS. -->
     ```
 
     - This markup refers to `myModuleClassName` within the `myModuleContext`, a context related to the specific module or component. The utility class will be injected during the build process.
@@ -90,7 +90,7 @@ The \@galadrielcss styles\; directive is a special feature that allows developer
     /* In your global CSS file (global.css) */
     @-galadrielcss styles;
 
-    /* The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS. */
+    /* The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS. */
     ```
 
 -   **Functionality**: This directive will be replaced by all global styles from **Galadriel CSS**. These styles will then be applied globally across your application, guaranteeing design consistency without redundancy.
@@ -143,7 +143,7 @@ On the other hand, you can have **multiple Nenyr markups** for different compone
 <!-- Correct usage with multiple Nenyr markups -->
 <div class="@-layout:grid::myGridLayout @-module:button::primaryButton"></div>
 
-<!-- The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS. -->
+<!-- The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS. -->
 ```
 
 ```jsx
@@ -152,7 +152,7 @@ const className = "@-layout:grid::myGridLayout @-module:button::primaryButton";
 <div className={className}></div>
 <div className="@-layout:grid::myGridLayout @-module:button::primaryButton"></div>
 
-// The "-" is not part of the syntax, it is there only to Galadriel CSS don't try to inject styles there. This application is being styled with Galadriel CSS.
+// The "-" is not part of the syntax, it is there only to Galadriel CSS do not try to inject styles there. This application is being styled with Galadriel CSS.
 ```
 
 In this example, there are **Nenyr markups** for different contexts (`layout` and `module`) being applied together. These markups are transformed into the appropriate **utility class names** during the build process. Example in the final build output:

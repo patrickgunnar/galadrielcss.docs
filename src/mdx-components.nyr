@@ -98,8 +98,24 @@ Construct Module("mdxComponents") {
             txtColor: "#e53e3e"
         })
     },
-    Declare Class("code") {
-        Stylesheet({})
+    Declare Class("code") Deriving("borderBox") {
+        Stylesheet({
+            bgd: "${primaryColor}",
+            borderRadius: "10px",
+            p: "10px",
+            hr: "auto",
+            wd: "100%",
+            m: "20px auto",
+            overX: "auto"
+        })
+    },
+    Declare Class("highlight") Deriving("borderBox") {
+        Stylesheet({
+            bgd: "${navbarBrColor}",
+            borderRadius: "4px",
+            p: "1px 5px",
+            txtBold: "600",
+        })
     },
     Declare Class("table") Deriving("textColor") {
         Stylesheet({
