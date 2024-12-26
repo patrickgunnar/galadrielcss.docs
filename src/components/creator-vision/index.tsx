@@ -147,7 +147,11 @@ export default function CreatorVision() {
                     your projects to unprecedented levels.
                 </p>
                 <span className="@module:creatorVisionComponent::signature">
-                    {"\u{2022}"} Patrick Gunnar, Creator of Galadriel CSS.
+                    {"\u{2022}"}{" "}
+                    <span className="@module:creatorVisionComponent::span">
+                        Patrick Gunnar
+                    </span>
+                    , Creator of Galadriel CSS.
                 </span>
             </div>
         </section>

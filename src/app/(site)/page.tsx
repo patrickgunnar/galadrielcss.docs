@@ -2,7 +2,7 @@ import BlogGrid from "@/components/blog-grid";
 import Contribute from "@/components/contribute";
 import CorePrinciples from "@/components/core-principles";
 import CreatorVision from "@/components/creator-vision";
-import PlannedFeatures from "@/components/planned-features";
+import DonationBox from "@/components/donation-box";
 import TechStack from "@/components/tech-stack";
 import { routeMap } from "../../../route-map";
 import { join } from "node:path";
@@ -22,7 +22,7 @@ export default function Home() {
             <CorePrinciples />
             <CreatorVision />
             <TechStack />
-            <PlannedFeatures />
+            <DonationBox />
             <div className="@module:homePageComponent::blogContentContainer">
                 <h1 className="@module:homePageComponent::h1">Latests Posts</h1>
                 <BlogGrid routes={routes} />

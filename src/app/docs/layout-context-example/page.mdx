@@ -1,0 +1,278 @@
+### Defining a Layout with Themes, Variables, and Animations in Nenyr
+
+In this example, we demonstrate how to leverage **Nenyr**'s flexibility in building a sophisticated layout system. The layout is constructed using the **`Construct Layout`** function, which encapsulates a well-structured approach to defining global styles, themes, animations, and classes. Key features of this layout include:
+
+-   **Themes**: The `Light` and `Dark` themes are defined with variables for colors, background, borders, and text, enabling easy switching between color schemes.
+-   **Aliases**: Shorthand aliases like `bgd`, `bd`, and `boxShdw` simplify the management of Nenyr properties across the layout.
+-   **Standalone Variables**: A set of reusable color variables like `primaryColor`, `accColor`, and `highlightColor` streamline styling by providing a centralized color system.
+-   **Animations**: Custom animations like `slideScale`, `horizontalMove`, and `fadeAndScale` are created using Nenyr’s `Fraction`, `Progressive`, and `Transitive` types, providing smooth, visually engaging transitions.
+-   **Classes with Inheritance**: Classes like `myClassOne`, `myClassTwo`, and `myClassThree` demonstrate the power of inheritance and responsiveness. These classes are defined with **`Deriving`**, meaning they inherit styles from previous classes, reducing repetition and ensuring a clean, modular design.
+
+By integrating these features, developers can efficiently create and manage complex layouts while maintaining high levels of reusability, scalability, and performance.
+
+```nenyr
+Construct Layout("myLayoutName") {
+    // This is how you can define themes.
+    Declare Themes({
+        // Defining the light theme.
+        Light({
+            Variables({
+                primaryColor: "#FFFFFF",
+                secondaryColor: "#F0F0F0",
+                accentColorVar: "#3498DB",
+                bgColor: "#FAFAFA",
+                bdrColor: "#DDDDDD",
+                textColor: "#333333",
+                textSecondaryColor: "#666666",
+                highlightColor: "#FFDD57",
+                shadowColor: "rgba(0, 0, 0, 0.1)"
+            })
+        }),
+        // Defining the dark theme.
+        Dark({
+            Variables({
+                primaryColor: "#1E1E1E",
+                secondaryColor: "#333333",
+                accentColorVar: "#FF4500",
+                bgColor: "#121212",
+                bdrColor: "#444444",
+                textColor: "#F0F0F0",
+                textSecondaryColor: "#AAAAAA",
+                highlightColor: "#FF8C00",
+                shadowColor: "rgba(0, 0, 0, 0.4)"
+            })
+        })
+    }),
+    // This is how you can define aliases.
+    Declare Aliases({
+        // Background and Borders
+        bgd: background,
+        bgdColor: backgroundColor,
+        bgdImg: backgroundImage,
+        bgdSize: backgroundSize,
+        bd: border,
+        bdT: borderTop,
+        bdB: borderBottom,
+        bdL: borderLeft,
+        bdR: borderRight,
+        bdColor: borderColor,
+        bdRadius: borderRadius,
+        boxShdw: boxShadow,
+    }),
+    // This is how you can define standalone variables.
+    Declare Variables({
+        myColor: "#FF6677",
+        grayColor: "gray",
+        blueColor: "blue",
+        redColor: "red",
+        primaryColor: "yellow",
+        secondaryColor: "white",
+        accColor: "#FF5733",
+        darkGrayColor: "#333333",
+        lightGrayColor: "#D3D3D3",
+        bgdColor: "#FAFAFA",
+        borColor: "#CCCCCC",
+        highlightColor: "#FFD700",
+        shadowColor: "rgba(0, 0, 0, 0.2)",
+        linkColor: "#1E90FF",
+        successColor: "#4CAF50",
+        warningColor: "#FFA500",
+        dangerColor: "#DC143C"
+    }),
+    // This is how you can define an animation using the Fraction type.
+    Declare Animation("slideScale") {
+        Fraction(20, {
+            transform: "translateX(10%) scale(1.1)"
+        }),
+        Fraction([40, 60], {
+            transform: "translateX(30%) scale(1.2)"
+        }),
+        Fraction(80, {
+            transform: "translateX(50%) scale(0.9)"
+        }),
+        Fraction(100, {
+            transform: "translateX(0) scale(1)"
+        })
+    },
+    // This is how you can define an animation using the Progressive type.
+    Declare Animation("horizontalMove") {
+        Progressive({
+            transform: "translateX(0)",
+            backgroundColor: "lightgray"
+        }),
+        Progressive({
+            transform: "translateX(50px)",
+            backgroundColor: "lightblue"
+        }),
+        Progressive({
+            transform: "translateX(100px)",
+            backgroundColor: "lightgreen"
+        }),
+        Progressive({
+            transform: "translateX(150px)",
+            backgroundColor: "lightcoral"
+        }),
+        Progressive({
+            transform: "translateX(200px)",
+            backgroundColor: "lightgoldenrodyellow"
+        })
+    },
+    // This is how you can define an animation using the Transitive type.
+    Declare Animation("fadeAndScale") {
+        From({
+            opacity: "0",
+            transform: "scale(0.5)"
+        }),
+        Halfway({
+            opacity: "0.5",
+            transform: "scale(1)"
+        }),
+        To({
+            opacity: "1",
+            transform: "scale(1.2)"
+        })
+    },
+    // This is how you can define a class with no inheritance.
+    // It is using Nenyr properties and aliases.
+    // It is also applying responsiveness.
+    Declare Class("myClassOne") {
+        Important(true),
+        Stylesheet({
+            bgd: "${secondaryColor}",
+            bd: "3px solid ${primaryColor}",
+            bdRadius: "10px",
+            pdg: "${bgdColor}",
+            textShadow: "1px 1px 2px ${accColor}",
+            animation: "${slideScale} 2s ease-out forwards"
+        }),
+        Hover({
+            bgdColor: "${primaryColor}",
+            clr: "${accColor}",
+            boxShdw: "0 6px 12px ${shadowColor}"
+        }),
+        Before({
+            content: "' '",
+            dp: "block",
+            wd: "100%",
+            hgt: "4px",
+            bgd: "${accColor}"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    pdg: "${dangerColor}",
+                    fntSize: "0.9em",
+                    bdRadius: "5px"
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    pdg: "${dangerColor}",
+                    fntSize: "0.9em",
+                    bdRadius: "5px"
+                }),
+                Hover({
+                    clr: "${secondaryColor}",
+                    bgd: "${accColor}"
+                }),
+                After({
+                    content: "' '",
+                    dp: "block",
+                    wd: "50%",
+                    hgt: "2px",
+                    bgd: "${primaryColor}",
+                    mgT: "10px",
+                    mgB: "0"
+                })
+            })
+        })
+    },
+    // This is how you define a class with inheritance.
+    // It is using Nenyr properties and aliases.
+    // It is also applying responsiveness.
+    Declare Class("myClassTwo") Deriving("myClassOne") {
+        Stylesheet({
+            bgd: "${secondaryColor}",
+            pdg: "${redColor}",
+            clr: "${primaryColor}",
+            fntWeight: "bold",
+            letterSpc: "0.1em",
+            bd: "1px solid ${accColor}",
+            animation: "${horizontalMove} 2s ease-in forwards"
+        }),
+        Hover({
+            bgd: "${accColor}",
+            clr: "${primaryColor}",
+            boxShdw: "0 6px 12px ${shadowColor}"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    pdg: "${shadowColor}",
+                    fntSize: "1em"
+                })
+            }),
+            MediumScreen({
+                Stylesheet({
+                    pdg: "${successColor}",
+                    fntSize: "1.1em"
+                }),
+                After({
+                    content: "'✨'",
+                    pos: "absolute",
+                    top: "10px",
+                    left: "10px",
+                    fntSize: "1.5em"
+                }),
+                Hover({
+                    bgd: "${accColor}",
+                    clr: "${primaryColor}",
+                    boxShdw: "0 6px 12px ${shadowColor}"
+                }),
+            })
+        })
+    },
+    // This is how you define a class with inheritance.
+    // It only uses Nenyr properties.
+    // It is also applying responsiveness.
+    // This class will receive inheritance from both, "myClassTwo" and "myClassOne",
+    // because "myClassTwo" inherits from "myClassOne"
+    Declare Class("myClassThree") Deriving("myClassTwo") {
+        Important(true),
+        Stylesheet({
+            backgroundColor: "${primaryColor}",
+            color: "${accColor}",
+            padding: "${bgdColor}",
+            display: "flex",
+            alignItems: "center",
+            animation: "${fadeAndScale} 2s ease-in forwards"
+        }),
+        Hover({
+            color: "${secondaryColor}",
+            border: "2px solid ${primaryColor}"
+        }),
+        After({
+            content: "''",
+            display: "block",
+            width: "100%",
+            height: "2px",
+            background: "${secondaryColor}"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    display: "block",
+                    flexDirection: "column",
+                    padding: "${borColor}"
+                })
+            }),
+            LargeScreen({
+                Hover({
+                    background: "${secondaryColor}",
+                    padding: "${bgColor}"
+                })
+            })
+        })
+    },
+}
+```

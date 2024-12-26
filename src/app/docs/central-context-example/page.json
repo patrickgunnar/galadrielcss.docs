@@ -1,0 +1,44 @@
+{
+    "metadata": {
+        "url": "/central-context-example",
+        "title": "Central Context Example",
+        "description": "This example demonstrates the versatility and power of the Central Context in Nenyr, the DSL at the core of Galadriel CSS, for global styling configuration. It showcases modular and declarative approaches to defining essential design elements, ensuring scalability and clarity in style management.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 22,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "modular",
+            "contextual",
+            "scalability",
+            "performance",
+            "Central Context",
+            "breakpoints",
+            "themes",
+            "animations",
+            "responsive design"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "CSS framework",
+            "Nenyr DSL",
+            "modular design",
+            "contextual styles",
+            "scalable CSS",
+            "maintainable codebase",
+            "optimized performance",
+            "responsive design",
+            "animations",
+            "themes",
+            "breakpoints"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

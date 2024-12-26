@@ -18,7 +18,7 @@ export type CorePrincipleType = {
 export const corePrinciples: CorePrincipleType[] = [
     {
         id: "complex-styles-principle",
-        principle: "Unlock Complex and Advanced Styling",
+        principle: "Advanced Styling Features",
         icon: FcCloseUpMode,
     },
     {
@@ -43,7 +43,7 @@ export const corePrinciples: CorePrincipleType[] = [
     },
     {
         id: "long-term-maintainability",
-        principle: "Focus on Long-Term Maintainability",
+        principle: "Scalability and Efficiency",
         icon: FcDonate,
     },
     {

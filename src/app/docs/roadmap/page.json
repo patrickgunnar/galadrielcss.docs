@@ -1,0 +1,37 @@
+{
+    "metadata": {
+        "url": "/roadmap",
+        "title": "Development Roadmap",
+        "description": "Explore the future roadmap of Galadriel CSS and Nenyr, including key planned enhancements and the vision for version 2.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 21,
+        "tags": [
+            "roadmap",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "development",
+            "validation",
+            "scalability",
+            "performance",
+            "testing",
+            "selectors"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS roadmap",
+            "Nenyr DSL enhancements",
+            "CSS framework development",
+            "advanced CSS selectors",
+            "Actors Model in CSS",
+            "scalable and modular CSS",
+            "testing for CSS frameworks",
+            "development mode flexibility"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

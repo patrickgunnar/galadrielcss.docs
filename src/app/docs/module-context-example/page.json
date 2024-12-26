@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/module-context-example",
+        "title": "Module Context Example",
+        "description": "This document demonstrates how to define a module in Galadriel CSS, covering property aliases, color variables, animations, class definitions, and responsive design to enhance CSS management and scalability.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 24,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "module",
+            "responsive design",
+            "animations",
+            "scalable CSS"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "CSS module",
+            "Nenyr DSL",
+            "property aliases",
+            "color variables",
+            "animations",
+            "responsive design",
+            "scalable web design"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

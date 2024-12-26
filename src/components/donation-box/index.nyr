@@ -1,0 +1,81 @@
+Construct Module("donationComponent") {
+    Declare Class("centerWithGap") Deriving("flexCenterBox") {
+        Stylesheet({
+            gap: "40px",
+            flexDir: "column",
+        })
+    },
+    Declare Class("sectionContainer") Deriving("centerWithGap") {
+        Stylesheet({
+            txtAlign: "justify",
+            txtBold: "normal",
+            txtColor: "${veryLightGrayColor}",
+            hyphens: "auto",
+            p: "40px 20px 100px 20px",
+            hr: "auto",
+            wd: "100%",
+            txtFamily: "Arial, Helvetica, sans-serif"
+        })
+    },
+    Declare Class("title") {
+        Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtSize: "25px",
+            txtBold: "700",
+        })
+    },
+    Declare Class("h3") {
+        Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtSize: "22px",
+            txtBold: "700",
+            txtAlign: "left",
+            mLeft: "0px",
+            mRight: "auto"
+        })
+    },
+    Declare Class("h5") {
+        Stylesheet({
+            txtFamily: "Courier New, Lucida Console, Monaco",
+            txtSize: "18px",
+            txtBold: "700",
+            txtAlign: "left",
+            mLeft: "0px",
+            mRight: "auto"
+        })
+    },
+    Declare Class("dataContainer") Deriving("centerWithGap") {
+        Stylesheet({
+            txtSize: "18px",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    wd: "80%"
+                })
+            })
+        })
+    },
+    Declare Class("listContainer") Deriving("flexCenterBox") {
+        Stylesheet({
+            gap: "20px",
+            flexDir: "column",
+            align: "flex-start",
+            hr: "auto",
+            wd: "100%"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    wd: "90%"
+                })
+            })
+        })
+    },
+    Declare Class("span") {
+        Stylesheet({
+            txtBold: "700"
+        })
+    },
+}

@@ -2,12 +2,29 @@
 
 Welcome to the comprehensive guide for **Nenyr properties**, the core building blocks of the **Galadriel CSS** framework. These properties enable you to define and manage your application’s styles with precision and flexibility. Currently, this list encompasses the most widely-used properties in Nenyr, providing a broad set of tools for effective style management.
 
+All Nenyr properties must receive values in the form of strings. Within these strings, you can define the exact values you would use for corresponding CSS properties. This means that Nenyr integrates seamlessly with the CSS specifications you are already familiar with, allowing for a smooth transition to this framework while providing additional organization and clarity in your styles. For example, if a CSS property such as `color` would accept a value like `"red"`, the corresponding Nenyr property must be defined with a string, such as:
+
+```nenyr
+Declare Class("className") {
+    Stylesheet({
+        color: "red",
+        backgroundColor: "blue",
+        border: "1px solid green",
+        borderRadius: "24px",
+    })
+}
+```
+
+The use of strings ensures consistency and helps maintain a clean syntax throughout your Nenyr documents. This approach allows developers to intuitively adapt their existing CSS knowledge while benefiting from the advanced features of the Galadriel CSS framework.
+
 As Nenyr evolves, this set of properties will continue to expand, introducing even more advanced functionality and features to meet the diverse needs of modern web development. Whether you're working with fonts, colors, layouts, or animations, the Nenyr properties provide a powerful foundation for your styles.
 
 If you encounter any missing properties or have specific requests, please feel free to reach out. Your feedback is valuable, and I am happy to add new properties based on user needs. You can email your requests to: **galadrielcss@gmail.com**.
 
 Here is the current list of available **Nenyr properties** along with their corresponding CSS properties:
 
+-   **flexGrow**: flex-grow
+-   **hyphens**: hyphens
 -   **aspectRatio**: aspect-ratio
 -   **accentColor**: accent-color
 -   **backdropFilter**: backdrop-filter

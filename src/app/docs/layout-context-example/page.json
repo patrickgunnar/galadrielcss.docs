@@ -1,0 +1,37 @@
+{
+    "metadata": {
+        "url": "/layout-context-example",
+        "title": "Layout Context Example",
+        "description": "A detailed example of how to use Nenyr's flexibility to build a sophisticated layout system, including themes, variables, animations, and responsive classes.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 23,
+        "tags": [
+            "documentation",
+            "Nenyr",
+            "layout",
+            "themes",
+            "variables",
+            "animations",
+            "responsive design",
+            "CSS",
+            "modular design"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Nenyr",
+            "CSS framework",
+            "modular design",
+            "responsive design",
+            "animations",
+            "themes",
+            "variables",
+            "inheritance",
+            "scalable CSS"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "metadata": {
+        "url": "/additional-information",
+        "title": "Additional Information",
+        "description": "Explore the detailed workings of Galadriel CSS, focusing on its logging system, Nenyr syntax highlighting, validation mechanisms, and planned future enhancements.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 20,
+        "tags": [
+            "documentation",
+            "framework",
+            "CSS",
+            "Nenyr",
+            "logging system",
+            "syntax highlighting",
+            "validation",
+            "future enhancements",
+            "development tools"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "CSS framework",
+            "Nenyr DSL",
+            "logging system",
+            "syntax highlighting",
+            "validation mechanisms",
+            "scalable CSS",
+            "efficient development",
+            "maintainable styles",
+            "future enhancements"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}

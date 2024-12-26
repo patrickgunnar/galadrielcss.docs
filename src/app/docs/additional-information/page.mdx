@@ -1,0 +1,47 @@
+# Detailed Insights into Galadriel CSS
+
+This document delves into the workings of Galadriel CSS, with a focus on its logging system, available development tools, and validation mechanisms. These features are vital to understanding how the framework operates during development and how it can be utilized effectively. Additional details and insights are included to ensure clarity and provide a comprehensive understanding.
+
+---
+
+## Logging System During Development
+
+Galadriel CSS, when operating in development mode, creates a dedicated **`logs`** folder in the root directory of the application. This folder serves as a repository for the detailed logs generated during each processing cycle of the framework. Every time the development server is executed, a log file is created and stored in this folder. Each file provides a detailed account of the processes involved during that specific execution, including information on style generation, parsing operations, and error handling.
+
+The **`logs`** folder can grow significantly in size over time. As Galadriel CSS generates a new file for every server run, these files can accumulate quickly, particularly during active development phases. Each log file may contain hundreds of entries, detailing every step taken by the framework during the processing of styles.
+
+To prevent the **`logs`** folder from becoming unnecessarily large or being included in version control systems such as Git, it is highly recommended that developers add this folder to their **`.gitignore`** file. This practice ensures that the log files are excluded from the repository, avoiding unnecessary clutter and maintaining a cleaner, more efficient project structure.
+
+---
+
+## Nenyr Syntax Highlighting in Visual Studio Code
+
+An extension for Visual Studio Code has been created to provide syntax highlighting for Nenyr documents. This extension, named **Nenyr Syntax Highlight**, is published by **Nenyr Labs** and is available for developers seeking an enhanced coding experience. While it was originally developed as a test tool during the creation of the Nenyr parser and Galadriel CSS, it offers functionality that aids developers in visually distinguishing different parts of their Nenyr code.
+
+The current extension provides basic syntax highlighting, allowing developers to easily identify key sections of their Nenyr documents. Although its implementation was primarily for internal testing, it is fully functional and can be used to improve code readability and organization. However, since the extension was developed quickly to support testing, it lacks a refined codebase and adherence to modern development practices. Despite these limitations, it fulfills its purpose effectively.
+
+Future improvements for the extension are planned, including more advanced highlighting capabilities and integration with Intellisense to provide features such as autocompletion, inline suggestions, and error detection. These enhancements aim to elevate the user experience and streamline the development process when working with Nenyr.
+
+---
+
+## Validation in the Nenyr Parser
+
+The Nenyr parser is integral to the framework, as it handles the validation of user-defined rules within Nenyr documents. This includes verifying variables, imports, typefaces, classes, and other style definitions. The current validation mechanism, however, was implemented with simplicity in mind, allowing the development of the parser and Galadriel CSS to progress more rapidly.
+
+It is important to note that this limitation applies specifically to the validation of **style values** provided by users in Nenyr documents. Other aspects of the parser, such as syntax validation and structural checks, already feature a robust and reliable validation schema. These established mechanisms ensure that syntax errors and structural inconsistencies are detected and addressed effectively, maintaining the overall integrity of the Nenyr document. The need for improvement is limited to the validation of user-defined style rules, which are more complex and variable in nature.
+
+While the validators perform basic checks on user-defined style rules, they are not yet robust enough to catch all potential errors. As a result, some incorrect syntax or invalid rules may bypass the validation process. To address this limitation, Galadriel CSS includes a mechanism in development mode to allow developers to manually correct such errors.
+
+When an invalid rule slips through the parser, developers can update the Nenyr document to fix the issue and then use the shortcut **`Shift + W`** to reset all of Galadriel CSS’s Abstract Syntax Trees (ASTs). This action forces the framework to regenerate the CSS output from scratch, ensuring a clean and updated result. This mechanism provides a temporary solution to handle incorrect rules until the validation system is improved.
+
+Plans for future enhancements to the validation system include the development of a more comprehensive and reliable mechanism capable of thoroughly examining all user-defined styles. This robust system will ensure that only valid syntax is processed and included in the final CSS output, significantly reducing the likelihood of errors and improving the overall reliability of the framework.
+
+---
+
+## Ongoing Development and Future Enhancements
+
+Galadriel CSS is an evolving framework, and its current features, while functional, are only the foundation of what is planned for its future. Efforts are already underway to refine the logging system, improve syntax highlighting tools, and enhance validation mechanisms. These improvements aim to make Galadriel CSS not only a powerful tool for styling but also a seamless and intuitive part of the development workflow.
+
+The logging system will be optimized to provide even more insightful and actionable information while reducing unnecessary output. The syntax highlighting extension will be restructured to incorporate advanced features such as Intellisense, offering a richer development environment. The validation system will undergo a significant upgrade, transforming it into a robust component capable of detecting and correcting errors with precision.
+
+As these features are developed and integrated, Galadriel CSS will continue to set a high standard for CSS frameworks, empowering developers to create efficient, scalable, and maintainable styles for their applications.

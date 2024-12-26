@@ -1,0 +1,266 @@
+### Overview of the Galadriel CSS Module Definition
+
+This code snippet demonstrates how to define a **module** in **Galadriel CSS**, focusing on several key features such as property aliases, color variables, animations, class definitions, and responsive design. The module enhances CSS management by streamlining commonly used styles and applying inheritance, making it highly efficient for scalable, dynamic web design.
+
+Key highlights of the module include:
+
+1. **Aliases**: Simplify common CSS properties (e.g., `bgd` for `background`, `bd` for `border`) for quicker style declarations.
+2. **Variables**: Define reusable color values (e.g., `primaryColor`, `secondaryColor`) for consistent theming.
+3. **Animations**: Create smooth transitions (e.g., sliding, fading, and scaling) using `Fraction`, `Progressive`, and `Transitive` animation types.
+4. **Class Definitions**: Design modular CSS classes (`myClassOne`, `myClassTwo`, `myClassThree`) with dynamic styles, hover effects, and animations.
+5. **Responsive Design**: Apply adaptive styles using the `PanoramicViewer` method, optimizing for different screen sizes.
+6. **Inheritance**: Reuse and extend styles through inheritance, promoting code reuse and scalability.
+
+---
+
+For a module that inherits from a Layout context, use:
+
+```nenyr
+Construct Module("otherModuleName") Extending("myLayoutName") {}
+```
+
+For a module that does not inherit from a Layout context, use:
+
+```nenyr
+Construct Module("otherModuleName") {}
+```
+
+---
+
+Complete example:
+
+```nenyr
+Construct Module("myModuleName") {
+    // This is how you can define aliases.
+    Declare Aliases({
+        // Background and Borders
+        bgd: background,
+        bgdColor: backgroundColor,
+        bgdImg: backgroundImage,
+        bgdSize: backgroundSize,
+        bd: border,
+        bdT: borderTop,
+        bdB: borderBottom,
+        bdL: borderLeft,
+        bdR: borderRight,
+        bdColor: borderColor,
+        bdRadius: borderRadius,
+        boxShdw: boxShadow,
+    }),
+    // This is how you can define standalone variables.
+    Declare Variables({
+        myColor: "#FF6677",
+        grayColor: "gray",
+        blueColor: "blue",
+        redColor: "red",
+        primaryColor: "yellow",
+        secondaryColor: "white",
+        accColor: "#FF5733",
+        darkGrayColor: "#333333",
+        lightGrayColor: "#D3D3D3",
+        bgdColor: "#FAFAFA",
+        borColor: "#CCCCCC",
+        highlightColor: "#FFD700",
+        shadowColor: "rgba(0, 0, 0, 0.2)",
+        linkColor: "#1E90FF",
+        successColor: "#4CAF50",
+        warningColor: "#FFA500",
+        dangerColor: "#DC143C"
+    }),
+    // This is how you can define an animation using the Fraction type.
+    Declare Animation("slideScale") {
+        Fraction(20, {
+            transform: "translateX(10%) scale(1.1)"
+        }),
+        Fraction([40, 60], {
+            transform: "translateX(30%) scale(1.2)"
+        }),
+        Fraction(80, {
+            transform: "translateX(50%) scale(0.9)"
+        }),
+        Fraction(100, {
+            transform: "translateX(0) scale(1)"
+        })
+    },
+    // This is how you can define an animation using the Progressive type.
+    Declare Animation("horizontalMove") {
+        Progressive({
+            transform: "translateX(0)",
+            backgroundColor: "lightgray"
+        }),
+        Progressive({
+            transform: "translateX(50px)",
+            backgroundColor: "lightblue"
+        }),
+        Progressive({
+            transform: "translateX(100px)",
+            backgroundColor: "lightgreen"
+        }),
+        Progressive({
+            transform: "translateX(150px)",
+            backgroundColor: "lightcoral"
+        }),
+        Progressive({
+            transform: "translateX(200px)",
+            backgroundColor: "lightgoldenrodyellow"
+        })
+    },
+    // This is how you can define an animation using the Transitive type.
+    Declare Animation("fadeAndScale") {
+        From({
+            opacity: "0",
+            transform: "scale(0.5)"
+        }),
+        Halfway({
+            opacity: "0.5",
+            transform: "scale(1)"
+        }),
+        To({
+            opacity: "1",
+            transform: "scale(1.2)"
+        })
+    },
+    // This is how you can define a class with no inheritance.
+    // It is using Nenyr properties and aliases.
+    // It is also applying responsiveness.
+    Declare Class("myClassOne") {
+        Important(true),
+        Stylesheet({
+            bgd: "${secondaryColor}",
+            bd: "3px solid ${primaryColor}",
+            bdRadius: "10px",
+            pdg: "${bgdColor}",
+            textShadow: "1px 1px 2px ${accColor}",
+            animation: "${slideScale} 2s ease-out forwards"
+        }),
+        Hover({
+            bgdColor: "${primaryColor}",
+            clr: "${accColor}",
+            boxShdw: "0 6px 12px ${shadowColor}"
+        }),
+        Before({
+            content: "' '",
+            dp: "block",
+            wd: "100%",
+            hgt: "4px",
+            bgd: "${accColor}"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    pdg: "${dangerColor}",
+                    fntSize: "0.9em",
+                    bdRadius: "5px"
+                })
+            }),
+            LargeScreen({
+                Stylesheet({
+                    pdg: "${dangerColor}",
+                    fntSize: "0.9em",
+                    bdRadius: "5px"
+                }),
+                Hover({
+                    clr: "${secondaryColor}",
+                    bgd: "${accColor}"
+                }),
+                After({
+                    content: "' '",
+                    dp: "block",
+                    wd: "50%",
+                    hgt: "2px",
+                    bgd: "${primaryColor}",
+                    mgT: "10px",
+                    mgB: "0"
+                })
+            })
+        })
+    },
+    // This is how you define a class with inheritance.
+    // It is using Nenyr properties and aliases.
+    // It is also applying responsiveness.
+    Declare Class("myClassTwo") Deriving("myClassOne") {
+        Stylesheet({
+            bgd: "${secondaryColor}",
+            pdg: "${redColor}",
+            clr: "${primaryColor}",
+            fntWeight: "bold",
+            letterSpc: "0.1em",
+            bd: "1px solid ${accColor}",
+            animation: "${horizontalMove} 2s ease-in forwards"
+        }),
+        Hover({
+            bgd: "${accColor}",
+            clr: "${primaryColor}",
+            boxShdw: "0 6px 12px ${shadowColor}"
+        }),
+        PanoramicViewer({
+            LargeScreen({
+                Stylesheet({
+                    pdg: "${shadowColor}",
+                    fntSize: "1em"
+                })
+            }),
+            MediumScreen({
+                Stylesheet({
+                    pdg: "${successColor}",
+                    fntSize: "1.1em"
+                }),
+                After({
+                    content: "'✨'",
+                    pos: "absolute",
+                    top: "10px",
+                    left: "10px",
+                    fntSize: "1.5em"
+                }),
+                Hover({
+                    bgd: "${accColor}",
+                    clr: "${primaryColor}",
+                    boxShdw: "0 6px 12px ${shadowColor}"
+                }),
+            })
+        })
+    },
+    // This is how you define a class with inheritance.
+    // It only uses Nenyr properties.
+    // It is also applying responsiveness.
+    // This class will receive inheritance from both, "myClassTwo" and "myClassOne",
+    // because "myClassTwo" inherits from "myClassOne"
+    Declare Class("myClassThree") Deriving("myClassTwo") {
+        Important(true),
+        Stylesheet({
+            backgroundColor: "${primaryColor}",
+            color: "${accColor}",
+            padding: "${bgdColor}",
+            display: "flex",
+            alignItems: "center",
+            animation: "${fadeAndScale} 2s ease-in forwards"
+        }),
+        Hover({
+            color: "${secondaryColor}",
+            border: "2px solid ${primaryColor}"
+        }),
+        After({
+            content: "''",
+            display: "block",
+            width: "100%",
+            height: "2px",
+            background: "${secondaryColor}"
+        }),
+        PanoramicViewer({
+            MediumScreen({
+                Stylesheet({
+                    display: "block",
+                    flexDirection: "column",
+                    padding: "${borColor}"
+                })
+            }),
+            LargeScreen({
+                Hover({
+                    background: "${secondaryColor}",
+                    padding: "${bgColor}"
+                })
+            })
+        })
+    },
+}
+```
