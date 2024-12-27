@@ -27,7 +27,7 @@ To set up the integration client for Webpack, you need to:
 1. Install the Webpack integration client in your application:
 
     ```bash
-    npm install galadriel-webpack-client --save-dev
+    npm install @galadrielcss/webpack --save-dev
     ```
 
     This command adds the client as a development dependency, ensuring it's only used during development and build processes.
@@ -35,9 +35,9 @@ To set up the integration client for Webpack, you need to:
 2. Configure the Webpack integration client. Begin by importing the client in your Webpack configuration file. Depending on your module system, the import can be either:
 
     ```javascript
-    import GaladrielWebpackClient from "galadriel-webpack-client";
+    import GaladrielWebpackClient from "@galadrielcss/webpack";
     // or, using CommonJS
-    const GaladrielWebpackClient = require("galadriel-webpack-client");
+    const GaladrielWebpackClient = require("@galadrielcss/webpack");
     ```
 
 3. Instantiate the integration client as a plugin in the Webpack configuration:

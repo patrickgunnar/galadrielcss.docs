@@ -6,16 +6,16 @@ Integrating **Galadriel CSS** into a **Next.js** project is simple and straightf
 
 Here’s how to integrate it:
 
-1. First, install the `galadriel-webpack-client` package in your project.
+1. First, install the `@galadrielcss/webpack` package in your project.
 
 ```bash
-npm install galadriel-webpack-client
+npm install @galadrielcss/webpack
 ```
 
 2. Then, modify your `next.config.js` to include the plugin as shown below:
 
 ```javascript
-import GaladrielWebpackClient from "galadriel-webpack-client";
+import GaladrielWebpackClient from "@galadrielcss/webpack";
 
 const nextConfig = {
     /* config options here */
@@ -38,10 +38,10 @@ Although I initially planned to use **Docusaurus** for the Galadriel CSS documen
 
 1. **Create a Plugin Folder**:
 
-    In your Docusaurus project root, create a folder named `galadriel-webpack-client` (or any name you prefer).
+    In your Docusaurus project root, create a folder named `galadrielcss-webpack` (or any name you prefer).
 
     ```bash
-    mkdir galadriel-webpack-client
+    mkdir galadrielcss-webpack
     ```
 
 2. **Add the Plugin Code**:
@@ -49,11 +49,11 @@ Although I initially planned to use **Docusaurus** for the Galadriel CSS documen
     Inside this folder, create a file named `index.js` and add the following code to instantiate the `GaladrielWebpackClient` plugin:
 
     ```javascript
-    import GaladrielWebpackClient from "galadriel-webpack-client";
+    import GaladrielWebpackClient from "@galadrielcss/webpack";
 
     module.exports = function () {
         return {
-            name: "galadriel-webpack-client",
+            name: "galadrielcss-webpack",
             configureWebpack() {
                 return {
                     plugins: [new GaladrielWebpackClient()],
@@ -65,11 +65,11 @@ Although I initially planned to use **Docusaurus** for the Galadriel CSS documen
 
 3. **Create the `package.json` File**:
 
-    In the same folder (`galadriel-webpack-client`), create a `package.json` file with minimal configuration as follows:
+    In the same folder (`galadrielcss-webpack`), create a `package.json` file with minimal configuration as follows:
 
     ```json
     {
-        "name": "galadriel-webpack-client",
+        "name": "galadrielcss-webpack",
         "version": "1.0.0",
         "private": true
     }
@@ -96,8 +96,8 @@ Although I initially planned to use **Docusaurus** for the Galadriel CSS documen
         onBrokenLinks: "throw",
         onBrokenMarkdownLinks: "warn",
 
-        // Instantiate the Docusaurus "galadriel-webpack-client" plugin
-        plugins: ["./galadriel-webpack-client"],
+        // Instantiate the Docusaurus "galadrielcss-webpack" plugin
+        plugins: ["./galadrielcss-webpack"],
 
         // Other Docusaurus configurations
     };

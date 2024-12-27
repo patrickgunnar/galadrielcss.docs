@@ -22,12 +22,12 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@galadrielcss/webpack": "file:../@galadrielcss/webpack",
         "@types/node": "20.17.10",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "eslint": "^9",
         "eslint-config-next": "15.1.0",
-        "galadriel-webpack-client": "file:../galadriel-webpack-client",
         "typescript": "5.7.2"
     }
 }

@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
-import GaladrielWebpackClient from "galadriel-webpack-client";
+import GaladrielWebpackClient from "@galadrielcss/webpack";
 
 const nextConfig: NextConfig = {
     /* config options here */
