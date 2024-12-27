@@ -1,0 +1,110 @@
+# Integrating with Next.js and Docusaurus
+
+## Galadriel CSS in Next.js
+
+Integrating **Galadriel CSS** into a **Next.js** project is simple and straightforward. To get started, you just need to modify your `next.config.js` file to include the `GaladrielWebpackClient` plugin.
+
+Here’s how to integrate it:
+
+1. First, install the `galadriel-webpack-client` package in your project.
+
+```bash
+npm install galadriel-webpack-client
+```
+
+2. Then, modify your `next.config.js` to include the plugin as shown below:
+
+```javascript
+import GaladrielWebpackClient from "galadriel-webpack-client";
+
+const nextConfig = {
+    /* config options here */
+    webpack(config) {
+        config.plugins.push(new GaladrielWebpackClient());
+        return config;
+    },
+};
+
+export default nextConfig;
+```
+
+Once you’ve added this configuration, **Galadriel CSS** will be integrated into your Next.js project, enabling you to use its powerful styling features within your application.
+
+## Galadriel CSS in Docusaurus
+
+Although I initially planned to use **Docusaurus** for the Galadriel CSS documentation, I chose **Next.js** due to its flexibility. However, integrating **Galadriel CSS** with **Docusaurus** is still quite simple and can be done with just a few steps.
+
+### Steps to Integrate Galadriel CSS with Docusaurus:
+
+1. **Create a Plugin Folder**:
+
+    In your Docusaurus project root, create a folder named `galadriel-webpack-client` (or any name you prefer).
+
+    ```bash
+    mkdir galadriel-webpack-client
+    ```
+
+2. **Add the Plugin Code**:
+
+    Inside this folder, create a file named `index.js` and add the following code to instantiate the `GaladrielWebpackClient` plugin:
+
+    ```javascript
+    import GaladrielWebpackClient from "galadriel-webpack-client";
+
+    module.exports = function () {
+        return {
+            name: "galadriel-webpack-client",
+            configureWebpack() {
+                return {
+                    plugins: [new GaladrielWebpackClient()],
+                };
+            },
+        };
+    };
+    ```
+
+3. **Create the `package.json` File**:
+
+    In the same folder (`galadriel-webpack-client`), create a `package.json` file with minimal configuration as follows:
+
+    ```json
+    {
+        "name": "galadriel-webpack-client",
+        "version": "1.0.0",
+        "private": true
+    }
+    ```
+
+4. **Update the Docusaurus Config**:
+
+    Finally, you need to instantiate the plugin in the `docusaurus.config.js` file. Add the following to the `plugins` array:
+
+    ```javascript
+    const config = {
+        title: "My Site",
+        tagline: "Dinosaurs are cool",
+        favicon: "img/favicon.ico",
+
+        // Set the production URL of your site here
+        url: "https://your-docusaurus-site.example.com",
+        baseUrl: "/",
+
+        // GitHub pages deployment config.
+        organizationName: "facebook", // Usually your GitHub org/user name
+        projectName: "docusaurus", // Usually your repo name
+
+        onBrokenLinks: "throw",
+        onBrokenMarkdownLinks: "warn",
+
+        // Instantiate the Docusaurus "galadriel-webpack-client" plugin
+        plugins: ["./galadriel-webpack-client"],
+
+        // Other Docusaurus configurations
+    };
+    ```
+
+With this configuration in place, **Galadriel CSS** will work seamlessly within your Docusaurus site, allowing you to apply styles in your Markdown (MDX) pages using **Nenyr** markups for JSX elements.
+
+---
+
+By following these simple steps, you can integrate **Galadriel CSS** into both **Next.js** and **Docusaurus**, making it easy to style your application with powerful utility-first CSS features.

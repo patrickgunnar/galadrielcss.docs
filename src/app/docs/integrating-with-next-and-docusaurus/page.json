@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "url": "/integrating-with-next-and-docusaurus",
+        "title": "Integrating with Next.js and Docusaurus",
+        "description": "Step-by-step guide to integrating Galadriel CSS into Next.js and Docusaurus projects for streamlined styling using the Nenyr DSL.",
+        "creation_timestamp": "2024-12-26T13:22:00Z",
+        "order": 25,
+        "tags": [
+            "integration",
+            "Next.js",
+            "Docusaurus",
+            "Galadriel CSS",
+            "Nenyr",
+            "webpack",
+            "plugin",
+            "documentation"
+        ],
+        "author": "Patrick Gunnar",
+        "is_published": true
+    },
+    "seo": {
+        "keywords": [
+            "Galadriel CSS",
+            "Next.js integration",
+            "Docusaurus integration",
+            "webpack plugin",
+            "Nenyr DSL",
+            "utility-first CSS",
+            "styling in Docusaurus",
+            "styling in Next.js"
+        ],
+        "robots": ["index", "follow"],
+        "og_image": ""
+    }
+}
