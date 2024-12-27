@@ -14,18 +14,11 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const images = [
-        "/img/aniket-deole-M6XC789HLe8-unsplash.jpg",
-        "/img/anton-repponen-zNxlvCZhHNA-unsplash.jpg",
-    ];
-
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-
     return (
         <html lang="en">
             <body className="@layout:globalAppLayoutContext::bodyContainer">
                 <Image
-                    src={randomImage}
+                    src="/img/aniket-deole-M6XC789HLe8-unsplash.jpg"
                     alt="Background Image"
                     className="@layout:globalAppLayoutContext::backgroundImage"
                     fill
