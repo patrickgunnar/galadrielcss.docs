@@ -36,9 +36,11 @@ jobs:
       run: |
         if [ ! -f ".galadrielcss/bin/galadrielcss" ]; then
           echo "Galadriel CSS binary not found, downloading...";
+          mkdir -p .galadrielcss/bin  # Cria o diretório se ele não existir
           curl -L -o .galadrielcss/bin/galadrielcss https://github.com/patrickgunnar/galadrielcss/releases/latest/download/galadrielcss-linux-x86_64
           chmod +x .galadrielcss/bin/galadrielcss
         fi
+      shell: /usr/bin/bash -e {0}
 
     - name: Run Webpack build
       run: npm run build
