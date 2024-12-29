@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
-        "@galadrielcss/webpack": "file:../@galadrielcss/webpack",
+        "@galadrielcss/webpack": "^1.0.0-beta.1",
         "@types/node": "20.17.10",
         "@types/react": "^19",
         "@types/react-dom": "^19",
