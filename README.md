@@ -1,4 +1,4 @@
-# Galadriel CSS 
+# Galadriel CSS
 
 **Please note that Galadriel CSS and Nenyr are currently under active development.**
 
